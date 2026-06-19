@@ -187,7 +187,8 @@ body.menu-open .mobile-menu{transform:translateY(0);opacity:1;pointer-events:aut
 .exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
 @media(max-width:760px){.exp-grid{grid-template-columns:1fr}}
 .exp-card{display:flex;gap:22px;padding:32px 30px;border:1px solid var(--line);border-radius:20px;background:var(--paper)}
-.exp-card__ava{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#13b06a);display:grid;place-items:center;font-size:24px;font-weight:800;color:#fff;flex:none}
+.exp-card__ava{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#13b06a);display:grid;place-items:center;font-size:26px;font-weight:800;color:#fff;flex:none;overflow:hidden}
+.exp-card__ava img{width:100%;height:100%;object-fit:cover;display:block}
 .exp-card__ava--muted{background:linear-gradient(135deg,var(--ink-3),#3a4150)}
 .exp-card__name{font-size:20px;font-weight:800;letter-spacing:-.02em}
 .exp-card__role{font-size:13.5px;font-weight:700;color:var(--accent);margin-top:4px;text-transform:uppercase;letter-spacing:.04em}
