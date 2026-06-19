@@ -99,4 +99,16 @@
       f.addEventListener('input', function () { f.classList.remove('invalid'); });
     });
   }
+
+  // Кнопки «Записаться» на карточках курсов — предзаполняем курс в форме записи
+  document.querySelectorAll('a[data-course]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var sel = document.getElementById('course');
+      if (!sel) return;
+      var c = el.getAttribute('data-course');
+      for (var i = 0; i < sel.options.length; i++) {
+        if (sel.options[i].value === c) { sel.selectedIndex = i; break; }
+      }
+    });
+  });
 })();

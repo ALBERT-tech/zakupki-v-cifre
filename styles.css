@@ -166,7 +166,8 @@ body.menu-open .mobile-menu{transform:translateY(0);opacity:1;pointer-events:aut
 .course-card__meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
 .course-card__meta span{font-size:13px;font-weight:600;color:var(--text);background:var(--cream);border:1px solid var(--line);padding:6px 12px;border-radius:50px}
 .course-card--flag .course-card__meta span{color:rgba(255,255,255,.85);background:rgba(255,255,255,.05);border-color:var(--line-dark)}
-.course-card__foot{margin-top:auto}
+.course-card__foot{margin-top:auto;display:flex;flex-direction:column;gap:13px;align-items:center}
+.course-card__foot .btn{width:100%}
 .course-card__link{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15.5px;color:var(--accent)}
 .course-card--flag .course-card__link{color:var(--green-light)}
 .course-card__link svg{width:17px;height:17px;transition:transform .25s var(--ease)}
