@@ -95,6 +95,8 @@ img{max-width:100%}
 .nav .btn{padding:11px 22px;font-size:14.5px}
 .header:not(.scrolled) .nav__cta .btn--primary{background:#fff;color:var(--ink);box-shadow:none}
 .header:not(.scrolled) .nav__cta .btn--primary:hover{background:var(--accent);color:#fff}
+.header:not(.scrolled) .nav__cta .btn--ghost{color:#fff;border-color:rgba(255,255,255,.28)}
+.header:not(.scrolled) .nav__cta .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
 .burger{display:none;width:44px;height:44px;border:1px solid var(--line-dark);border-radius:10px;background:transparent;cursor:pointer;padding:0;place-items:center}
 .burger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.3s var(--ease)}
 .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px;transition:.3s var(--ease)}
