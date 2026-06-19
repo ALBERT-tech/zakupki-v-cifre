@@ -249,6 +249,7 @@ body.menu-open .mobile-menu{transform:translateY(0);opacity:1;pointer-events:aut
 @media(max-width:540px){.form-row{grid-template-columns:1fr}}
 .consent{display:flex;align-items:flex-start;gap:10px;margin:8px 0 22px;font-size:12.5px;color:var(--muted);line-height:1.45}
 .consent input{width:18px;height:18px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.consent a{color:var(--accent);font-weight:700;text-decoration:underline}
 .form-success{display:none;text-align:center;padding:30px 10px}
 .form-card.done .form-fields{display:none}
 .form-card.done .form-success{display:block}
