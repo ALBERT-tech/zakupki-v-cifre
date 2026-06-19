@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ИИ в госзакупках — главный курс школы «Закупки в цифре»</title>
+<meta name="description" content="Практический курс «ИИ в госзакупках»: 10 занятий, раз в неделю. Нейросети как помощник заказчика и поставщика — от поиска ответов в регламенте до расчёта цены выхода на тендер и сборки своего ИИ-агента.">
+<meta name="theme-color" content="#14161d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ИИ в госзакупках — главный курс «Закупки в цифре»">
+<meta property="og:description" content="10 занятий практики для заказчиков и поставщиков. На выходе: библиотека промптов, свой ИИ-агент, шаблоны документов и бонусы.">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%2314161d'/><text x='6' y='21' font-family='Arial' font-size='15' font-weight='bold' fill='white'>З</text><text x='17' y='14' font-family='Arial' font-size='8' font-weight='bold' fill='%235fd29a'>цф</text></svg>">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="header" id="header">
+  <div class="wrap">
+    <nav class="nav">
+      <a href="index.html" class="brand" aria-label="Закупки в цифре">
+        <span class="brand__mark"><span>З<sup>цф</sup></span></span>
+        <span class="brand__txt">
+          <span class="brand__name logo-formula">Закупки<sup>в цифре</sup></span>
+          <span class="brand__sub">Онлайн-школа</span>
+        </span>
+      </a>
+      <div class="nav__links">
+        <a href="index.html#catalog">Все курсы</a>
+        <a href="#program">Программа</a>
+        <a href="#speaker">Спикер</a>
+        <a href="#course-register">Записаться</a>
+      </div>
+      <div class="nav__cta">
+        <a href="index.html" class="btn btn--ghost">Все курсы</a>
+        <a href="#course-register" class="btn btn--primary">Записаться</a>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#catalog">Все курсы</a>
+  <a href="#program">Программа</a>
+  <a href="#speaker">Спикер</a>
+  <a href="#course-register" class="btn btn--primary btn--lg btn--block">Записаться</a>
+</div>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="hero__grid-bg"></div>
+  <div class="hero__glow"></div>
+  <div class="wrap">
+    <div class="hero__inner">
+      <div>
+        <span class="eyebrow eyebrow--light">Главный курс · 10 занятий</span>
+        <h1>ИИ в госзакупках<span class="hero__sub">Нейросети как личный помощник в закупках и тендерах</span></h1>
+        <p class="hero__desc">За 10 недель практики вы научитесь использовать нейросети в реальной работе — и как заказчик, и как поставщик: искать ответы в регламентах, готовить документы, считать сделку и собрать собственного ИИ-агента.</p>
+        <div class="hero__actions">
+          <a href="#course-register" class="btn btn--primary btn--lg">Записаться на курс
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#program" class="btn btn--ghost btn--lg" style="color:#fff;border-color:rgba(255,255,255,.25)">Смотреть программу</a>
+        </div>
+        <div class="hero__chips">
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>10 занятий</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>Раз в неделю</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6v6H9z"/></svg>Свой ИИ-агент на выходе</span>
+        </div>
+      </div>
+      <div class="flow-card reveal">
+        <div class="flow-card__title">Формат занятия</div>
+        <div class="vflow">
+          <div class="vflow__item"><span class="vflow__dot">1</span><span class="vflow__txt"><b>30 минут теории</b><span>коротко и по делу, без воды</span></span></div>
+          <div class="vflow__item"><span class="vflow__dot">2</span><span class="vflow__txt"><b>30–60 минут практики</b><span>работаем на реальных документах</span></span></div>
+          <div class="vflow__item"><span class="vflow__dot">3</span><span class="vflow__txt"><b>Домашка</b><span>1 рабочий промпт в неделю — сразу в дело</span></span></div>
+          <div class="vflow__item"><span class="vflow__dot">★</span><span class="vflow__txt"><b>Доступ к записям</b><span>возвращайтесь к материалам в любой момент</span></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== For whom ===== -->
+<section class="section catalog" id="audience">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Для кого курс</span>
+      <h2 class="h2">Для обеих сторон госзакупок — и заказчиков, и поставщиков</h2>
+      <p class="lead" style="margin-top:18px">Везде, где есть документация, ТЗ, контракты и расчёты, нейросеть экономит часы. Курс одинаково полезен тем, кто закупает, и тем, кто участвует в тендерах.</p>
+    </div>
+    <div class="how-grid reveal">
+      <div class="how-card"><div class="how-card__no">01</div><h4>Заказчики и закупщики</h4><p>Специалисты и руководители, которые проводят закупки и хотят ускорить рутину.</p></div>
+      <div class="how-card"><div class="how-card__no">02</div><h4>Поставщики и участники</h4><p>Те, кто участвует в тендерах и считает цену выхода на конкурс.</p></div>
+      <div class="how-card"><div class="how-card__no">03</div><h4>Руководители и ИП</h4><p>Кто хочет понять, где ИИ реально экономит время и деньги.</p></div>
+      <div class="how-card"><div class="how-card__no">04</div><h4>Новички в нейросетях</h4><p>Стартуем с нуля: доступ, регистрация, первые рабочие ответы.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Outcomes ===== -->
+<section class="section" id="outcomes">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Что вы получите</span>
+      <h2 class="h2">Уходите не с конспектом, а с рабочим набором</h2>
+    </div>
+    <div class="outcomes-grid reveal">
+      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span><div><b>Библиотека промптов и шаблонов</b><p>Готовые формулировки и документы для закупок и тендеров.</p></div></div>
+      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6v6H9z"/></svg></span><div><b>Свой ИИ-агент</b><p>Персональный помощник под контракты, ТЗ и расчёты.</p></div></div>
+      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span><div><b>Топ-5 готовых ИИ-агентов</b><p>Под госзакупки — забираете и пользуетесь сразу.</p></div></div>
+      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><b>Чек-лист проверки ответов ИИ</b><p>Как не поймать «галлюцинацию» и не подставиться.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Program ===== -->
+<section class="section catalog" id="program">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Программа курса</span>
+      <h2 class="h2">10 занятий — от первого промпта до своего ИИ-агента</h2>
+      <p class="lead" style="margin-top:18px">Нажмите на занятие, чтобы раскрыть содержание. Каждую неделю — теория, практика и домашка с пользой.</p>
+    </div>
+    <div class="modules reveal">
+
+      <details class="module" open>
+        <summary class="module__head"><span class="module__no">01</span><span class="module__titles"><span class="module__title">Старт: сервисы и доступ</span><span class="module__sub">Что такое нейросети и зачем они в госзакупках</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Обзор сервисов: ChatGPT, GigaChat, Grok, DeepSeek, Kimi — что выбрать</li>
+          <li>Доступ с VPN и без, регистрация, настройка, оплата</li>
+          <li>Первый полезный ответ: как вообще «разговаривать» с нейросетью</li>
+        </ul><div class="module__hw"><b>Домашка:</b> зайти в нейросеть и получить первый рабочий ответ по своей задаче.</div></div>
+      </details>
+
+      <details class="module">
+        <summary class="module__head"><span class="module__no">02</span><span class="module__titles"><span class="module__title">Поиск ответов в регламентах и контрактах</span><span class="module__sub">Находим нужное в документации за минуты</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Сроки подписания контракта, санкции и условия — прямо из регламента площадки</li>
+          <li>Сроки поставки и перечень документов при отгрузке — из проекта контракта</li>
+          <li>Выделяем неценовые критерии в тендерной документации</li>
+        </ul><div class="module__hw"><b>Домашка:</b> применить промпт для анализа документа из своей работы.</div></div>
+      </details>
+
+      <details class="module">
+        <summary class="module__head"><span class="module__no">03</span><span class="module__titles"><span class="module__title">Промптинг: структура, роли, контекст</span><span class="module__sub">Как формулировать, чтобы получать точные ответы</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Структура промпта: роль, контекст, задача, формат ответа</li>
+          <li>Как избегать «галлюцинаций» и получать проверяемый результат</li>
+          <li>Разбираем удачные и неудачные формулировки</li>
+        </ul><div class="module__hw"><b>Домашка:</b> собрать рабочий промпт под свою задачу и принести результат.</div></div>
+      </details>
+
+      <details class="module">
+        <summary class="module__head"><span class="module__no">04</span><span class="module__titles"><span class="module__title">Документы под ключ</span><span class="module__sub">Разъяснения, претензии, шаблонные письма</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Подготовка запроса разъяснений по документации</li>
+          <li>Претензионное письмо и типовые письма участника</li>
+          <li>Заполняем шаблонные документы с помощью ИИ</li>
+        </ul><div class="module__hw"><b>Домашка:</b> создать документ под свою ситуацию (разъяснение, претензия или письмо).</div></div>
+      </details>
+
+      <details class="module">
+        <summary class="module__head"><span class="module__no">05</span><span class="module__titles"><span class="module__title">Анализ характеристик</span><span class="module__sub">Сравнение и обоснование требований</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Таблица сравнения характеристик товара</li>
+          <li>Обоснование дополнительных характеристик</li>
+          <li>Как ИИ помогает разобрать сложное ТЗ</li>
+        </ul><div class="module__hw"><b>Домашка:</b> сделать таблицу характеристик под свою закупку.</div></div>
+      </details>
+
+      <details class="module">
+        <summary class="module__head"><span class="module__no">06</span><span class="module__titles"><span class="module__title">Поиск товаров и поставщиков</span><span class="module__sub">От ТЗ — к конкретным позициям и контактам</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Поиск товара по техническому заданию</li>
+          <li>Поиск поставщиков и производителей по товару</li>
+          <li>Как быстро собрать short-list и проверить варианты</li>
+        </ul><div class="module__hw"><b>Домашка:</b> найти поставщиков/производителей под свою позицию.</div></div>
+      </details>
+
+      <details class="module">
+        <summary class="module__head"><span class="module__no">07</span><span class="module__titles"><span class="module__title">Итерации и контроль качества</span><span class="module__sub">Цикл «запрос → уточнение → проверка»</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Как доводить промпты до рабочего качества</li>
+          <li>Риски и ошибки при использовании ИИ в госзакупках</li>
+          <li>Что обязательно проверять руками</li>
+        </ul><div class="module__hw"><b>Домашка:</b> довести один свой промпт до состояния «под ключ».</div></div>
+      </details>
+
+      <details class="module">
+        <summary class="module__head"><span class="module__no">08</span><span class="module__titles"><span class="module__title">Финансы сделки</span><span class="module__sub">Просчёт результата и цена выхода на конкурс</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Просчёт финансового результата сделки</li>
+          <li>Оценка конкурса: «по какой цене выходить»</li>
+          <li>ИИ как калькулятор сценариев</li>
+        </ul><div class="module__hw"><b>Домашка:</b> посчитать финрезультат по своей реальной сделке.</div></div>
+      </details>
+
+      <details class="module">
+        <summary class="module__head"><span class="module__no">09</span><span class="module__titles"><span class="module__title">ИИ-агенты: собираем своего</span><span class="module__sub">Персональный ИИ под конкретную задачу</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Что такое ИИ-агент и чем он отличается от обычного промпта</li>
+          <li>Собираем агента под задачу: разъяснения, просчёт, оценка конкурса</li>
+          <li>Поиск ответов по 223-ФЗ или положению о закупке</li>
+        </ul><div class="module__hw"><b>Домашка:</b> собрать своего ИИ-агента под одну рабочую задачу.</div></div>
+      </details>
+
+      <details class="module">
+        <summary class="module__head"><span class="module__no">10</span><span class="module__titles"><span class="module__title">Внедрение и защита</span><span class="module__sub">Финал: рабочий агент и библиотека</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <div class="module__body"><ul>
+          <li>Тестируем агента на реальной задаче и дорабатываем</li>
+          <li>Разбор кейсов участников — вживую</li>
+          <li>Финальная библиотека промптов + бонусы школы</li>
+        </ul><div class="module__hw"><b>Домашка:</b> защитить своего ИИ-агента на реальном кейсе.</div></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Speaker ===== -->
+<section class="section experts" id="speaker">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Спикер курса</span>
+      <h2 class="h2">Ведёт практик, который сам внедряет ИИ в закупки</h2>
+    </div>
+    <div class="exp-grid reveal" style="grid-template-columns:1fr">
+      <div class="exp-card">
+        <div class="exp-card__ava">АГ</div>
+        <div>
+          <div class="exp-card__name">Альберт Гизатуллин</div>
+          <div class="exp-card__role">Тендерный аналитик · «Тендеры ex machina»</div>
+          <p class="exp-card__bio">Каждый день работает с реальными закупками и строит ИИ-инструменты для анализа документации, поиска тендеров и автоматизации рутины. Ведёт Telegram-канал об ИИ в тендерах и госзакупках. На курсе — только то, что проверено на практике: рабочие промпты, готовые ИИ-агенты и приёмы, которые экономят часы.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Register ===== -->
+<section class="section register" id="course-register">
+  <div class="register__grid-bg"></div>
+  <div class="wrap">
+    <div class="register__inner">
+      <div class="reveal">
+        <span class="eyebrow">Запись на курс</span>
+        <h2 class="h2">«ИИ в госзакупках» — оставьте заявку на ближайший поток</h2>
+        <div class="want-list">
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>10 занятий практики — раз в неделю</div>
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>На выходе — свой ИИ-агент и библиотека промптов</div>
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Доступ к записям всех занятий</div>
+        </div>
+      </div>
+      <div class="form-card" id="formCard">
+        <div class="form-fields">
+          <h3>Заявка на курс</h3>
+          <p>Оставьте контакты — расскажем про старт потока и стоимость.</p>
+          <form id="leadForm" novalidate>
+            <div class="field"><label for="name">Имя</label><input type="text" id="name" name="name" placeholder="Как к вам обращаться"></div>
+            <div class="form-row">
+              <div class="field"><label for="phone">Телефон</label><input type="tel" id="phone" name="phone" placeholder="+7 ___ ___-__-__"></div>
+              <div class="field"><label for="contact">Telegram / e-mail</label><input type="text" id="contact" name="contact" placeholder="@username или почта"></div>
+            </div>
+            <input type="hidden" id="course" name="course" value="ИИ в госзакупках">
+            <label class="consent"><input type="checkbox" id="consent"><span>Согласен на обработку персональных данных в соответствии с 152-ФЗ</span></label>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">Отправить заявку</button>
+          </form>
+        </div>
+        <div class="form-success">
+          <div class="form-success__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h3>Заявка отправлена</h3>
+          <p>Свяжемся с вами и расскажем про ближайший поток курса «ИИ в госзакупках».</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <a href="index.html" class="brand">
+        <span class="brand__mark"><span>З<sup>цф</sup></span></span>
+        <span class="brand__txt">
+          <span class="brand__name logo-formula">Закупки<sup>в цифре</sup></span>
+          <span class="brand__sub">Онлайн-школа</span>
+        </span>
+      </a>
+      <nav class="footer__nav">
+        <a href="index.html#catalog">Все курсы</a>
+        <a href="#program">Программа</a>
+        <a href="#speaker">Спикер</a>
+        <a href="#course-register">Записаться</a>
+      </nav>
+    </div>
+    <p class="footer__req">ИП Герасимова Регина Гарифьяновна · ИНН 740416503778 · ОГРНИП 325745600086173 · г. Златоуст. Технологический партнёр Сбербанка. Информация на сайте не является публичной офертой.</p>
+    <div class="footer__bottom">
+      <span>© 2026 Закупки в цифре</span>
+      <span class="footer__credit">Разработано в лаборатории <a href="https://t.me/tickettotender" target="_blank" rel="noopener">«Тендеры ex machina»</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="chatbot.js"></script>
+</body>
+</html>
