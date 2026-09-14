@@ -151,6 +151,13 @@ body.kel-menu-open .kel-mobile-menu{transform:translateY(0);opacity:1;pointer-ev
   .kel-brand__sub{display:none}
   .kel-nav .kel-btn{padding:10px 17px;font-size:14px}
 }
+/* узкие телефоны: бренд и кнопка «Записаться» не наезжают друг на друга */
+@media(max-width:400px){
+  .kel-wrap{padding:0 20px}
+  .kel-nav__cta{gap:8px}
+  .kel-nav .kel-btn{padding:9px 13px;font-size:13.5px}
+  .kel-brand__name{font-size:15px}
+}
 
 /* ── Hero ── */
 /* 148px сверху — под фиксированную шапку. Без шапки поставьте 96px. */
