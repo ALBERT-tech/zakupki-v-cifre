@@ -1,0 +1,914 @@
+﻿<meta charset="utf-8">
+<!-- ═════════════════════════════════════════════════════════════════════
+  «ОЦЕНКА ГОСУДАРСТВЕННОГО И МУНИЦИПАЛЬНОГО ИМУЩЕСТВА ПРИ ВЫСТАВЛЕНИИ НА ТОРГИ.
+   Практический кейс по токсичным активам» · спикер — Елена Кельберг
+  Онлайн-школа «Закупки в цифре» · cifrazakup.ru
+  Версия для ГетКурса (v1): практический вебинар, 6 тем + кейс + чек-лист
+
+  Страница собрана из НЕЗАВИСИМЫХ блоков — глобальной обёртки нет.
+
+  КАК ВСТАВЛЯТЬ:
+  • Можно вставить весь файл ОДНИМ HTML-блоком — всё работает.
+  • А можно разрезать по маркерам «✂ БЛОК …» и вставить каждый кусок
+    ОТДЕЛЬНЫМ HTML-блоком ГетКурса: блоки независимы, порядок любой,
+    ненужные можно пропустить, между ними можно ставить родные блоки.
+  • ПЕРВЫМ на странице всегда вставляйте «БЛОК 0. СТИЛИ + СКРИПТ» —
+    без него остальные куски останутся без оформления.
+  • Нативный блок «Форма» ГетКурса ставьте сразу ПОСЛЕ блока «ЗАПИСЬ»
+    (тёмная секция «Запишитесь, если вам важно») — заявки пойдут в CRM.
+  • Блок «ШАПКА» можно не вставлять, если у страницы своё меню
+    (тогда в блоке HERO уменьшите верхний отступ: правило .kel-hero,
+    148px → 96px).
+
+  ⚠ ПЕРЕД ПУБЛИКАЦИЕЙ ЗАПОЛНИТЬ (подсвечено жёлтым, класс kel-ph):
+    • стоимость участия — блок «СТОИМОСТЬ» и «ЗАПИСЬ»;
+    • дату и время эфира — блок «ФОРМАТ» (и при желании чип в HERO).
+    После заполнения обёртки <span class="kel-ph"> можно убрать.
+
+  Фото спикера: https://cifrazakup.ru/assets/kelberg.jpg (опубликовано).
+  Если удобнее — загрузите картинку в медиатеку ГетКурса и замените src.
+
+  Подпункты тем в блоке «ПРОГРАММА» — черновая расшифровка тезисов
+  спикера; перед публикацией сверить с Еленой Кельберг.
+
+  Кодировка файла — UTF-8 с BOM: кириллица открывается без «кракозябр».
+═════════════════════════════════════════════════════════════════════ -->
+
+<!-- ═════════ ✂ БЛОК 0. СТИЛИ + СКРИПТ — вставить первым ═════════ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Плавная прокрутка по якорям */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ── База: каждый блок лендинга несёт класс .kel-sec и самодостаточен ── */
+.kel-sec{
+  --ink:#14161d;
+  --paper:#ffffff;
+  --cream:#f5f6f3;
+  --cream-2:#eef0ea;
+  --line:#e4e6e0;
+  --line-dark:rgba(255,255,255,.12);
+  --text:#1a1d26;
+  --muted:#5c616e;
+  --muted-2:#8a8f9c;
+  --accent:#0e8a52;
+  --accent-2:#0a6c40;
+  --accent-soft:#e7f3ec;
+  --accent-tint:#f1f8f4;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(20,22,29,.04),0 8px 30px rgba(20,22,29,.06);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ff:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  margin:0;
+  font-family:var(--ff);color:var(--text);background:var(--paper);
+  font-size:17px;line-height:1.6;font-weight:400;text-align:left;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.kel-sec,.kel-sec *,.kel-sec *::before,.kel-sec *::after{box-sizing:border-box}
+.kel-sec h1,.kel-sec h2,.kel-sec h3,.kel-sec h4{margin:0;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--ink);font-family:inherit}
+.kel-sec p{margin:0}
+.kel-sec a{color:inherit;text-decoration:none}
+.kel-sec ul{margin:0;padding:0;list-style:none}
+.kel-sec img{max-width:100%}
+.kel-sec ::selection{background:var(--accent);color:#fff}
+
+.kel-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
+.kel-section{padding:104px 0;position:relative}
+@media(max-width:860px){.kel-section{padding:68px 0}}
+
+.kel-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.kel-eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+.kel-eyebrow--light{color:#5fd29a}
+.kel-eyebrow--light::before{background:#5fd29a}
+
+.kel-h2{font-size:clamp(28px,4.2vw,46px)}
+.kel-lead{font-size:clamp(17px,2vw,20px);color:var(--muted);line-height:1.62;max-width:760px}
+.kel-section-head{max-width:820px;margin-bottom:54px}
+@media(max-width:860px){.kel-section-head{margin-bottom:38px}}
+
+/* ── Кнопки ── */
+.kel-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--ff);font-weight:700;font-size:16px;letter-spacing:-.01em;padding:16px 30px;border-radius:50px;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);white-space:nowrap;text-decoration:none}
+.kel-btn svg{width:18px;height:18px}
+.kel-btn--primary{background:var(--accent);color:#fff;box-shadow:0 10px 26px -10px rgba(14,138,82,.7)}
+.kel-btn--primary:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(14,138,82,.8)}
+.kel-btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.kel-btn--ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+.kel-btn--lg{padding:19px 38px;font-size:17px}
+.kel-btn--block{width:100%}
+/* страховка: ссылки-кнопки не наследуют цвет секции (перебивают .kel-sec a) */
+a.kel-btn--primary{color:#fff}
+a.kel-btn--ghost{color:var(--ink)}
+
+/* ── Шапка ── */
+.kel-header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);border-bottom:1px solid transparent;background:transparent}
+.kel-header.kel-scrolled{background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(20,22,29,.02)}
+.kel-nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.kel-brand,a.kel-brand{display:flex;align-items:center;gap:13px;color:#fff;transition:color .3s var(--ease)}
+.kel-header.kel-scrolled .kel-brand{color:var(--ink)}
+.kel-brand__mark{width:38px;height:38px;border-radius:9px;background:var(--ink);display:grid;place-items:center;flex:none}
+.kel-brand__mark span{width:16px;height:16px;border-radius:4px;background:var(--accent)}
+.kel-brand__txt{display:flex;flex-direction:column;line-height:1.05}
+.kel-brand__name{font-weight:800;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.kel-brand__sub{font-size:11px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.6);text-transform:uppercase;transition:color .3s var(--ease)}
+.kel-header.kel-scrolled .kel-brand__sub{color:var(--muted)}
+.kel-nav__links{display:flex;align-items:center;gap:32px}
+.kel-nav__links a{font-size:15px;font-weight:600;color:rgba(255,255,255,.78);transition:color .2s var(--ease)}
+.kel-nav__links a:hover{color:#fff}
+.kel-header.kel-scrolled .kel-nav__links a{color:var(--muted)}
+.kel-header.kel-scrolled .kel-nav__links a:hover{color:var(--ink)}
+.kel-nav__cta{display:flex;align-items:center;gap:14px}
+.kel-nav .kel-btn{padding:11px 22px;font-size:14.5px}
+.kel-header:not(.kel-scrolled) .kel-nav__cta .kel-btn--primary{background:#fff;color:var(--ink);box-shadow:none}
+.kel-header:not(.kel-scrolled) .kel-nav__cta .kel-btn--primary:hover{background:var(--accent);color:#fff}
+.kel-header:not(.kel-scrolled) .kel-nav__cta .kel-btn--ghost{color:#fff;border-color:rgba(255,255,255,.28)}
+.kel-header:not(.kel-scrolled) .kel-nav__cta .kel-btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.kel-burger{display:none;width:44px;height:44px;border:1px solid var(--line-dark);border-radius:10px;background:transparent;cursor:pointer;padding:0;place-items:center}
+.kel-burger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.3s var(--ease)}
+.kel-burger span::before,.kel-burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px;transition:.3s var(--ease)}
+.kel-burger span::before{top:-6px}.kel-burger span::after{top:6px}
+.kel-header.kel-scrolled .kel-burger{border-color:var(--line)}
+.kel-header.kel-scrolled .kel-burger span,.kel-header.kel-scrolled .kel-burger span::before,.kel-header.kel-scrolled .kel-burger span::after{background:var(--ink)}
+body.kel-menu-open .kel-burger span{background:transparent}
+body.kel-menu-open .kel-burger span::before{top:0;transform:rotate(45deg)}
+body.kel-menu-open .kel-burger span::after{top:0;transform:rotate(-45deg)}
+.kel-mobile-menu{position:fixed;inset:0;z-index:55;background:var(--ink);padding:96px 28px 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-100%);opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .3s var(--ease)}
+body.kel-menu-open .kel-mobile-menu{transform:translateY(0);opacity:1;pointer-events:auto}
+.kel-mobile-menu a{color:#fff;font-size:22px;font-weight:700;padding:16px 0;border-bottom:1px solid var(--line-dark)}
+.kel-mobile-menu .kel-btn{margin-top:24px}
+@media(max-width:880px){
+  .kel-nav__links{display:none}
+  .kel-nav__cta .kel-btn--ghost{display:none}
+  .kel-burger{display:grid}
+}
+@media(max-width:560px){
+  .kel-nav{height:64px}
+  .kel-brand{gap:10px}
+  .kel-brand__mark{width:34px;height:34px}
+  .kel-brand__mark span{width:14px;height:14px}
+  .kel-brand__name{font-size:15.5px}
+  .kel-brand__sub{display:none}
+  .kel-nav .kel-btn{padding:10px 17px;font-size:14px}
+}
+
+/* ── Hero ── */
+/* 148px сверху — под фиксированную шапку. Без шапки поставьте 96px. */
+.kel-hero{position:relative;background:var(--ink);color:#fff;padding:148px 0 100px;overflow:hidden}
+.kel-hero__grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 100% 80% at 70% 0%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 100% 80% at 70% 0%,#000 30%,transparent 75%)}
+.kel-hero__glow{position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(14,138,82,.32),transparent 65%);top:-220px;right:-160px;filter:blur(10px);pointer-events:none}
+.kel-hero .kel-wrap{position:relative;z-index:2}
+.kel-hero__inner{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+@media(max-width:980px){.kel-hero__inner{grid-template-columns:1fr;gap:48px}}
+.kel-hero h1{font-size:clamp(36px,5.6vw,64px);line-height:1.04;letter-spacing:-.03em;color:#fff}
+.kel-hero__sub{display:block;font-size:clamp(22px,3.2vw,34px);font-weight:600;color:#5fd29a;margin-top:14px;letter-spacing:-.02em}
+.kel-hero__desc{margin-top:28px;font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.72);max-width:560px;line-height:1.6}
+.kel-hero__actions{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.kel-hero__chips{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.kel-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--line-dark);border-radius:50px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.85)}
+.kel-chip svg{width:15px;height:15px;color:#5fd29a}
+.kel-flow-card{background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:20px;padding:30px 28px;backdrop-filter:blur(4px)}
+.kel-flow-card__title{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.kel-flow-card__head{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:24px}
+.kel-vflow{display:flex;flex-direction:column}
+.kel-vflow__item{display:flex;align-items:flex-start;gap:16px;position:relative;padding-bottom:22px}
+.kel-vflow__item:last-child{padding-bottom:0}
+.kel-vflow__item:not(:last-child)::before{content:"";position:absolute;left:15px;top:34px;bottom:0;width:2px;background:linear-gradient(var(--accent),rgba(95,210,154,.25))}
+.kel-vflow__dot{width:32px;height:32px;border-radius:50%;background:rgba(14,138,82,.16);border:1.5px solid var(--accent);color:#5fd29a;display:grid;place-items:center;font-size:13px;font-weight:800;flex:none;z-index:1}
+.kel-vflow__txt b{display:block;font-size:16px;color:#fff;font-weight:700;letter-spacing:-.01em}
+.kel-vflow__txt span{font-size:13.5px;color:rgba(255,255,255,.55)}
+
+/* ── Цепочка этапов ── */
+.kel-offer{background:var(--cream)}
+.kel-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:46px 0 8px;counter-reset:kelstep}
+.kel-chain__step{position:relative;padding:30px 26px;background:var(--paper);border:1px solid var(--line);counter-increment:kelstep}
+.kel-chain__step:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+.kel-chain__step:last-child{border-radius:0 var(--radius) var(--radius) 0}
+.kel-chain__step:not(:first-child){border-left:none}
+.kel-chain__step::after{content:"";position:absolute;right:-11px;top:50%;transform:translateY(-50%) rotate(45deg);width:20px;height:20px;background:var(--paper);border-top:1px solid var(--line);border-right:1px solid var(--line);z-index:2}
+.kel-chain__step:last-child::after{display:none}
+.kel-chain__num{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.1em}
+.kel-chain__num::before{content:"0" counter(kelstep)}
+.kel-chain__step h4{font-size:18px;margin-top:12px;letter-spacing:-.01em}
+.kel-chain__step p{font-size:14px;color:var(--muted);margin-top:7px}
+@media(max-width:760px){
+  .kel-chain{grid-template-columns:1fr}
+  .kel-chain__step{border-radius:0!important;border-left:1px solid var(--line)!important}
+  .kel-chain__step:first-child{border-radius:var(--radius) var(--radius) 0 0!important}
+  .kel-chain__step:last-child{border-radius:0 0 var(--radius) var(--radius)!important}
+  .kel-chain__step:not(:first-child){border-top:none}
+  .kel-chain__step::after{right:auto;left:50%;top:auto;bottom:-11px;transform:translateX(-50%) rotate(135deg)}
+}
+.kel-checklist{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+@media(max-width:860px){.kel-checklist{grid-template-columns:1fr}}
+.kel-check-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.kel-check-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d4d8cf}
+.kel-check-ic{width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:18px}
+.kel-check-ic svg{width:23px;height:23px}
+.kel-check-card p{font-size:15.5px;color:var(--text);line-height:1.55}
+
+/* ── Для кого ── */
+.kel-aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.kel-aud-grid{grid-template-columns:1fr}}
+.kel-aud-item{display:flex;align-items:flex-start;gap:16px;padding:24px 26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:border-color .3s var(--ease),background .3s var(--ease)}
+.kel-aud-item:hover{border-color:var(--accent);background:var(--accent-tint)}
+.kel-aud-item__ic{width:44px;height:44px;border-radius:11px;background:var(--cream-2);color:var(--ink);display:grid;place-items:center;flex:none;transition:background .3s var(--ease),color .3s var(--ease)}
+.kel-aud-item:hover .kel-aud-item__ic{background:var(--accent);color:#fff}
+.kel-aud-item__ic svg{width:22px;height:22px}
+.kel-aud-item p{font-size:16px;font-weight:600;color:var(--text);line-height:1.45;padding-top:8px}
+.kel-org-note{margin-top:30px;padding:26px 30px;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);font-size:16px;color:var(--text);line-height:1.6;display:flex;gap:18px;align-items:flex-start}
+.kel-org-note svg{width:26px;height:26px;color:var(--accent);flex:none;margin-top:2px}
+
+/* ── Зачем сейчас ── */
+.kel-why{background:var(--ink);color:#fff}
+.kel-why h2{color:#fff}
+.kel-why__inner{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+@media(max-width:980px){.kel-why__inner{grid-template-columns:1fr;gap:40px}}
+.kel-pain-list{display:flex;flex-direction:column;gap:14px}
+.kel-pain{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:14px}
+.kel-pain__x{width:30px;height:30px;border-radius:8px;background:rgba(180,68,31,.18);color:#ff8d63;display:grid;place-items:center;flex:none}
+.kel-pain__x svg{width:17px;height:17px}
+.kel-pain p{font-size:15.5px;color:rgba(255,255,255,.88);line-height:1.5}
+.kel-why__solve{margin-top:28px;padding:26px 28px;border-radius:16px;background:linear-gradient(135deg,rgba(14,138,82,.2),rgba(14,138,82,.06));border:1px solid rgba(95,210,154,.3)}
+.kel-why__solve b{color:#5fd29a}
+.kel-why__solve p{font-size:16.5px;color:rgba(255,255,255,.92);line-height:1.6}
+
+/* ── Результаты ── */
+.kel-outcomes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.kel-outcomes-grid{grid-template-columns:1fr}}
+.kel-outcome{display:flex;gap:22px;align-items:flex-start;padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.kel-outcome:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.kel-outcome__num{font-size:40px;font-weight:800;line-height:1;color:var(--cream-2);letter-spacing:-.04em;flex:none;-webkit-text-stroke:1px var(--line)}
+.kel-outcome:hover .kel-outcome__num{color:var(--accent-soft);-webkit-text-stroke:1px var(--accent)}
+.kel-outcome p{font-size:16px;color:var(--text);line-height:1.5;padding-top:4px}
+.kel-result-banner{margin-top:30px;display:flex;align-items:center;gap:18px;padding:26px 30px;background:var(--ink);color:#fff;border-radius:var(--radius)}
+.kel-result-banner svg{width:30px;height:30px;color:#5fd29a;flex:none}
+.kel-result-banner p{font-size:17px;line-height:1.5}
+.kel-result-banner b{color:#5fd29a}
+
+/* ── Формат ── */
+.kel-format{background:var(--cream)}
+.kel-fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:30px}
+@media(max-width:760px){.kel-fmt-grid{grid-template-columns:1fr}}
+.kel-fmt-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px}
+.kel-fmt-card__big{font-size:46px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.kel-fmt-card__lbl{font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-top:10px}
+.kel-fmt-card p{font-size:14.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+.kel-fmt-note{display:flex;align-items:center;gap:14px;padding:22px 26px;border:1px dashed var(--line);border-radius:var(--radius);background:var(--paper);font-size:15.5px;color:var(--text)}
+.kel-fmt-note svg{width:22px;height:22px;color:var(--accent);flex:none}
+.kel-fmt-note b{color:var(--ink)}
+
+/* ── Программа ── */
+.kel-modules{display:flex;flex-direction:column;gap:18px}
+.kel-module{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.kel-module:hover{box-shadow:var(--shadow);border-color:#d4d8cf}
+.kel-module__head{display:flex;align-items:center;gap:22px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:26px 30px;font-family:var(--ff);list-style:none}
+.kel-module__head::-webkit-details-marker{display:none}
+.kel-module__no{font-size:14px;font-weight:800;color:var(--accent);letter-spacing:.1em;flex:none;width:54px}
+.kel-module__titles{flex:1;min-width:0}
+.kel-module__title{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.kel-module__sub{display:block;font-size:14.5px;color:var(--muted);margin-top:6px;font-style:italic}
+.kel-module__price{flex:none;padding:7px 14px;border-radius:50px;background:var(--accent-soft);color:var(--accent-2);font-size:13.5px;font-weight:800;white-space:nowrap}
+@media(max-width:640px){.kel-module__price{display:none}}
+.kel-module__toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:background .3s var(--ease),transform .3s var(--ease),border-color .3s var(--ease)}
+.kel-module__toggle svg{width:18px;height:18px;color:var(--ink);transition:transform .3s var(--ease)}
+.kel-module[open] .kel-module__toggle{background:var(--accent);border-color:var(--accent)}
+.kel-module[open] .kel-module__toggle svg{color:#fff;transform:rotate(45deg)}
+.kel-module__body{padding:0 30px 30px 106px}
+@media(max-width:640px){.kel-module__body{padding:0 24px 26px 24px}.kel-module__head{padding:22px 24px;gap:14px}.kel-module__no{width:auto}}
+.kel-module__body ul{display:flex;flex-direction:column;gap:11px;border-top:1px solid var(--line);padding-top:22px}
+.kel-module__body li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.kel-module__body li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+
+/* ── Стоимость ── */
+.kel-price{background:var(--cream)}
+.kel-price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:920px}
+@media(max-width:760px){.kel-price-grid{grid-template-columns:1fr}}
+.kel-price-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:38px 34px;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.kel-price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.kel-price-card--hl{background:var(--ink);border-color:var(--ink);color:#fff}
+.kel-price-card__lbl{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+.kel-price-card--hl .kel-price-card__lbl{color:#5fd29a}
+.kel-price-card__val{font-size:46px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.kel-price-card--hl .kel-price-card__val{color:#fff}
+.kel-price-card__per{font-size:14.5px;color:var(--muted);margin-top:8px}
+.kel-price-card--hl .kel-price-card__per{color:rgba(255,255,255,.6)}
+.kel-price-card__list{margin:26px 0 30px;display:flex;flex-direction:column;gap:12px}
+.kel-price-card__list li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.5;color:var(--text)}
+.kel-price-card--hl .kel-price-card__list li{color:rgba(255,255,255,.88)}
+.kel-price-card__list svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:1px}
+.kel-price-card--hl .kel-price-card__list svg{color:#5fd29a}
+.kel-price-card .kel-btn{margin-top:auto}
+.kel-price-note{margin-top:22px;font-size:14.5px;color:var(--muted)}
+
+/* ── Спикер ── */
+.kel-speaker__card{display:grid;grid-template-columns:300px 1fr;gap:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--paper)}
+@media(max-width:860px){.kel-speaker__card{grid-template-columns:1fr}}
+.kel-speaker__aside{background:var(--ink);color:#fff;padding:44px 36px;display:flex;flex-direction:column}
+.kel-speaker__ava{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#13b06a);display:grid;place-items:center;font-size:32px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:24px}
+.kel-speaker__name{font-size:26px;font-weight:800;letter-spacing:-.02em;color:#fff}
+.kel-speaker__role{font-size:15px;color:rgba(255,255,255,.66);margin-top:12px;line-height:1.5}
+.kel-speaker__tag{margin-top:auto;padding-top:28px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#5fd29a}
+.kel-speaker__tag svg{width:16px;height:16px}
+.kel-speaker__body{padding:44px 40px}
+@media(max-width:640px){.kel-speaker__body{padding:32px 26px}.kel-speaker__aside{padding:36px 28px}}
+.kel-sp-block{margin-bottom:30px}
+.kel-sp-block:last-child{margin-bottom:0}
+.kel-sp-block h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+.kel-sp-block ul{display:flex;flex-direction:column;gap:10px}
+.kel-sp-block li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.kel-sp-block li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;border:2px solid var(--accent)}
+.kel-sp-format{padding:20px 22px;background:var(--cream);border-radius:12px;font-size:15px;color:var(--text);line-height:1.55}
+.kel-sp-format b{color:var(--ink)}
+
+/* ── Преимущества ── */
+.kel-ben-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.kel-ben-grid{grid-template-columns:1fr}}
+.kel-ben{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.kel-ben:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.kel-ben__ic{width:50px;height:50px;border-radius:13px;background:var(--ink);color:#5fd29a;display:grid;place-items:center;margin-bottom:20px}
+.kel-ben__ic svg{width:24px;height:24px}
+.kel-ben h4{font-size:18px;letter-spacing:-.01em;margin-bottom:10px}
+.kel-ben p{font-size:15px;color:var(--muted);line-height:1.55}
+
+/* ── Запись (тёмный призыв; форма ГетКурса ставится сразу после) ── */
+.kel-register{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.kel-register__grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 90% at 20% 100%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 90% at 20% 100%,#000 20%,transparent 70%)}
+.kel-register .kel-wrap{position:relative;z-index:2;max-width:860px}
+.kel-register h2{color:#fff;font-size:clamp(28px,4vw,42px)}
+.kel-want-list{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.kel-want{display:flex;align-items:flex-start;gap:14px;font-size:16.5px;color:rgba(255,255,255,.9);line-height:1.5}
+.kel-want svg{width:24px;height:24px;color:#5fd29a;flex:none;margin-top:1px}
+.kel-microcta{margin-top:30px;display:flex;align-items:center;gap:12px;font-size:14.5px;color:rgba(255,255,255,.6)}
+.kel-microcta b{color:#fff}
+.kel-pulse{width:10px;height:10px;border-radius:50%;background:#5fd29a;position:relative;flex:none}
+.kel-pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:#5fd29a;animation:kelPulse 2s infinite}
+@keyframes kelPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+@media(prefers-reduced-motion:reduce){.kel-pulse::after{animation:none}}
+
+/* ── Подвал ── */
+.kel-footer{background:#0e1015;color:rgba(255,255,255,.6);padding:56px 0 36px}
+.kel-footer__top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid var(--line-dark)}
+.kel-footer .kel-brand__sub{color:rgba(255,255,255,.45)}
+.kel-footer__nav{display:flex;gap:30px;flex-wrap:wrap}
+.kel-footer__nav a{font-size:14.5px;color:rgba(255,255,255,.6);transition:color .2s}
+.kel-footer__nav a:hover{color:#fff}
+.kel-footer__bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:13px}
+.kel-footer__credit a{color:#5fd29a;font-weight:600}
+.kel-footer__credit a:hover{text-decoration:underline}
+.kel-footer__legal{display:flex;gap:24px;flex-wrap:wrap;padding-top:24px;font-size:13.5px}
+.kel-footer__legal a{color:rgba(255,255,255,.55);text-decoration:underline;text-underline-offset:3px;transition:color .2s}
+.kel-footer__legal a:hover{color:#fff}
+
+/* ── Появление при прокрутке (без скрипта всё просто видимо) ── */
+html.kel-js .kel-reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+html.kel-js .kel-reveal.kel-on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.kel-js .kel-reveal{opacity:1;transform:none;transition:none}}
+
+/* ── Дополнения для лендинга «Оценка имущества» ── */
+/* Фото спикера вместо аватара-инициалов */
+.kel-speaker__photo{display:block;width:100%;max-width:228px;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:18px;margin-bottom:24px;border:1px solid var(--line-dark);background:#1c1f28}
+@media(max-width:860px){.kel-speaker__photo{max-width:200px}}
+/* Одна карточка стоимости по центру сетки */
+.kel-price-grid--one{grid-template-columns:1fr;max-width:560px}
+/* Плейсхолдеры «заполнить перед публикацией» — после заполнения обёртку можно удалить */
+.kel-ph{background:#fff3b0;color:#5a4500;padding:0 .3em;border-radius:5px;font-weight:700;white-space:nowrap}
+</style>
+
+<script>
+(function(){
+  "use strict";
+  /* Флаг «скрипт есть»: без него секции остаются видимыми без анимаций */
+  document.documentElement.classList.add('kel-js');
+
+  function init(){
+    /* Шапка при прокрутке */
+    var header=document.getElementById('kelHeader');
+    if(header){
+      var onScroll=function(){ if(window.scrollY>20){header.classList.add('kel-scrolled');}else{header.classList.remove('kel-scrolled');} };
+      onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+    }
+
+    /* Мобильное меню */
+    var burger=document.getElementById('kelBurger');
+    var menu=document.getElementById('kelMenu');
+    if(burger&&menu){
+      var toggleMenu=function(force){
+        var open=force!==undefined?force:!document.body.classList.contains('kel-menu-open');
+        document.body.classList.toggle('kel-menu-open',open);
+        burger.setAttribute('aria-expanded',open);
+      };
+      burger.addEventListener('click',function(){toggleMenu();});
+      menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggleMenu(false);});});
+    }
+
+    /* Появление секций */
+    var els=document.querySelectorAll('.kel-reveal');
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('kel-on'); io.unobserve(e.target);} });
+      },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+      els.forEach(function(el){io.observe(el);});
+    }else{ els.forEach(function(el){el.classList.add('kel-on');}); }
+
+    /* Аккордеон программы: открыта одна тема */
+    var modules=document.querySelectorAll('.kel-module');
+    modules.forEach(function(m){
+      var head=m.querySelector('.kel-module__head');
+      if(!head) return;
+      head.addEventListener('click',function(){
+        setTimeout(function(){
+          if(m.open){ modules.forEach(function(other){ if(other!==m){other.open=false;} }); }
+        },0);
+      });
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
+</script>
+<!-- ═════════ конец БЛОКА 0 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 1. ШАПКА (необязательный — пропустите, если у страницы своё меню) ═════════ -->
+<header class="kel-sec kel-header" id="kelHeader">
+  <div class="kel-wrap">
+    <nav class="kel-nav">
+      <a href="#kel-hero" class="kel-brand" aria-label="Онлайн-школа «Закупки в цифре», cifrazakup.ru">
+        <span class="kel-brand__mark"><span></span></span>
+        <span class="kel-brand__txt">
+          <span class="kel-brand__name">Закупки в цифре</span>
+          <span class="kel-brand__sub">онлайн-школа</span>
+        </span>
+      </a>
+      <div class="kel-nav__links">
+        <a href="#kel-offer">О вебинаре</a>
+        <a href="#kel-audience">Для кого</a>
+        <a href="#kel-program">Программа</a>
+        <a href="#kel-price">Стоимость</a>
+        <a href="#kel-speaker">Спикер</a>
+      </div>
+      <div class="kel-nav__cta">
+        <a href="#kel-program" class="kel-btn kel-btn--ghost">Программа</a>
+        <a href="#kel-register" class="kel-btn kel-btn--primary">Записаться</a>
+        <button class="kel-burger" id="kelBurger" aria-label="Меню" aria-expanded="false" type="button"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="kel-sec kel-mobile-menu" id="kelMenu">
+  <a href="#kel-offer">О вебинаре</a>
+  <a href="#kel-audience">Для кого</a>
+  <a href="#kel-program">Программа</a>
+  <a href="#kel-price">Стоимость</a>
+  <a href="#kel-speaker">Спикер</a>
+  <a href="#kel-register" class="kel-btn kel-btn--primary kel-btn--lg kel-btn--block">Записаться на вебинар</a>
+</div>
+<!-- ═════════ конец БЛОКА 1 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 2. HERO (первый экран) ═════════ -->
+<section class="kel-sec kel-hero" id="kel-hero">
+  <div class="kel-hero__grid-bg"></div>
+  <div class="kel-hero__glow"></div>
+  <div class="kel-wrap">
+    <div class="kel-hero__inner">
+      <div>
+        <span class="kel-eyebrow kel-eyebrow--light">Онлайн-школа «Закупки в цифре» · практический вебинар</span>
+        <h1>Оценка государственного и муниципального имущества при выставлении на торги<span class="kel-hero__sub">практический кейс по токсичным активам</span></h1>
+        <p class="kel-hero__desc">Что стоит за отчётом об оценке, кто отвечает, когда бумага расходится с реальностью, и как продать объект, который годами висит в казне. Разбор реального кейса — от оценки до продажи руинированного объекта.</p>
+        <div class="kel-hero__actions">
+          <a href="#kel-register" class="kel-btn kel-btn--primary kel-btn--lg">Записаться на вебинар
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#kel-program" class="kel-btn kel-btn--ghost kel-btn--lg" style="color:#fff;border-color:rgba(255,255,255,.25)">Смотреть программу</a>
+        </div>
+        <div class="kel-hero__chips">
+          <span class="kel-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>Онлайн + запись эфира</span>
+          <span class="kel-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M10 21v-6h4v6"/></svg>Разбор реального кейса</span>
+          <span class="kel-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Чек-лист заказа оценки</span>
+        </div>
+      </div>
+      <div class="kel-flow-card kel-reveal">
+        <div class="kel-flow-card__title">Что разберём</div>
+        <div class="kel-flow-card__head">Шесть тем — от скрытых рисков до готового чек-листа</div>
+        <div class="kel-vflow">
+          <div class="kel-vflow__item"><span class="kel-vflow__dot">1</span><span class="kel-vflow__txt"><b>Скрытые риски подготовки имущества к торгам</b></span></div>
+          <div class="kel-vflow__item"><span class="kel-vflow__dot">2</span><span class="kel-vflow__txt"><b>Разница между бумагой и реальностью</b></span></div>
+          <div class="kel-vflow__item"><span class="kel-vflow__dot">3</span><span class="kel-vflow__txt"><b>Ответственность сторон</b></span></div>
+          <div class="kel-vflow__item"><span class="kel-vflow__dot">4</span><span class="kel-vflow__txt"><b>«Токсичные активы» в муниципальной казне</b></span></div>
+          <div class="kel-vflow__item"><span class="kel-vflow__dot">5</span><span class="kel-vflow__txt"><b>Кейс: оценка и продажа руинированного объекта</b></span></div>
+          <div class="kel-vflow__item"><span class="kel-vflow__dot">6</span><span class="kel-vflow__txt"><b>Чек-лист: как правильно заказать оценку</b></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 2 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 3. ОФФЕР (цепочка этапов) ═════════ -->
+<section class="kel-sec kel-section kel-offer" id="kel-offer">
+  <div class="kel-wrap">
+    <div class="kel-section-head kel-reveal">
+      <span class="kel-eyebrow">О чём вебинар</span>
+      <h2 class="kel-h2">Между отчётом об оценке и реальным объектом — зона&nbsp;риска</h2>
+      <p class="kel-lead" style="margin-top:18px">Имущество выставляют на торги по документам, а покупают — по факту. Разберём, где расходятся бумага и реальность, кто за это отвечает и как безопасно провести оценку и продажу даже проблемного актива.</p>
+    </div>
+    <div class="kel-chain kel-reveal">
+      <div class="kel-chain__step"><span class="kel-chain__num"></span><h4>Подготовка к торгам</h4><p>Где закладываются риски ещё до объявления</p></div>
+      <div class="kel-chain__step"><span class="kel-chain__num"></span><h4>Оценка объекта</h4><p>Что в отчёте — и что на самом объекте</p></div>
+      <div class="kel-chain__step"><span class="kel-chain__num"></span><h4>Продажа и ответственность</h4><p>Кто отвечает и как закрыть сделку</p></div>
+    </div>
+    <div class="kel-checklist kel-reveal">
+      <div class="kel-check-card">
+        <div class="kel-check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <p>Увидите риски до торгов, а не после — когда сделку уже оспаривают.</p>
+      </div>
+      <div class="kel-check-card">
+        <div class="kel-check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
+        <p>Научитесь читать отчёт об оценке критически и сверять его с объектом.</p>
+      </div>
+      <div class="kel-check-card">
+        <div class="kel-check-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+        <p>Получите алгоритм работы с «токсичными» активами казны и чек-лист заказа оценки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 3 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 4. ДЛЯ КОГО ═════════ -->
+<section class="kel-sec kel-section" id="kel-audience">
+  <div class="kel-wrap">
+    <div class="kel-section-head kel-reveal">
+      <span class="kel-eyebrow">Для кого этот вебинар</span>
+      <h2 class="kel-h2">Для тех, кто выставляет имущество на торги, оценивает его или покупает</h2>
+      <p class="kel-lead" style="margin-top:18px">Полезно обеим сторонам сделки — и тем, кто распоряжается имуществом казны, и тем, кто приобретает его на торгах.</p>
+    </div>
+    <div class="kel-aud-grid kel-reveal">
+      <div class="kel-aud-item"><span class="kel-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg></span><p>Специалисты по управлению имуществом: КУМИ, ДИЗО, комитеты по имущественным отношениям</p></div>
+      <div class="kel-aud-item"><span class="kel-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7"/></svg></span><p>Организаторы торгов по продаже и аренде государственного и муниципального имущества</p></div>
+      <div class="kel-aud-item"><span class="kel-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13l2 2 4-4"/></svg></span><p>Оценщики и судебные эксперты</p></div>
+      <div class="kel-aud-item"><span class="kel-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span><p>Участники торгов и инвесторы, покупающие муниципальные активы</p></div>
+      <div class="kel-aud-item"><span class="kel-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><p>Юристы, сопровождающие сделки с государственным и муниципальным имуществом</p></div>
+      <div class="kel-aud-item"><span class="kel-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span><p>Руководители и контрольные органы, отвечающие за распоряжение имуществом казны</p></div>
+    </div>
+    <div class="kel-org-note kel-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Особенно полезно там, где в казне накопились объекты, которые не продать по «бумажной» цене и дорого содержать.</p>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 4 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 5. ЗАЧЕМ СЕЙЧАС (тёмный) ═════════ -->
+<section class="kel-sec kel-section kel-why" id="kel-why">
+  <div class="kel-wrap">
+    <div class="kel-why__inner">
+      <div class="kel-reveal">
+        <span class="kel-eyebrow kel-eyebrow--light">Зачем это нужно сейчас</span>
+        <h2 class="kel-h2">Ошибка в оценке всплывает не в отчёте — на торгах и после них</h2>
+        <div class="kel-why__solve">
+          <p>Вебинар о том, как <b>не продать и не купить кота в мешке.</b> Разберём, где оценка отрывается от реальности, кто несёт ответственность и что делать с «токсичными» активами казны.</p>
+        </div>
+      </div>
+      <div class="kel-pain-list kel-reveal">
+        <div class="kel-pain"><span class="kel-pain__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span><p>Объект оценён по документам — а по факту это руины</p></div>
+        <div class="kel-pain"><span class="kel-pain__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span><p>Торги сорвались или оспорены из-за нереальной цены</p></div>
+        <div class="kel-pain"><span class="kel-pain__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span><p>Актив висит в казне годами: не продать, не списать, содержать дорого</p></div>
+        <div class="kel-pain"><span class="kel-pain__x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span><p>Непонятно, кто отвечает: заказчик оценки, оценщик или организатор торгов</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 5 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 6. ЧТО ПОЛУЧИТЕ ═════════ -->
+<section class="kel-sec kel-section" id="kel-outcomes">
+  <div class="kel-wrap">
+    <div class="kel-section-head kel-reveal">
+      <span class="kel-eyebrow">Что вы получите после вебинара</span>
+      <h2 class="kel-h2">Не теория — рабочий алгоритм и чек-лист</h2>
+    </div>
+    <div class="kel-outcomes-grid kel-reveal">
+      <div class="kel-outcome"><span class="kel-outcome__num">1</span><p>Видеть скрытые риски подготовки имущества к торгам ещё до их объявления.</p></div>
+      <div class="kel-outcome"><span class="kel-outcome__num">2</span><p>Сверять отчёт об оценке с реальным состоянием объекта и замечать расхождения.</p></div>
+      <div class="kel-outcome"><span class="kel-outcome__num">3</span><p>Понимать ответственность каждой стороны — заказчика оценки, оценщика, организатора торгов.</p></div>
+      <div class="kel-outcome"><span class="kel-outcome__num">4</span><p>Работать с «токсичными» активами казны по понятному алгоритму: продать, списать или иначе.</p></div>
+      <div class="kel-outcome" style="grid-column:1/-1"><span class="kel-outcome__num">5</span><p>Правильно заказывать оценку — по чек-листу, который получите на вебинаре и заберёте с собой.</p></div>
+    </div>
+    <div class="kel-result-banner kel-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      <p><b>Итог:</b> разбор реального кейса — оценка и продажа руинированного объекта — от постановки задачи до сделки.</p>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 6 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 7. ФОРМАТ ═════════ -->
+<section class="kel-sec kel-section kel-format" id="kel-format">
+  <div class="kel-wrap">
+    <div class="kel-section-head kel-reveal">
+      <span class="kel-eyebrow">Формат</span>
+      <h2 class="kel-h2">Практический вебинар с разбором кейса</h2>
+    </div>
+    <div class="kel-fmt-grid kel-reveal">
+      <div class="kel-fmt-card"><div class="kel-fmt-card__big">1</div><div class="kel-fmt-card__lbl">вебинар онлайн</div><p>Живой разбор с экспертом, вопросы — прямо в эфире.</p></div>
+      <div class="kel-fmt-card"><div class="kel-fmt-card__big">1</div><div class="kel-fmt-card__lbl">реальный кейс</div><p>Оценка и продажа руинированного объекта — от задачи до сделки.</p></div>
+      <div class="kel-fmt-card"><div class="kel-fmt-card__big">✓</div><div class="kel-fmt-card__lbl">чек-лист</div><p>Как правильно заказать оценку — забираете с собой и применяете сразу.</p></div>
+    </div>
+    <div class="kel-fmt-note kel-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg>
+      <span><b>Когда:</b> <span class="kel-ph">[дата и время эфира]</span>. Онлайн, с доступом к записи после эфира.</span>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 7 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 8. ПРОГРАММА (аккордеон, 6 тем) ═════════
+     Подпункты — черновая расшифровка тезисов спикера, сверить с Еленой Кельберг. -->
+<section class="kel-sec kel-section" id="kel-program">
+  <div class="kel-wrap">
+    <div class="kel-section-head kel-reveal">
+      <span class="kel-eyebrow">Программа вебинара</span>
+      <h2 class="kel-h2">Шесть тем — от скрытых рисков до чек-листа заказа оценки</h2>
+      <p class="kel-lead" style="margin-top:18px">Нажмите на тему, чтобы раскрыть содержание.</p>
+    </div>
+    <div class="kel-modules kel-reveal">
+      <details class="kel-module" open>
+        <summary class="kel-module__head">
+          <span class="kel-module__no">01</span>
+          <span class="kel-module__titles">
+            <span class="kel-module__title">Скрытые риски подготовки имущества к торгам</span>
+            <span class="kel-module__sub">Где закладываются проблемы ещё до объявления торгов</span>
+          </span>
+          <span class="kel-module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="kel-module__body">
+          <ul>
+            <li>Типовые ошибки при формировании лота и подготовке документации</li>
+            <li>Что проверить по объекту до того, как заказывать оценку</li>
+            <li>Как ошибки подготовки превращаются в срыв торгов и претензии</li>
+          </ul>
+        </div>
+      </details>
+      <details class="kel-module">
+        <summary class="kel-module__head">
+          <span class="kel-module__no">02</span>
+          <span class="kel-module__titles">
+            <span class="kel-module__title">Разница между бумагой и реальностью</span>
+            <span class="kel-module__sub">Отчёт об оценке против фактического состояния объекта</span>
+          </span>
+          <span class="kel-module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="kel-module__body">
+          <ul>
+            <li>Откуда берётся расхождение между ценой в отчёте и состоянием объекта</li>
+            <li>Признаки отчёта, которому нельзя верить без проверки</li>
+            <li>Как сверить документы с объектом и зафиксировать расхождения</li>
+          </ul>
+        </div>
+      </details>
+      <details class="kel-module">
+        <summary class="kel-module__head">
+          <span class="kel-module__no">03</span>
+          <span class="kel-module__titles">
+            <span class="kel-module__title">Ответственность сторон</span>
+            <span class="kel-module__sub">Заказчик оценки, оценщик, организатор торгов</span>
+          </span>
+          <span class="kel-module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="kel-module__body">
+          <ul>
+            <li>Кто и за что отвечает — по закону и по договору</li>
+            <li>Последствия некорректной оценки для каждой из сторон</li>
+            <li>Как распределить ответственность до сделки, а не после</li>
+          </ul>
+        </div>
+      </details>
+      <details class="kel-module">
+        <summary class="kel-module__head">
+          <span class="kel-module__no">04</span>
+          <span class="kel-module__titles">
+            <span class="kel-module__title">«Токсичные активы» в муниципальной казне</span>
+            <span class="kel-module__sub">Объекты, которые не продать и дорого содержать</span>
+          </span>
+          <span class="kel-module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="kel-module__body">
+          <ul>
+            <li>Что делает актив «токсичным» и как его распознать в реестре</li>
+            <li>Варианты действий: продажа, списание, иные решения</li>
+            <li>Экономика содержания против экономики сделки</li>
+          </ul>
+        </div>
+      </details>
+      <details class="kel-module">
+        <summary class="kel-module__head">
+          <span class="kel-module__no">05</span>
+          <span class="kel-module__titles">
+            <span class="kel-module__title">Практический кейс: оценка и продажа руинированного объекта</span>
+            <span class="kel-module__sub">От постановки задачи до сделки</span>
+          </span>
+          <span class="kel-module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="kel-module__body">
+          <ul>
+            <li>Исходные данные и ловушки конкретного объекта</li>
+            <li>Как проводилась оценка и что показала проверка на месте</li>
+            <li>Как прошла продажа и какие выводы для практики</li>
+          </ul>
+        </div>
+      </details>
+      <details class="kel-module">
+        <summary class="kel-module__head">
+          <span class="kel-module__no">06</span>
+          <span class="kel-module__titles">
+            <span class="kel-module__title">Чек-лист: как правильно заказать оценку</span>
+            <span class="kel-module__sub">Забираете с собой</span>
+          </span>
+          <span class="kel-module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
+        </summary>
+        <div class="kel-module__body">
+          <ul>
+            <li>Что включить в задание на оценку, чтобы отчёт был пригоден для торгов</li>
+            <li>Что требовать от оценщика и как принимать отчёт</li>
+            <li>Контрольные точки, которые снимают риски оспаривания</li>
+          </ul>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 8 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 9. СТОИМОСТЬ ═════════ -->
+<section class="kel-sec kel-section kel-price" id="kel-price">
+  <div class="kel-wrap">
+    <div class="kel-section-head kel-reveal">
+      <span class="kel-eyebrow">Стоимость</span>
+      <h2 class="kel-h2">Участие в вебинаре</h2>
+    </div>
+    <div class="kel-price-grid kel-price-grid--one kel-reveal">
+      <div class="kel-price-card kel-price-card--hl">
+        <div class="kel-price-card__lbl">Вебинар + запись + чек-лист</div>
+        <div class="kel-price-card__val"><span class="kel-ph">[ЦЕНА]</span>&nbsp;₽</div>
+        <div class="kel-price-card__per">за участие одного человека</div>
+        <ul class="kel-price-card__list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Живой эфир и вопросы эксперту</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Доступ к записи после эфира</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Чек-лист «Как правильно заказать оценку»</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Разбор реального кейса от постановки задачи до сделки</li>
+        </ul>
+        <a href="#kel-register" class="kel-btn kel-btn--primary kel-btn--lg kel-btn--block">Записаться на вебинар</a>
+      </div>
+    </div>
+    <p class="kel-price-note kel-reveal">Запись — через форму ниже. Для организаций возможно участие нескольких сотрудников — укажите это в заявке.</p>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 9 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 10. О СПИКЕРЕ ═════════ -->
+<section class="kel-sec kel-section" id="kel-speaker">
+  <div class="kel-wrap">
+    <div class="kel-section-head kel-reveal">
+      <span class="kel-eyebrow">О спикере</span>
+      <h2 class="kel-h2">Оценщик и судебный эксперт — видит и отчёты, и споры по&nbsp;ним</h2>
+    </div>
+    <div class="kel-speaker__card kel-reveal">
+      <div class="kel-speaker__aside">
+        <img class="kel-speaker__photo" src="https://cifrazakup.ru/assets/kelberg.jpg" alt="Елена Кельберг" loading="lazy">
+        <div class="kel-speaker__name">Елена Кельберг</div>
+        <div class="kel-speaker__role">Оценщик. Генеральный директор АНО ДПО «Институт экспертиз Восточной Сибири».</div>
+        <div class="kel-speaker__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg>Практик оценки и судебной экспертизы</div>
+      </div>
+      <div class="kel-speaker__body">
+        <div class="kel-sp-block">
+          <h4>Регалии</h4>
+          <ul>
+            <li>Генеральный директор АНО ДПО «Институт экспертиз Восточной Сибири»</li>
+            <li>Вице-президент Ассоциации судебных экспертов Сибири и Дальнего Востока</li>
+            <li>Преподаватель ФГБОУ ВО «Байкальский государственный университет»</li>
+            <li>Практикующий оценщик</li>
+          </ul>
+        </div>
+        <div class="kel-sp-block">
+          <h4>Чем полезен взгляд спикера</h4>
+          <ul>
+            <li>Оценка государственного и муниципального имущества при подготовке к торгам</li>
+            <li>Экспертный взгляд на отчёты об оценке: что в них не сходится с объектом</li>
+            <li>Опыт подготовки оценщиков и специалистов по имуществу</li>
+          </ul>
+        </div>
+        <div class="kel-sp-format">
+          <b>Формат подачи:</b> разбор реального кейса и типовых ошибок — без избыточной теории, с фокусом на то, что делать на практике.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 10 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 11. ПОЧЕМУ СЕЙЧАС ═════════ -->
+<section class="kel-sec kel-section kel-format" id="kel-benefits">
+  <div class="kel-wrap">
+    <div class="kel-section-head kel-reveal">
+      <span class="kel-eyebrow">Почему стоит записаться</span>
+      <h2 class="kel-h2">Четыре причины не откладывать</h2>
+    </div>
+    <div class="kel-ben-grid kel-reveal">
+      <div class="kel-ben">
+        <div class="kel-ben__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M10 21v-6h4v6"/></svg></div>
+        <h4>Реальный кейс, а не абстракции</h4>
+        <p>Разбор конкретного руинированного объекта — от оценки до продажи.</p>
+      </div>
+      <div class="kel-ben">
+        <div class="kel-ben__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>Эксперт-практик</h4>
+        <p>Оценщик и судебный эксперт: видит и отчёты об оценке, и споры, в которые они превращаются.</p>
+      </div>
+      <div class="kel-ben">
+        <div class="kel-ben__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h4>Чек-лист с собой</h4>
+        <p>Инструмент заказа оценки, который можно применить уже на следующей неделе.</p>
+      </div>
+      <div class="kel-ben">
+        <div class="kel-ben__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7"/></svg></div>
+        <h4>Обе стороны сделки</h4>
+        <p>Полезно и тем, кто продаёт имущество казны, и тем, кто покупает его на торгах.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 11 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 12. ЗАПИСЬ (тёмный призыв) ═════════
+     СРАЗУ ПОСЛЕ этого блока вставьте нативный блок «Форма» ГетКурса —
+     заявки будут попадать в CRM и запускать процессы.
+     ОБЯЗАТЕЛЬНО добавьте в форму чекбокс согласия со ссылками на
+     публичную оферту (https://cifrazakup.ru/oferta.html) и политику
+     обработки персональных данных (https://cifrazakup.ru/privacy.html). ═════════ -->
+<section class="kel-sec kel-section kel-register" id="kel-register">
+  <div class="kel-register__grid-bg"></div>
+  <div class="kel-wrap">
+    <div class="kel-reveal">
+      <span class="kel-eyebrow kel-eyebrow--light">Запись на вебинар</span>
+      <h2>Запишитесь, если вам важно</h2>
+      <div class="kel-want-list">
+        <div class="kel-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Не выставить на торги объект с рисками, которые всплывут после сделки</div>
+        <div class="kel-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Понимать, кто отвечает, когда оценка расходится с реальностью</div>
+        <div class="kel-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Разгрузить казну от «токсичных» активов по понятному алгоритму</div>
+        <div class="kel-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Заказывать оценку так, чтобы её нельзя было оспорить</div>
+      </div>
+      <div class="kel-microcta">
+        <span class="kel-pulse"></span>
+        <span><b>Регистрация открыта.</b> Участие — <span class="kel-ph">[ЦЕНА]</span>&nbsp;₽. Заполните форму ниже, чтобы гарантировать место.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════ Здесь вставьте нативный блок «Форма» ГетКурса ═════ -->
+<!-- ═════════ конец БЛОКА 12 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 13. ПОДВАЛ ═════════ -->
+<footer class="kel-sec kel-footer">
+  <div class="kel-wrap">
+    <div class="kel-footer__top">
+      <div class="kel-brand" style="color:#fff">
+        <span class="kel-brand__mark"><span></span></span>
+        <span class="kel-brand__txt">
+          <span class="kel-brand__name">Закупки в цифре</span>
+          <span class="kel-brand__sub">онлайн-школа</span>
+        </span>
+      </div>
+      <div class="kel-footer__nav">
+        <a href="#kel-offer">О вебинаре</a>
+        <a href="#kel-audience">Для кого</a>
+        <a href="#kel-program">Программа</a>
+        <a href="#kel-price">Стоимость</a>
+        <a href="#kel-speaker">Спикер</a>
+        <a href="#kel-register">Записаться</a>
+      </div>
+    </div>
+    <div class="kel-footer__legal">
+      <a href="https://cifrazakup.ru/oferta.html" target="_blank" rel="noopener">Публичная оферта</a>
+      <a href="https://cifrazakup.ru/privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>
+      <a href="https://cifrazakup.ru" target="_blank" rel="noopener">cifrazakup.ru</a>
+    </div>
+    <div class="kel-footer__bottom">
+      <span>© Онлайн-школа «Закупки в цифре» · cifrazakup.ru. Вебинар «Оценка государственного и муниципального имущества при выставлении на торги».</span>
+      <span class="kel-footer__credit">Разработано в лаборатории <a href="https://t.me/tickettotender" target="_blank" rel="noopener">«Тендеры ex machina»</a></span>
+    </div>
+  </div>
+</footer>
+<!-- ═════════ конец БЛОКА 13 ═════════ -->
