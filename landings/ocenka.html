@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Оценка государственного и муниципального имущества при выставлении на торги — вебинар Елены Кельберг · Закупки в цифре</title>
-<meta name="description" content="Практический вебинар: скрытые риски подготовки имущества к торгам, ответственность сторон, «токсичные активы» в муниципальной казне, кейс продажи руинированного объекта и чек-лист заказа оценки. Спикер — оценщик Елена Кельберг.">
+<meta name="description" content="Бесплатный практический вебинар: скрытые риски подготовки имущества к торгам, ответственность сторон, «токсичные активы» в муниципальной казне, кейс продажи руинированного объекта и чек-лист заказа оценки. Спикер — оценщик Елена Кельберг.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../favicon.ico" sizes="any">
@@ -16,7 +16,7 @@
   «ОЦЕНКА ГОСУДАРСТВЕННОГО И МУНИЦИПАЛЬНОГО ИМУЩЕСТВА ПРИ ВЫСТАВЛЕНИИ НА ТОРГИ.
    Практический кейс по токсичным активам» · спикер — Елена Кельберг
   Онлайн-школа «Закупки в цифре» · cifrazakup.ru
-  Версия для ГетКурса (v1): практический вебинар, 6 тем + кейс + чек-лист
+  Версия для ГетКурса (v1): бесплатный практический вебинар, 6 тем + кейс + чек-лист
 
   Страница собрана из НЕЗАВИСИМЫХ блоков — глобальной обёртки нет.
 
@@ -33,10 +33,8 @@
     (тогда в блоке HERO уменьшите верхний отступ: правило .kel-hero,
     148px → 96px).
 
-  ⚠ ПЕРЕД ПУБЛИКАЦИЕЙ ЗАПОЛНИТЬ (подсвечено жёлтым, класс kel-ph):
-    • стоимость участия — блок «СТОИМОСТЬ» и «ЗАПИСЬ»;
-    (дата эфира — 6 октября 2026, 10:00 МСК — уже проставлена: чип в HERO и блок «ФОРМАТ»).
-    После заполнения обёртки <span class="kel-ph"> можно убрать.
+  Вебинар БЕСПЛАТНЫЙ. Дата эфира — 6 октября 2026, 10:00 МСК — проставлена
+  в HERO (чип), блоках «ФОРМАТ», «УЧАСТИЕ» и «ЗАПИСЬ». Плейсхолдеров нет.
 
   Фото спикера: https://cifrazakup.ru/assets/kelberg.jpg (опубликовано).
   Если удобнее — загрузите картинку в медиатеку ГетКурса и замените src.
@@ -300,7 +298,7 @@ body.kel-menu-open .kel-mobile-menu{transform:translateY(0);opacity:1;pointer-ev
 .kel-module__body li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
 .kel-module__body li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
 
-/* ── Стоимость ── */
+/* ── Участие (карточка условий) ── */
 .kel-price{background:var(--cream)}
 .kel-price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:920px}
 @media(max-width:760px){.kel-price-grid{grid-template-columns:1fr}}
@@ -391,8 +389,6 @@ html.kel-js .kel-reveal.kel-on{opacity:1;transform:none}
 @media(max-width:860px){.kel-speaker__photo{max-width:200px}}
 /* Одна карточка стоимости по центру сетки */
 .kel-price-grid--one{grid-template-columns:1fr;max-width:560px}
-/* Плейсхолдеры «заполнить перед публикацией» — после заполнения обёртку можно удалить */
-.kel-ph{background:#fff3b0;color:#5a4500;padding:0 .3em;border-radius:5px;font-weight:700;white-space:nowrap}
 </style>
 
 <script>
@@ -464,7 +460,7 @@ html.kel-js .kel-reveal.kel-on{opacity:1;transform:none}
         <a href="#kel-offer">О вебинаре</a>
         <a href="#kel-audience">Для кого</a>
         <a href="#kel-program">Программа</a>
-        <a href="#kel-price">Стоимость</a>
+        <a href="#kel-price">Участие</a>
         <a href="#kel-speaker">Спикер</a>
       </div>
       <div class="kel-nav__cta">
@@ -479,7 +475,7 @@ html.kel-js .kel-reveal.kel-on{opacity:1;transform:none}
   <a href="#kel-offer">О вебинаре</a>
   <a href="#kel-audience">Для кого</a>
   <a href="#kel-program">Программа</a>
-  <a href="#kel-price">Стоимость</a>
+  <a href="#kel-price">Участие</a>
   <a href="#kel-speaker">Спикер</a>
   <a href="#kel-register" class="kel-btn kel-btn--primary kel-btn--lg kel-btn--block">Записаться на вебинар</a>
 </div>
@@ -493,17 +489,18 @@ html.kel-js .kel-reveal.kel-on{opacity:1;transform:none}
   <div class="kel-wrap">
     <div class="kel-hero__inner">
       <div>
-        <span class="kel-eyebrow kel-eyebrow--light">Онлайн-школа «Закупки в цифре» · практический вебинар</span>
+        <span class="kel-eyebrow kel-eyebrow--light">Онлайн-школа «Закупки в цифре» · бесплатный практический вебинар</span>
         <h1>Оценка государственного и муниципального имущества при выставлении на торги<span class="kel-hero__sub">практический кейс по токсичным активам</span></h1>
         <p class="kel-hero__desc">Что стоит за отчётом об оценке, кто отвечает, когда бумага расходится с реальностью, и как продать объект, который годами висит в казне. Разбор реального кейса — от оценки до продажи руинированного объекта.</p>
         <div class="kel-hero__actions">
-          <a href="#kel-register" class="kel-btn kel-btn--primary kel-btn--lg">Записаться на вебинар
+          <a href="#kel-register" class="kel-btn kel-btn--primary kel-btn--lg">Записаться бесплатно
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="#kel-program" class="kel-btn kel-btn--ghost kel-btn--lg" style="color:#fff;border-color:rgba(255,255,255,.25)">Смотреть программу</a>
         </div>
         <div class="kel-hero__chips">
           <span class="kel-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>6 октября · 10:00 МСК</span>
+          <span class="kel-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>Участие бесплатное</span>
           <span class="kel-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>Онлайн + запись эфира</span>
           <span class="kel-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M10 21v-6h4v6"/></svg>Разбор реального кейса</span>
           <span class="kel-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Чек-лист заказа оценки</span>
@@ -644,7 +641,7 @@ html.kel-js .kel-reveal.kel-on{opacity:1;transform:none}
     </div>
     <div class="kel-fmt-note kel-reveal">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg>
-      <span><b>Когда:</b> 6 октября 2026, 10:00 по Москве. Онлайн, с доступом к записи после эфира.</span>
+      <span><b>Когда:</b> 6 октября 2026, 10:00 по Москве. Онлайн, участие бесплатное, запись доступна после эфира.</span>
     </div>
   </div>
 </section>
@@ -769,28 +766,28 @@ html.kel-js .kel-reveal.kel-on{opacity:1;transform:none}
 <!-- ═════════ конец БЛОКА 8 ═════════ -->
 
 
-<!-- ═════════ ✂ БЛОК 9. СТОИМОСТЬ ═════════ -->
+<!-- ═════════ ✂ БЛОК 9. УЧАСТИЕ (бесплатно) ═════════ -->
 <section class="kel-sec kel-section kel-price" id="kel-price">
   <div class="kel-wrap">
     <div class="kel-section-head kel-reveal">
-      <span class="kel-eyebrow">Стоимость</span>
-      <h2 class="kel-h2">Участие в вебинаре</h2>
+      <span class="kel-eyebrow">Участие</span>
+      <h2 class="kel-h2">Участие бесплатное — нужна только регистрация</h2>
     </div>
     <div class="kel-price-grid kel-price-grid--one kel-reveal">
       <div class="kel-price-card kel-price-card--hl">
         <div class="kel-price-card__lbl">Вебинар + запись + чек-лист</div>
-        <div class="kel-price-card__val"><span class="kel-ph">[ЦЕНА]</span>&nbsp;₽</div>
-        <div class="kel-price-card__per">за участие одного человека</div>
+        <div class="kel-price-card__val">Бесплатно</div>
+        <div class="kel-price-card__per">6 октября 2026, 10:00 по Москве · онлайн</div>
         <ul class="kel-price-card__list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Живой эфир и вопросы эксперту</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Доступ к записи после эфира</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Чек-лист «Как правильно заказать оценку»</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg>Разбор реального кейса от постановки задачи до сделки</li>
         </ul>
-        <a href="#kel-register" class="kel-btn kel-btn--primary kel-btn--lg kel-btn--block">Записаться на вебинар</a>
+        <a href="#kel-register" class="kel-btn kel-btn--primary kel-btn--lg kel-btn--block">Зарегистрироваться бесплатно</a>
       </div>
     </div>
-    <p class="kel-price-note kel-reveal">Запись — через форму ниже. Для организаций возможно участие нескольких сотрудников — укажите это в заявке.</p>
+    <p class="kel-price-note kel-reveal">Регистрация — через форму ниже. После регистрации пришлём ссылку на эфир. Можно регистрировать нескольких сотрудников организации.</p>
   </div>
 </section>
 <!-- ═════════ конец БЛОКА 9 ═════════ -->
@@ -892,7 +889,7 @@ html.kel-js .kel-reveal.kel-on{opacity:1;transform:none}
       </div>
       <div class="kel-microcta">
         <span class="kel-pulse"></span>
-        <span><b>Эфир 6 октября в 10:00 по Москве.</b> Участие — <span class="kel-ph">[ЦЕНА]</span>&nbsp;₽. Заполните форму ниже, чтобы гарантировать место.</span>
+        <span><b>Эфир 6 октября в 10:00 по Москве.</b> Участие бесплатное. Заполните форму ниже — пришлём ссылку на эфир.</span>
       </div>
     </div>
   </div>
@@ -916,7 +913,7 @@ html.kel-js .kel-reveal.kel-on{opacity:1;transform:none}
         <a href="#kel-offer">О вебинаре</a>
         <a href="#kel-audience">Для кого</a>
         <a href="#kel-program">Программа</a>
-        <a href="#kel-price">Стоимость</a>
+        <a href="#kel-price">Участие</a>
         <a href="#kel-speaker">Спикер</a>
         <a href="#kel-register">Записаться</a>
       </div>
