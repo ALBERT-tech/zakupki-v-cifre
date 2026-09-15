@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Сбер">
+  <defs>
+    <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="87" y1="35" x2="12" y2="60">
+      <stop offset="0" stop-color="#FAED00"/><stop offset=".45" stop-color="#8ACB3A"/><stop offset="1" stop-color="#21A038"/>
+    </linearGradient>
+    <linearGradient id="b" gradientUnits="userSpaceOnUse" x1="10" y1="52" x2="66" y2="12">
+      <stop offset="0" stop-color="#21A038"/><stop offset=".55" stop-color="#10A99A"/><stop offset="1" stop-color="#0FA8E0"/>
+    </linearGradient>
+  </defs>
+  <path d="M87.1 35A40 40 0 1 1 10 50" fill="none" stroke="url(#a)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M10 50A40 40 0 0 1 65 12.9" fill="none" stroke="url(#b)" stroke-width="12" stroke-linecap="round"/>
+  <path d="M29 50L45 66L80.5 19.5" fill="none" stroke="#21A038" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
