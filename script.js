@@ -100,6 +100,14 @@
     });
   }
 
+  // Аккордеон «Программы»: открыта одна программа
+  var progs = document.querySelectorAll('#programs details');
+  progs.forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open) { progs.forEach(function (o) { if (o !== d) { o.open = false; } }); }
+    });
+  });
+
   // Кнопки «Записаться» на карточках курсов — предзаполняем курс в форме записи
   document.querySelectorAll('a[data-course]').forEach(function (el) {
     el.addEventListener('click', function () {
