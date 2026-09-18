@@ -74,7 +74,7 @@
     var today = new Date(); today.setHours(0, 0, 0, 0);
     var html = items.map(function (it, i) {
       var isFree = /бесплатн/i.test(it.price) || parseInt(it.price, 10) === 0;
-      var past = it.date && it.date.day && it.date.d < today;
+      var past = !!(it.date && it.date.day && it.date.d < today);
       var soon = /разработ/i.test(it.status);
       var tag = soon ? 'Скоро' : past ? 'Запись' : isFree ? 'Бесплатно' : 'Набор открыт';
       var tagCls = 'prog__tag' + ((isFree && !soon && !past) ? ' prog__tag--ink' : '');
@@ -144,7 +144,7 @@
     if (!items.length) return;
     var today = new Date(); today.setHours(0, 0, 0, 0);
     items.sort(function (a, b) {
-      var pa = a.date && a.date.day && a.date.d < today, pb = b.date && b.date.day && b.date.d < today;
+      var pa = !!(a.date && a.date.day && a.date.d < today), pb = !!(b.date && b.date.day && b.date.d < today);
       var sa = /разработ/i.test(a.status), sb = /разработ/i.test(b.status);
       if (pa !== pb) return pa ? 1 : -1;          /* прошедшие — вниз */
       if (sa !== sb) return sa ? 1 : -1;          /* «в разработке» — после актуальных */
