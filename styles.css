@@ -293,9 +293,9 @@ body.menu-open .mobile-menu{transform:translateY(0);opacity:1;pointer-events:aut
 .footer__nav{display:flex;gap:30px;flex-wrap:wrap}
 .footer__nav a{font-size:14.5px;color:rgba(255,255,255,.6);transition:color .2s}
 .footer__nav a:hover{color:#fff}
-/* Партнёр школы — Сбер (знак: assets/sber-mark.svg, слово — текстом в шрифте сайта) */
-.sber{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:20px;letter-spacing:-.02em;color:#fff;line-height:1;white-space:nowrap}
-.sber img{width:30px;height:30px;display:block}
+/* Партнёр школы — официальный логотип Сбер А (assets/sber-a-logo.svg) на белой плашке; знак отдельно — assets/sber-mark.svg */
+.sber{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:7px 12px;line-height:0}
+.sber img{height:26px;width:auto;aspect-ratio:1094/251;display:block}
 .footer__partner{display:flex;align-items:center;gap:14px;margin-top:26px}
 .footer__partner-lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
 .footer__req{font-size:12.5px;color:rgba(255,255,255,.4);line-height:1.7;margin-top:18px;max-width:720px}
