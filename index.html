@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Закупки в цифре — практическая онлайн-школа для заказчиков и поставщиков</title>
-<meta name="description" content="Онлайн-школа практических курсов для заказчиков и поставщиков в госзакупках: нейросети и ИИ, участие по 44-ФЗ и 223-ФЗ, бухгалтерия. Практика вместо теории, рабочие инструменты на выходе.">
+<meta name="description" content="Онлайн-школа практических курсов и вебинаров для заказчиков и поставщиков в госзакупках: искусственный интеллект в закупках, 44-ФЗ и 223-ФЗ, бюджетное окружение закупок, оценка имущества при торгах. Расписание ближайших событий, записи эфиров.">
 <meta name="theme-color" content="#14161d">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Закупки в цифре — школа для заказчиков и поставщиков">
-<meta property="og:description" content="Искусственный интеллект в закупках, участие по 44/223-ФЗ, бухгалтерия. Практические онлайн-курсы для обеих сторон закупок.">
+<meta property="og:description" content="Курсы и вебинары от практиков госзакупок: ИИ в закупках, 44-ФЗ и 223-ФЗ, бюджетное окружение закупок. Расписание ближайших событий на одной странице.">
 <meta property="og:locale" content="ru_RU">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,15 +32,16 @@
         </span>
       </a>
       <div class="nav__links">
-        <a href="#catalog">Курсы</a>
-        <a href="#programs">Программы</a>
-        <a href="#how">Как учимся</a>
+        <a href="#schedule">Расписание</a>
+        <a href="#schedule" data-f="Курс">Курсы</a>
+        <a href="#schedule" data-f="Вебинар">Вебинары</a>
         <a href="#experts">Эксперты</a>
+        <a href="#about">О школе</a>
         <a href="course-ai.html">ИИ в закупках</a>
       </div>
       <div class="nav__cta">
-        <a href="#catalog" class="btn btn--ghost">Курсы</a>
-        <a href="#register" class="btn btn--primary">Записаться</a>
+        <a href="https://gc.cifrazakup.ru/cms/system/login" class="btn btn--ghost" rel="noopener" title="Вход для учеников на платформу школы">Войти</a>
+        <a href="#schedule" class="btn btn--primary" id="navCta">Расписание</a>
         <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span></button>
       </div>
     </nav>
@@ -48,26 +49,29 @@
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#catalog">Курсы</a>
-  <a href="#programs">Программы</a>
-  <a href="#how">Как учимся</a>
+  <a href="#schedule">Расписание</a>
+  <a href="#schedule" data-f="Курс">Курсы</a>
+  <a href="#schedule" data-f="Вебинар">Вебинары</a>
   <a href="#experts">Эксперты</a>
+  <a href="#about">О школе</a>
   <a href="course-ai.html">ИИ в закупках</a>
-  <a href="#register" class="btn btn--primary btn--lg btn--block">Записаться</a>
+  <a href="https://gc.cifrazakup.ru/cms/system/login" rel="noopener">Личный кабинет ученика</a>
+  <a href="#register" class="btn btn--primary btn--lg btn--block">Оставить заявку</a>
 </div>
 
-<!-- ===== Hero ===== -->
+<!-- ===== Hero: полоса «Сегодня» + ближайшее событие (или событие по utm-метке) ===== -->
 <section class="hero" id="hero">
   <div class="hero__grid-bg"></div>
   <div class="hero__glow"></div>
+  <div class="today" id="todayBar"><div class="wrap"></div></div>
   <div class="wrap">
     <div class="hero__inner">
       <div>
         <span class="eyebrow eyebrow--light">Онлайн-школа для заказчиков и поставщиков · партнёр ЭТП «Сбер А»</span>
-        <h1><span class="logo-formula logo-formula--light">Закупки<sup>в&nbsp;цифре</sup></span><span class="hero__sub">Практическая школа для заказчиков и поставщиков</span></h1>
-        <p class="hero__desc">Нейросети и ИИ в закупках и тендерах, участие по 44-ФЗ и 223-ФЗ, бухгалтерия. Без воды — только инструменты, которые вы внедряете в работу с первого занятия.</p>
+        <h1><span class="logo-formula logo-formula--light">Закупки<sup>в&nbsp;цифре</sup></span><span class="hero__sub">Курсы и вебинары от практиков госзакупок</span></h1>
+        <p class="hero__desc">Искусственный интеллект в закупках, 44-ФЗ для поставщика, бюджетное окружение закупок, оценка имущества при торгах. Живые эфиры по расписанию, записи остаются у вас 90 дней.</p>
         <div class="hero__actions">
-          <a href="#catalog" class="btn btn--primary btn--lg">Выбрать курс
+          <a href="#schedule" class="btn btn--primary btn--lg">Смотреть расписание
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="course-ai.html" class="btn btn--ghost btn--lg" style="color:#fff;border-color:rgba(255,255,255,.25)">Главный курс: ИИ в закупках</a>
@@ -76,17 +80,12 @@
           <span class="chip chip--partner"><img src="assets/sber-mark.svg" alt="">Партнёр ЭТП «Сбер А»</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4 4 4 0 01-1 2.6A5 5 0 0118 13a5 5 0 01-2 4 4 4 0 01-4 3 4 4 0 01-4-3 5 5 0 01-2-4 5 5 0 013-4.4A4 4 0 016 6a4 4 0 014-4z"/></svg>ИИ-инструменты</span>
           <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14"/></svg>44-ФЗ и 223-ФЗ</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Бухгалтерия</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg>Записи 90 дней</span>
         </div>
       </div>
-      <div class="flow-card reveal">
-        <div class="flow-card__title">Что вы получаете</div>
-        <div class="vflow">
-          <div class="vflow__item"><span class="vflow__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span class="vflow__txt"><b>Личного ИИ-агента</b><span>сводит ваши инструменты в одного помощника</span></span></div>
-          <div class="vflow__item"><span class="vflow__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span class="vflow__txt"><b>Свои инструменты</b><span>макросы, расширения, веб-инструменты</span></span></div>
-          <div class="vflow__item"><span class="vflow__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span class="vflow__txt"><b>Библиотеку промптов</b><span>готовые формулировки под задачи закупок</span></span></div>
-          <div class="vflow__item"><span class="vflow__dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></span><span class="vflow__txt"><b>Доступ к записям</b><span>возвращайтесь к материалам в любой момент</span></span></div>
-        </div>
+      <div class="next" id="nextCard">
+        <div class="next__lbl"><span>Ближайшее событие</span></div>
+        <p class="next__meta">Загружаем расписание…</p>
       </div>
     </div>
   </div>
@@ -97,217 +96,62 @@
   <div class="wrap">
     <div class="trust__row">
       <div class="trust__item trust__item--partner">
-        <span class="trust__ic trust__ic--logo"><img src="assets/sber-mark.svg" alt="Сбер"></span>
+        <span class="trust__ic trust__ic--logo"><img src="assets/sber-mark.svg" alt="Сбер А"></span>
         <div><b>Партнёр ЭТП «Сбер А»</b><span>электронная площадка, бывшая Сбербанк-АСТ</span></div>
       </div>
       <div class="trust__item">
         <span class="trust__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span>
-        <div><b>Без программирования</b><span>ИИ пишет код — вы ставите задачу</span></div>
-      </div>
-      <div class="trust__item">
-        <span class="trust__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg></span>
         <div><b>Практики, а не теоретики</b><span>реальные кейсы заказчиков и поставщиков</span></div>
       </div>
       <div class="trust__item">
+        <span class="trust__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M10 8l5 2-5 2z"/></svg></span>
+        <div><b>Живые эфиры по расписанию</b><span>запись каждого эфира доступна 90 дней</span></div>
+      </div>
+      <div class="trust__item">
         <span class="trust__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></span>
-        <div><b>Результат с первого занятия</b><span>внедряете инструмент сразу в работу</span></div>
+        <div><b>Результат с первого занятия</b><span>инструмент внедряете сразу в работу</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Catalog ===== -->
-<section class="section catalog" id="catalog">
+<!-- ===== Schedule: карточки из Google-таблицы «Расписание для сайта» (schedule.js) ===== -->
+<span id="catalog"></span><span id="programs"></span>
+<section class="section schedule" id="schedule">
   <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Каталог курсов</span>
-      <h2 class="h2">Выберите направление — каждый курс заточен под практику</h2>
-      <p class="lead" style="margin-top:18px">Три трека для обеих сторон закупок — и заказчиков, и поставщиков. Начните с курса по ИИ или с программ по 44-ФЗ, 223-ФЗ и бухгалтерии.</p>
+    <div class="sched-head reveal">
+      <div>
+        <span class="eyebrow">Расписание</span>
+        <h2 class="h2">Ближайшие события школы</h2>
+        <p class="lead">По умолчанию здесь всё: курсы, вебинары, бесплатные эфиры и записи, по дате. Нажмите «Курсы» или «Вебинары», чтобы оставить только их. Раскройте «Подробнее», чтобы увидеть, о чём программа.</p>
+      </div>
+      <div class="flts" id="chips">
+        <button type="button" class="flt on" data-f="all">Все события<span class="flt__n"></span></button>
+        <button type="button" class="flt" data-f="Курс">Курсы<span class="flt__n"></span></button>
+        <button type="button" class="flt" data-f="Вебинар">Вебинары<span class="flt__n"></span></button>
+        <button type="button" class="flt" data-f="free">Бесплатно<span class="flt__n"></span></button>
+        <button type="button" class="flt" data-f="past">Записи<span class="flt__n"></span></button>
+      </div>
     </div>
-    <div class="courses reveal">
-
-      <article class="course-card course-card--flag">
-        <span class="course-card__tag">Главный курс</span>
-        <span class="course-card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4 4 4 0 01-1 2.6A5 5 0 0118 13a5 5 0 01-2 4 4 4 0 01-4 3 4 4 0 01-4-3 5 5 0 01-2-4 5 5 0 013-4.4A4 4 0 016 6a4 4 0 014-4z"/></svg></span>
-        <h3>Искусственный интеллект в закупках</h3>
-        <p class="course-card__desc">Соберите свой ИИ-арсенал: от промптов до личного ИИ-агента закупщика. Макросы, расширения, веб-инструменты под вашу работу — без программирования.</p>
-        <div class="course-card__meta"><span>10 занятий</span><span>раз в неделю</span><span>личный ИИ-агент</span></div>
-        <div class="course-card__foot">
-          <a href="#register" data-course="Искусственный интеллект в закупках" class="btn btn--primary btn--block">Записаться на курс</a>
-          <a href="course-ai.html" class="course-card__link">Смотреть программу
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-        </div>
-      </article>
-
-      <article class="course-card">
-        <span class="course-card__tag">Госзакупки</span>
-        <span class="course-card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M10 21v-6h4v6"/></svg></span>
-        <h3>Участие в закупках: 44-ФЗ и 223-ФЗ</h3>
-        <p class="course-card__desc">Для поставщиков: как уверенно участвовать в государственных и корпоративных закупках — документация, заявки, схемы участия, типовые ошибки и риски.</p>
-        <div class="course-card__meta"><span>с нуля</span><span>практические схемы</span></div>
-        <div class="course-card__foot">
-          <a href="#register" data-course="Госзакупки 44/223-ФЗ" class="btn btn--primary btn--block">Записаться</a>
-          <span class="course-card__soon">Набор открывается</span>
-        </div>
-      </article>
-
-      <article class="course-card">
-        <span class="course-card__tag">Финансы</span>
-        <span class="course-card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18" cy="17" r="3"/></svg></span>
-        <h3>Бухгалтерия для закупок</h3>
-        <p class="course-card__desc">Финансовый учёт для поставщиков и заказчиков: налоги, документы, расчёты по контрактам — простым языком и на реальных примерах.</p>
-        <div class="course-card__meta"><span>для поставщиков и заказчиков</span><span>без сложного жаргона</span></div>
-        <div class="course-card__foot">
-          <a href="#register" data-course="Бухгалтерия" class="btn btn--primary btn--block">Записаться</a>
-          <span class="course-card__soon">Набор открывается</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== Programs on the learning platform (accordion menu) ===== -->
-<section class="section programs" id="programs">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Учебная платформа</span>
-      <h2 class="h2">Курсы и вебинары школы — выберите и переходите к записи</h2>
-      <p class="lead" style="margin-top:18px">Занятия проходят на учебной платформе школы. Раскройте программу: внутри описание, состав занятий и кнопка перехода на страницу записи.</p>
-    </div>
-    <div class="modules reveal">
-
-      <details class="module" open>
-        <summary class="module__head">
-          <span class="module__no">01</span>
-          <span class="module__titles">
-            <span class="module__title">Бюджетное окружение процесса закупок. Просто о сложном</span>
-            <span class="module__sub">Кристина Маркова · 3 занятия онлайн · 9 000 ₽ за курс или 3 000 ₽ за занятие</span>
-          </span>
-          <span class="prog__tag">Набор открыт</span>
-          <span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
-        </summary>
-        <div class="module__body">
-          <p class="prog__desc">Практический курс для заказчиков и финансовых специалистов, работающих на стыке 44-ФЗ и бюджетного процесса. Спикер — специалист управления бюджетного контроля: объясняет, как устроены деньги вокруг закупки и почему платёж по контракту может «встать».</p>
-          <ul>
-            <li>Бюджетный процесс для закупщика: казначейское обслуживание, лицевые счета и роль финансовых органов</li>
-            <li>Планирование и осуществление закупок: блокирующий контроль целевого расходования бюджетных средств</li>
-            <li>Исполнение контракта и его оплата: как работает система казначейских платежей</li>
-          </ul>
-          <div class="prog__foot">
-            <a href="https://gc.cifrazakup.ru/budgetenv" class="btn btn--primary">Перейти на страницу курса <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <span class="course-card__soon">Можно взять весь курс или отдельные занятия</span>
-          </div>
-        </div>
-      </details>
-
-      <details class="module">
-        <summary class="module__head">
-          <span class="module__no">02</span>
-          <span class="module__titles">
-            <span class="module__title">Вебинар «Оценка государственного и муниципального имущества при выставлении на торги»</span>
-            <span class="module__sub">Елена Кельберг · 6 октября 2026, 10:00 МСК · онлайн, участие бесплатное</span>
-          </span>
-          <span class="prog__tag prog__tag--ink">Бесплатно</span>
-          <span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
-        </summary>
-        <div class="module__body">
-          <p class="prog__desc">Практический кейс по токсичным активам: что стоит за отчётом об оценке, кто отвечает, когда бумага расходится с реальностью, и как продать объект, который годами висит в казне. Спикер — оценщик, генеральный директор АНО ДПО «Институт экспертиз Восточной Сибири», вице-президент Ассоциации судебных экспертов Сибири и Дальнего Востока.</p>
-          <ul>
-            <li>Скрытые риски подготовки имущества к торгам и ответственность сторон</li>
-            <li>«Токсичные активы» в муниципальной казне: как распознать и что с ними делать</li>
-            <li>Кейс: оценка и продажа руинированного объекта. Чек-лист «Как правильно заказать оценку» — с собой</li>
-          </ul>
-          <div class="prog__foot">
-            <a href="https://gc.cifrazakup.ru/ocenka_g_m_prop" class="btn btn--primary">Зарегистрироваться бесплатно <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <span class="course-card__soon">Запись эфира — всем зарегистрированным</span>
-          </div>
-        </div>
-      </details>
-
-      <details class="module">
-        <summary class="module__head">
-          <span class="module__no">03</span>
-          <span class="module__titles">
-            <span class="module__title">Вебинар «ИИ в закупках: претензионная работа по 44-ФЗ с помощью нейросети»</span>
-            <span class="module__sub">Альберт Гизатуллин · практический вебинар, 1,5 часа · 1 000 ₽ · запись и материалы доступны 30 дней</span>
-          </span>
-          <span class="prog__tag">Серия «задача — решение»</span>
-          <span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
-        </summary>
-        <div class="module__body">
-          <p class="prog__desc">За 1,5 часа собираем претензию или ответ на неё по вашему контракту и уносим инструменты, чтобы дальше делать это за 20 минут. Пять типовых ситуаций: просрочка поставки, просрочка оплаты, нарушение условий контракта, несоответствующий товар, гарантийные обязательства. Работает в Claude, ChatGPT, DeepSeek и GigaChat, программировать не нужно.</p>
-          <ul>
-            <li>Живые демо на реальных контрактах: как выставить претензию и как на неё ответить — обе стороны</li>
-            <li>С собой: калькулятор пеней, база знаний на 5 ситуаций, шаблоны претензии и ответа, чек-лист «претензия за 20 минут»</li>
-            <li>Первый вебинар серии «ИИ в закупках: задача — решение» — участники выбирают следующую тему</li>
-          </ul>
-          <div class="prog__foot">
-            <a href="https://gc.cifrazakup.ru/gzissues_promo" class="btn btn--primary">Перейти на страницу вебинара <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <span class="course-card__soon">Оплата на странице вебинара, доступ приходит сразу</span>
-          </div>
-        </div>
-      </details>
-
-      <details class="module">
-        <summary class="module__head">
-          <span class="module__no">04</span>
-          <span class="module__titles">
-            <span class="module__title">Искусственный интеллект в закупках — главный курс школы</span>
-            <span class="module__sub">Альберт Гизатуллин · 10 занятий, раз в неделю · личный ИИ-агент на выходе</span>
-          </span>
-          <span class="prog__tag">Главный курс</span>
-          <span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span>
-        </summary>
-        <div class="module__body">
-          <p class="prog__desc">Соберите свой ИИ-арсенал без программирования: промптинг, автоматизация браузера, Excel-макросы, веб-инструменты и расширения. Код пишет ИИ, вы ставите задачу. Итог курса — личный ИИ-агент закупщика, который сводит все инструменты в одного помощника.</p>
-          <ul>
-            <li>Для заказчиков и поставщиков: разбор регламентов и контрактов, документы, анализ характеристик, поиск товаров и поставщиков</li>
-            <li>Домашнее задание каждую неделю — один инструмент, который сразу идёт в работу</li>
-            <li>На выходе: библиотека промптов и шаблонов, свои инструменты, личный ИИ-агент, доступ к записям</li>
-          </ul>
-          <div class="prog__foot">
-            <a href="course-ai.html" class="btn btn--primary">Смотреть программу курса <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="#register" data-course="Искусственный интеллект в закупках" class="prog__link">Оставить заявку на поток <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </div>
-      </details>
-
-    </div>
-    <div class="programs__note reveal"><b>Страницы курсов открываются на учебной платформе школы</b> (gc.cifrazakup.ru): там программа, оплата и доступ к занятиям. Если у программы ещё нет страницы, оставьте заявку через форму ниже.</div>
-  </div>
-</section>
-
-<!-- ===== How it works ===== -->
-<section class="section" id="how">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Как проходит обучение</span>
-      <h2 class="h2">Один формат для всех курсов — короткий путь до результата</h2>
-    </div>
-    <div class="how-grid reveal">
-      <div class="how-card"><div class="how-card__no">01</div><h4>Онлайн, раз в неделю</h4><p>Занятие = 30 минут теории + 30–60 минут живой практики. Без перегруза.</p></div>
-      <div class="how-card"><div class="how-card__no">02</div><h4>Практика на своих задачах</h4><p>Разбираем не абстракции, а реальные документы и кейсы участников.</p></div>
-      <div class="how-card"><div class="how-card__no">03</div><h4>Домашка с пользой</h4><p>Каждую неделю внедряете один инструмент в работу и сразу видите эффект.</p></div>
-      <div class="how-card"><div class="how-card__no">04</div><h4>Инструменты на выходе</h4><p>Уходите с библиотекой, шаблонами и собственным ИИ-агентом.</p></div>
-    </div>
+    <div class="feed" id="feed"></div>
+    <noscript><p class="lead">Расписание курсов и вебинаров и регистрация — на учебной платформе школы: <a href="https://gc.cifrazakup.ru">gc.cifrazakup.ru</a>.</p></noscript>
+    <div class="programs__note reveal"><b>Регистрация и занятия проходят на учебной платформе школы</b> gc.cifrazakup.ru: там программа, оплата и доступ к эфирам. Уже учитесь? <a href="https://gc.cifrazakup.ru/cms/system/login" rel="noopener">Войти в личный кабинет</a>.</div>
   </div>
 </section>
 
 <!-- ===== Experts ===== -->
-<section class="section experts" id="experts">
+<section class="section experts experts--white" id="experts">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Эксперты школы</span>
-      <h2 class="h2">Практики и эксперты, которые знают госзакупки изнутри</h2>
+      <h2 class="h2">Те, кто ведёт эфиры и курсы</h2>
     </div>
-    <div class="exp-grid exp-grid--team reveal">
+    <div class="exp-grid exp-grid--team exp-grid--5 reveal">
       <div class="exp-card">
         <div class="exp-card__ava"><img src="assets/albert.jpg" alt="Альберт Гизатуллин" loading="lazy"></div>
         <div>
           <div class="exp-card__name">Альберт Гизатуллин</div>
-          <div class="exp-card__role">ИИ и нейросети в госзакупках</div>
+          <div class="exp-card__role">ИИ в закупках</div>
           <p class="exp-card__bio">Тендерный аналитик, основатель лаборатории «Тендеры ex machina». Внедряет ИИ в работу заказчиков и поставщиков — от анализа документации до сборки ИИ-агентов.</p>
         </div>
       </div>
@@ -315,34 +159,62 @@
         <div class="exp-card__ava"><img src="assets/obalyaeva.jpg" alt="Юлия Обаляева" loading="lazy"></div>
         <div>
           <div class="exp-card__name">Юлия Обаляева</div>
-          <div class="exp-card__role">Эксперт в госзакупках</div>
-          <p class="exp-card__bio">Заместитель генерального директора электронной площадки «Сбербанк-АСТ» («Сбер А»), кандидат экономических наук. Эксперт по электронным торгам и госзакупкам, спикер форумов «ГОСЗАКАЗ».</p>
+          <div class="exp-card__role">Электронные торги</div>
+          <p class="exp-card__bio">Заместитель генерального директора ЭТП «Сбер А» (бывшая Сбербанк-АСТ), кандидат экономических наук, спикер форумов «ГОСЗАКАЗ».</p>
         </div>
       </div>
       <div class="exp-card">
         <div class="exp-card__ava"><img src="assets/regina.jpg" alt="Регина Герасимова" loading="lazy"></div>
         <div>
           <div class="exp-card__name">Регина Герасимова</div>
-          <div class="exp-card__role">Госзакупки 44/223-ФЗ · бухгалтерия</div>
+          <div class="exp-card__role">44-ФЗ и 223-ФЗ для поставщика</div>
           <p class="exp-card__bio">Действующий специалист по закупкам и финансам. Ведёт программы по 44-ФЗ, 223-ФЗ и бухгалтерскому учёту для поставщиков и заказчиков.</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card__ava"><img src="assets/markova-sq.jpg" alt="Кристина Маркова" loading="lazy"></div>
+        <div>
+          <div class="exp-card__name">Кристина Маркова</div>
+          <div class="exp-card__role">Бюджетный процесс</div>
+          <p class="exp-card__bio">Специалист управления бюджетного контроля. Объясняет, как устроены деньги вокруг закупки и почему платёж по контракту может «встать».</p>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-card__ava"><img src="assets/kelberg-sq.jpg" alt="Елена Кельберг" loading="lazy"></div>
+        <div>
+          <div class="exp-card__name">Елена Кельберг</div>
+          <div class="exp-card__role">Оценка имущества</div>
+          <p class="exp-card__bio">Оценщик, генеральный директор АНО ДПО «Институт экспертиз Восточной Сибири», вице-президент Ассоциации судебных экспертов Сибири и Дальнего Востока.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Outcomes ===== -->
-<section class="section" id="outcomes">
+<!-- ===== About: как проходит обучение + вопросы ===== -->
+<span id="how"></span>
+<section class="section section--cream" id="about">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Что останется после курса</span>
-      <h2 class="h2">Не конспект, а собственный ИИ-арсенал</h2>
+      <span class="eyebrow">Как проходит обучение</span>
+      <h2 class="h2">Один формат для всех программ</h2>
     </div>
-    <div class="outcomes-grid reveal">
-      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span><div><b>Личный ИИ-агент закупщика</b><p>Сводит все ваши инструменты в одного помощника, который работает по шагам.</p></div></div>
-      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6v6H9z"/></svg></span><div><b>Свои инструменты</b><p>Excel-макросы, веб-инструменты и расширение браузера под ваши задачи.</p></div></div>
-      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg></span><div><b>Библиотека промптов и шаблонов</b><p>Готовые формулировки под типовые задачи закупок и тендеров.</p></div></div>
-      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M3 20h2M5 20V8a7 7 0 0114 0v12"/></svg></span><div><b>Навык управлять ИИ — без кода</b><p>Вы ставите задачу — ИИ пишет код. Соберёте инструмент под любую новую задачу.</p></div></div>
+    <div class="how-grid reveal">
+      <div class="how-card"><div class="how-card__no">01</div><h4>Живой эфир по расписанию</h4><p>Вебинары и занятия курсов идут онлайн, вопросы задаёте прямо в эфире.</p></div>
+      <div class="how-card"><div class="how-card__no">02</div><h4>Запись остаётся</h4><p>Каждый эфир доступен в записи 90 дней, у курсов — на весь срок обучения.</p></div>
+      <div class="how-card"><div class="how-card__no">03</div><h4>Домашка с пользой</h4><p>На курсах каждую неделю внедряете один инструмент в работу и сразу видите эффект.</p></div>
+      <div class="how-card"><div class="how-card__no">04</div><h4>Платформа школы</h4><p>Регистрация, оплата, эфиры и записи — в личном кабинете на gc.cifrazakup.ru. <a href="https://gc.cifrazakup.ru/cms/system/login" rel="noopener" class="how-card__link">Войти в кабинет</a></p></div>
+    </div>
+    <div class="section-head sub-head reveal">
+      <span class="eyebrow">Вопросы</span>
+      <h2 class="h2">Что спрашивают перед записью</h2>
+    </div>
+    <div class="faq reveal">
+      <details><summary>Как попасть на вебинар, который идёт сегодня?</summary><p>Нажмите «Подключиться» в жёлтой полосе наверху или на карточке события. Регистрация занимает минуту, ссылка на эфир приходит на почту.</p></details>
+      <details><summary>Что, если я не успеваю на эфир?</summary><p>Зарегистрируйтесь всё равно: запись и материалы придут после эфира и будут доступны 90 дней.</p></details>
+      <details><summary>Курс уже стартовал, можно присоединиться?</summary><p>Да, пока открыт набор потока. Прошедшие занятия выдаём в записи, домашние задания можно сдать позже.</p></details>
+      <details><summary>Где смотреть записи и материалы?</summary><p>В личном кабинете на платформе школы gc.cifrazakup.ru. Вход по почте, которую вы указали при регистрации. Ссылка «Войти» есть в шапке сайта.</p></details>
+      <details><summary>Выдаёте ли документы?</summary><p>По итогам курсов выдаётся сертификат школы, по партнёрским программам — сертификат ЭТП «Сбер А». Сведения об образовательной организации и документы школы опубликованы на сайте.</p></details>
     </div>
   </div>
 </section>
@@ -353,12 +225,12 @@
   <div class="wrap">
     <div class="register__inner">
       <div class="reveal">
-        <span class="eyebrow">Запись на курсы</span>
-        <h2 class="h2">Оставьте заявку — подберём курс и подскажем старт потока</h2>
+        <span class="eyebrow">Подобрать обучение</span>
+        <h2 class="h2">Не знаете, с чего начать? Напишите, подскажем</h2>
         <div class="want-list">
-          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Расскажем про ближайший поток и формат</div>
-          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Поможем выбрать курс под вашу задачу</div>
-          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Ответим на вопросы по программе и цене</div>
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Расскажем про ближайшие потоки и формат</div>
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Поможем выбрать между курсом и вебинаром</div>
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>На вебинары регистрация идёт сразу на платформе, эта форма — для консультации</div>
         </div>
       </div>
       <div class="form-card" id="formCard">
@@ -371,14 +243,12 @@
               <div class="field"><label for="phone">Телефон</label><input type="tel" id="phone" name="phone" placeholder="+7 ___ ___-__-__"></div>
               <div class="field"><label for="contact">Telegram / e-mail</label><input type="text" id="contact" name="contact" placeholder="@username или почта"></div>
             </div>
-            <div class="field"><label for="course">Интересует курс</label>
+            <div class="field"><label for="course">Что интересует</label>
               <select id="course" name="course">
-                <option value="Искусственный интеллект в закупках">Искусственный интеллект в закупках (главный курс)</option>
-                <option value="Госзакупки 44/223-ФЗ">Участие в закупках: 44-ФЗ и 223-ФЗ</option>
-                <option value="Бухгалтерия">Бухгалтерия для закупок</option>
-                <option value="Бюджетное окружение закупок (Маркова)">Бюджетное окружение процесса закупок</option>
-                <option value="Вебинар: оценка имущества (Кельберг, 6 октября)">Вебинар «Оценка имущества при выставлении на торги»</option>
-                <option value="Вебинар: претензионная работа с ИИ">Вебинар «ИИ в закупках: претензионная работа по 44-ФЗ»</option>
+                <option value="Курс «Бюджетное окружение процесса закупок. Просто о сложном»">Курс «Бюджетное окружение процесса закупок. Просто о сложном»</option>
+                <option value="Госзакупки без потерь: 6 занятий по 44-ФЗ для поставщика, подрядчика, исполнителя.">Госзакупки без потерь: 6 занятий по 44-ФЗ</option>
+                <option value="Искусственный интеллект в закупках">Искусственный интеллект в закупках</option>
+                <option value="Оценка государственного и муниципального имущества при выставлении на торги">Вебинар «Оценка имущества при выставлении на торги»</option>
                 <option value="Пока не определился">Пока не определился</option>
               </select>
             </div>
@@ -389,7 +259,7 @@
         <div class="form-success">
           <div class="form-success__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div>
           <h3>Заявка отправлена</h3>
-          <p>Мы свяжемся с вами в ближайшее время и расскажем про старт потока.</p>
+          <p>Мы свяжемся с вами в ближайшее время и расскажем про ближайшие события.</p>
         </div>
       </div>
     </div>
@@ -408,12 +278,12 @@
         </span>
       </a>
       <nav class="footer__nav">
-        <a href="#catalog">Курсы</a>
-        <a href="#programs">Программы</a>
-        <a href="#how">Как учимся</a>
+        <a href="#schedule">Расписание</a>
         <a href="#experts">Эксперты</a>
+        <a href="#about">О школе</a>
         <a href="course-ai.html">ИИ в закупках</a>
-        <a href="#register">Записаться</a>
+        <a href="https://gc.cifrazakup.ru/cms/system/login" rel="noopener">Личный кабинет</a>
+        <a href="#register">Оставить заявку</a>
       </nav>
     </div>
     <div class="footer__partner"><span class="footer__partner-lbl">Партнёр школы</span><span class="sber"><img src="assets/sber-a-logo.svg" alt="Сбер А"></span></div>
