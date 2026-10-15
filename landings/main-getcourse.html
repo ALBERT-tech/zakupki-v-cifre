@@ -397,8 +397,8 @@
     var lbl = utmItem ? (utmItem.isWeb ? 'Вебинар по вашей ссылке' : 'Курс по вашей ссылке') : 'Ближайшее событие';
     var after = items.filter(function (i) { return i !== ev && (i.live || i.state === 'up' || i.state === 'open'); })[0];
     if (cta) {
-      if (utmItem) { cta.textContent = utmItem.isWeb ? (utmItem.state === 'past' ? 'Смотреть запись' : 'Зарегистрироваться') : 'Записаться на курс'; cta.href = utmItem.href; }
-      else { cta.href = '#schedule'; cta.textContent = ev && ev.date ? (ev.live ? 'Сегодня' + (ev.time ? ' в ' + ev.time : '') : 'Ближайшее: ' + (ev.date.day ? ev.date.d.getDate() + ' ' + MONTHS[ev.date.d.getMonth()].slice(0, 3) : MONTHS_NOM[ev.date.d.getMonth()])) : 'Расписание'; }
+      if (utmItem) { cta.textContent = 'Оставить заявку'; cta.href = 'https://cifrazakup.ru/#register'; cta.setAttribute('data-course', utmItem.title); }
+      else { cta.href = '#schedule'; cta.removeAttribute('data-course'); cta.textContent = ev && ev.date ? (ev.live ? 'Сегодня' + (ev.time ? ' в ' + ev.time : '') : 'Ближайшее: ' + (ev.date.day ? ev.date.d.getDate() + ' ' + MONTHS[ev.date.d.getMonth()].slice(0, 3) : MONTHS_NOM[ev.date.d.getMonth()])) : 'Расписание'; }
     }
     if (!ev) { c.innerHTML = '<div class="next__lbl"><span>Ближайшее событие</span></div><p class="next__meta">Пока ничего не запланировано. Оставьте заявку, сообщим о старте.</p>'; return; }
     c.innerHTML = '<div class="next__lbl"><span>' + lbl + '</span><span class="pill ' + ev.cls + '">' + esc(ev.badge) + '</span></div>' +
@@ -440,7 +440,8 @@
     var cur = s.value, seen = {};
     var opts = items.filter(function (i) { if (seen[i.title]) return false; seen[i.title] = 1; return true; }).map(function (i) { return '<option value="' + esc(i.title) + '">' + esc(i.title) + '</option>'; });
     s.innerHTML = opts.join('') + '<option value="Пока не определился">Пока не определился</option>';
-    if (cur) { for (var i = 0; i < s.options.length; i++) if (s.options[i].value === cur) { s.selectedIndex = i; break; } }
+    var want = utmItem ? utmItem.title : cur;
+    if (want) { for (var i = 0; i < s.options.length; i++) if (s.options[i].value === want) { s.selectedIndex = i; break; } }
   }
 
   /* «Оставить заявку» на карточке → подставляем программу в форму (кнопки появляются после отрисовки) */
