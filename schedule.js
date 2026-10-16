@@ -60,6 +60,7 @@
   /* ── даты ── */
   var MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
   var MONTHS_NOM = ['январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь'];
+  var MONTHS_SHORT = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
   var MIDX = {}; MONTHS.forEach(function (m, i) { MIDX[m] = i; }); MONTHS_NOM.forEach(function (m, i) { MIDX[m] = i; });
   function inMonth(i) { var m = MONTHS_NOM[i]; return /[ьй]$/.test(m) ? m.slice(0, -1) + 'е' : m + 'е'; }
   var curYear = new Date().getFullYear();
@@ -83,11 +84,13 @@
     if (dt.end) return dt.d.getMonth() === dt.end.getMonth() ? dt.d.getDate() + '–' + dt.end.getDate() + ' ' + MONTHS[dt.d.getMonth()] : dayStr(dt.d) + ' – ' + dayStr(dt.end);
     return dayStr(dt.d);
   }
+  /* крупная дата: числа большие, месяцы маленькие серые рядом; диапазон — два числа через тире */
   function dateBig(dt, time) {
-    if (!dt) return '<b>—</b><span>дата уточняется</span>';
-    if (!dt.day) return '<b>' + MONTHS_NOM[dt.d.getMonth()].slice(0, 3) + '</b><span>' + dt.d.getFullYear() + '</span>';
-    if (dt.end && dt.d.getMonth() === dt.end.getMonth()) return '<b>' + dt.d.getDate() + '–' + dt.end.getDate() + '</b><span>' + MONTHS[dt.d.getMonth()] + '</span>';
-    return '<b>' + dt.d.getDate() + '</b><span>' + MONTHS[dt.d.getMonth()] + (dt.end ? ' – ' + dayStr(dt.end) : '') + '</span>' + (time ? '<small>' + esc(time) + ' МСК</small>' : '');
+    if (!dt) return '<span class="d d--muted">—</span><span class="m">дата уточняется</span>';
+    if (!dt.day) return '<span class="d">' + MONTHS_SHORT[dt.d.getMonth()] + '</span><span class="m">' + dt.d.getFullYear() + '</span>';
+    var one = function (d) { return '<span class="d">' + d.getDate() + '</span><span class="m">' + MONTHS_SHORT[d.getMonth()] + '</span>'; };
+    var html = one(dt.d) + (dt.end ? '<span class="dash">–</span>' + one(dt.end) : '');
+    return html + (time && !dt.end ? '<small>' + esc(time) + ' МСК</small>' : '');
   }
 
   /* ── утилиты ── */
