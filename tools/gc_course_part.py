@@ -6,7 +6,8 @@ ROOT, css_all, form_js, api_line уже определены).
 
 На GetCourse ставится ОДИН блок «HTML-код» из landings/gc-course-ai-block.html; он подтягивает gc-course-ai.js
 с cifrazakup.ru, поэтому правки course-ai.html появляются на GetCourse сами после пересборки и пуша.
-Оплаты на странице нет: форма заявки уходит на наш бэкенд (как на сайте), программа — PDF с cifrazakup.ru."""
+Оплаты на странице нет: форма заявки уходит на наш бэкенд (как на сайте), кнопки программы ведут на страницу
+GetCourse /course_ai_program (полный текст программы, tools/build_gc_program.py), PDF скачивается оттуда."""
 import io, os, re, json
 
 course = io.open(os.path.join(ROOT, 'course-ai.html'), encoding='utf-8').read()
@@ -31,6 +32,15 @@ def gc_links(html):
     html = html.replace('href="svedeniya.html"', 'href="%ssvedeniya.html"' % SITE_URL)
     left = re.findall(r'(?:src|href)="(?!https?:|mailto:|tel:|#)([^"]+)"', html)
     assert not left, left
+    # программа на GetCourse — своя страница с полным текстом (tools/build_gc_program.py), PDF скачивается оттуда
+    pdf = 'href="%sdocuments/01-programma-ii-v-zakupkah.pdf"' % SITE_URL
+    assert html.count(pdf) == 5, html.count(pdf)
+    html = html.replace(pdf, 'href="%scourse_ai_program"' % GC)
+    for old, new in (('Программа курса (PDF)', 'Программа курса'), ('Открыть программу (PDF)', 'Открыть программу'),
+                     ('Программа (PDF)', 'Полная программа'), ('PDF, 3 страницы · ', '')):
+        assert old in html, old
+        html = html.replace(old, new)
+    assert 'PDF' not in re.sub(r'<[^>]+>', '', html), 'на странице курса GetCourse остался текст PDF'
     return html
 
 
@@ -41,18 +51,18 @@ assert 'cz-top' in header_c and 'burger' not in header_c
 body_c = course_section('<!-- ===== Hero', '<!-- ===== Footer')
 footer_c = course_section('<!-- ===== Footer', '<script src="script.js')
 page_c = '<div class="cz">' + gc_links(header_c + body_c + footer_c) + '</div>'
-assert 'id="leadForm"' in page_c and 'id="program"' in page_c and 'documents/01-programma-ii-v-zakupkah.pdf' in page_c
+assert 'id="leadForm"' in page_c and 'id="program"' in page_c and page_c.count(GC + 'course_ai_program') == 5
 assert 'Златоуст' not in page_c and 'кв. 196' not in page_c
 
 css_course = css_all + (
-    "\n/* страница курса на GetCourse: кнопка PDF в шапке видна до 560px, ниже она есть в первом экране */\n"
+    "\n/* страница курса на GetCourse: кнопка «Полная программа» в шапке видна до 560px, ниже она есть в первом экране */\n"
     "@media(max-width:560px){.cz .cz-top .nav__cta .btn--ghost{display:none}}\n"
 )
 
 bundle_c = (
     "/* Страница курса «Искусственный интеллект в закупках» для GetCourse (gc.cifrazakup.ru/course_ai). НЕ ПРАВИТЬ РУКАМИ:\n"
     "   собирается tools/build_main_getcourse.py (часть gc_course_part.py) из course-ai.html, styles.css, script.js.\n"
-    "   Оплаты нет: заявка уходит на бэкенд школы, программа — PDF на cifrazakup.ru. */\n"
+    "   Оплаты нет: заявка уходит на бэкенд школы, программа — страница gc.cifrazakup.ru/course_ai_program. */\n"
     "(function () {\n"
     "  'use strict';\n"
     "  var root = document.getElementById('cz-course');\n"
