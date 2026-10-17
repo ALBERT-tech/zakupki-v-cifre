@@ -137,3 +137,6 @@ print('written', OUT, len(data.encode('utf-8')), 'bytes;', 'blocks', len(blocks)
 
 # встраиваемая версия главной (один блок на GetCourse)
 exec(io.open(os.path.join(ROOT, 'tools', 'gc_embed_part.py'), encoding='utf-8').read())
+
+# страница курса «Искусственный интеллект в закупках» (один блок на GetCourse, без оплаты)
+exec(io.open(os.path.join(ROOT, 'tools', 'gc_course_part.py'), encoding='utf-8').read())
