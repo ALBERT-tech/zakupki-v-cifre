@@ -406,3 +406,13 @@ body.menu-open .mobile-menu{transform:translateY(0);opacity:1;pointer-events:aut
 .faq summary{cursor:pointer;padding:18px 0;font-weight:800;color:var(--ink);list-style:none;display:flex;justify-content:space-between;gap:12px;font-size:16.5px}
 .faq summary::-webkit-details-marker{display:none} .faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1;flex:none} .faq details[open] summary::after{content:"–"}
 .faq p{padding-bottom:18px;color:var(--muted);font-size:15px;line-height:1.55}
+
+/* ===== Карточка документа (кнопка на утверждённую программу, course-ai.html) ===== */
+.doc-card{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:20px 24px;margin-bottom:22px;background:var(--paper);border:1.5px solid var(--accent);border-radius:var(--radius);box-shadow:0 0 0 4px var(--accent-tint)}
+.doc-card__ic{width:48px;height:48px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.doc-card__ic svg{width:24px;height:24px}
+.doc-card__txt{flex:1;min-width:220px}
+.doc-card__txt b{display:block;font-size:17px;color:var(--ink);letter-spacing:-.01em}
+.doc-card__txt span{display:block;font-size:13.5px;color:var(--muted);margin-top:3px}
+.doc-card .btn{padding:13px 24px;font-size:15px}
+@media(max-width:560px){.doc-card .btn{width:100%}}

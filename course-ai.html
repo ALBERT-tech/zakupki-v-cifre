@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Искусственный интеллект в закупках — главный курс школы «Закупки в цифре»</title>
-<meta name="description" content="Практический курс «Искусственный интеллект в закупках»: 10 занятий. Не просто пользуйтесь нейросетями — соберите свои инструменты (макросы, расширения, веб-инструменты) и личного ИИ-агента закупщика. Без программирования — код пишет ИИ.">
+<title>Искусственный интеллект в закупках — курс школы «Закупки в цифре»</title>
+<meta name="description" content="Курс «Искусственный интеллект в закупках»: 20 академических часов, 10 недель, один вебинар в неделю. ИИ на каждом этапе закупки — от поиска и анализа документации до заявки, переписки и исполнения контракта. Без программирования.">
 <meta name="theme-color" content="#14161d">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Искусственный интеллект в закупках — соберите личного ИИ-агента закупщика">
-<meta property="og:description" content="10 занятий практики. На выходе — личный ИИ-агент и набор собственных инструментов под вашу работу. Без кода: ИИ делает, вы направляете.">
+<meta property="og:title" content="Искусственный интеллект в закупках — курс школы «Закупки в цифре»">
+<meta property="og:description" content="10 тем по этапам закупки: поиск, анализ документации, цены, заявка, переписка, автоматизация, исполнение контракта. 20 ак. часов, вебинар раз в неделю, итоговое тестирование и сертификат.">
 <meta property="og:locale" content="ru_RU">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +16,12 @@
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=20261017">
 </head>
 <body>
+
+<!-- Содержание страницы согласовано с утверждённой программой (приказ № 1 от 21.09.2026,
+     documents/01-programma-ii-v-zakupkah.pdf). Темы, часы, формы контроля и аттестация — только из программы. -->
 
 <!-- ===== Header ===== -->
 <header class="header" id="header">
@@ -32,13 +35,13 @@
         </span>
       </a>
       <div class="nav__links">
-        <a href="index.html#catalog">Все курсы</a>
+        <a href="index.html#schedule">Расписание</a>
         <a href="#program">Программа</a>
-        <a href="#speaker">Спикер</a>
-        <a href="#course-register">Записаться</a>
+        <a href="#format">Как проходит</a>
+        <a href="#speaker">Преподаватель</a>
       </div>
       <div class="nav__cta">
-        <a href="index.html" class="btn btn--ghost">Все курсы</a>
+        <a href="documents/01-programma-ii-v-zakupkah.pdf" class="btn btn--ghost" target="_blank" rel="noopener">Программа (PDF)</a>
         <a href="#course-register" class="btn btn--primary">Записаться</a>
         <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span></button>
       </div>
@@ -47,9 +50,11 @@
 </header>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#catalog">Все курсы</a>
+  <a href="index.html#schedule">Расписание школы</a>
   <a href="#program">Программа</a>
-  <a href="#speaker">Спикер</a>
+  <a href="documents/01-programma-ii-v-zakupkah.pdf" target="_blank" rel="noopener">Программа курса (PDF)</a>
+  <a href="#format">Как проходит обучение</a>
+  <a href="#speaker">Преподаватель</a>
   <a href="#course-register" class="btn btn--primary btn--lg btn--block">Записаться</a>
 </div>
 
@@ -60,29 +65,32 @@
   <div class="wrap">
     <div class="hero__inner">
       <div>
-        <span class="eyebrow eyebrow--light">Главный курс · 10 занятий</span>
-        <h1>Искусственный интеллект в закупках<span class="hero__sub">Не просто пользуйтесь нейросетями — соберите свои инструменты</span></h1>
-        <p class="hero__desc">За 10 недель вы научитесь управлять ИИ так, чтобы он работал за вас: автоматизировал браузер, писал макросы, собирал ваши веб-инструменты и расширения. На выходе — <b style="color:#fff">личный ИИ-агент закупщика</b>, который сводит всё в одного помощника. Программировать не нужно: код пишет ИИ, вы ставите задачу.</p>
+        <span class="eyebrow eyebrow--light">Курс школы · 20 академических часов · 10 недель</span>
+        <h1>Искусственный интеллект в закупках<span class="hero__sub">ИИ на каждом этапе закупки — от поиска до исполнения контракта</span></h1>
+        <p class="hero__desc">Курс для специалистов по закупкам, поставщиков и руководителей. Научитесь находить и отбирать закупки, разбирать документацию, оценивать цены, готовить заявку и деловую переписку с помощью нейросетей — и проверять результат. Рутину автоматизируете без навыков программирования.</p>
         <div class="hero__actions">
           <a href="#course-register" class="btn btn--primary btn--lg">Записаться на курс
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="#program" class="btn btn--ghost btn--lg" style="color:#fff;border-color:rgba(255,255,255,.25)">Смотреть программу</a>
+          <a href="documents/01-programma-ii-v-zakupkah.pdf" class="btn btn--ghost btn--lg" target="_blank" rel="noopener" style="color:#fff;border-color:rgba(255,255,255,.25)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+            Программа курса (PDF)
+          </a>
         </div>
         <div class="hero__chips">
           <span class="chip chip--partner"><img src="assets/sber-mark.svg" alt="">Партнёр ЭТП «Сбер А»</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>10 занятий</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>Раз в неделю</span>
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4 4 4 0 01-1 2.6A5 5 0 0118 13a5 5 0 01-2 4 4 4 0 01-4 3 4 4 0 01-4-3 5 5 0 01-2-4 5 5 0 013-4.4A4 4 0 016 6a4 4 0 014-4z"/></svg>Личный ИИ-агент на выходе</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>10 тем · 10 недель</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Вебинар раз в неделю</span>
+          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Без программирования</span>
         </div>
       </div>
       <div class="flow-card reveal">
-        <div class="flow-card__title">Формат занятия</div>
+        <div class="flow-card__title">Как устроено обучение</div>
         <div class="vflow">
-          <div class="vflow__item"><span class="vflow__dot">1</span><span class="vflow__txt"><b>30 минут теории</b><span>коротко и по делу, без воды</span></span></div>
-          <div class="vflow__item"><span class="vflow__dot">2</span><span class="vflow__txt"><b>30–60 минут практики</b><span>собираем инструмент вживую</span></span></div>
-          <div class="vflow__item"><span class="vflow__dot">3</span><span class="vflow__txt"><b>Домашка двух уровней</b><span>базовый и для амбициозных</span></span></div>
-          <div class="vflow__item"><span class="vflow__dot">★</span><span class="vflow__txt"><b>Доступ к записям</b><span>возвращайтесь к материалам в любой момент</span></span></div>
+          <div class="vflow__item"><span class="vflow__dot">1</span><span class="vflow__txt"><b>Вебинар раз в неделю</b><span>2 академических часа в прямом эфире</span></span></div>
+          <div class="vflow__item"><span class="vflow__dot">2</span><span class="vflow__txt"><b>Практическое задание</b><span>к каждой теме, на ваших закупках</span></span></div>
+          <div class="vflow__item"><span class="vflow__dot">3</span><span class="vflow__txt"><b>Записи и материалы</b><span>в личном кабинете на платформе школы</span></span></div>
+          <div class="vflow__item"><span class="vflow__dot">★</span><span class="vflow__txt"><b>Итоговое тестирование</b><span>и сертификат о прохождении обучения</span></span></div>
         </div>
       </div>
     </div>
@@ -94,127 +102,155 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Для кого курс</span>
-      <h2 class="h2">Для обеих сторон госзакупок — и заказчиков, и поставщиков</h2>
-      <p class="lead" style="margin-top:18px">Везде, где есть документация, ТЗ, контракты и расчёты, ИИ-инструмент экономит часы. Программировать не нужно — нужно желание перестать делать рутину руками.</p>
+      <h2 class="h2">Для тех, кто работает с закупками по 44-ФЗ, 223-ФЗ и в коммерческих закупках</h2>
+      <p class="lead" style="margin-top:18px">Везде, где есть документация, ТЗ, контракты и расчёты, нейросеть экономит часы. Программировать не нужно — нужно желание перестать делать рутину руками.</p>
     </div>
     <div class="how-grid reveal">
-      <div class="how-card"><div class="how-card__no">01</div><h4>Заказчики и закупщики</h4><p>Специалисты и руководители, которые проводят закупки и тонут в рутине.</p></div>
-      <div class="how-card"><div class="how-card__no">02</div><h4>Поставщики и участники</h4><p>Те, кто участвует в тендерах и считает цену выхода на конкурс.</p></div>
-      <div class="how-card"><div class="how-card__no">03</div><h4>Руководители и ИП</h4><p>Кто хочет, чтобы ИИ-инструменты работали на команду и на бизнес.</p></div>
-      <div class="how-card"><div class="how-card__no">04</div><h4>Новички в нейросетях</h4><p>Стартуем с нуля: доступ, первые промпты, первый собранный инструмент.</p></div>
+      <div class="how-card"><div class="how-card__no">01</div><h4>Специалисты по закупкам</h4><p>Контрактные управляющие и закупщики заказчиков, которые работают с документацией и сроками.</p></div>
+      <div class="how-card"><div class="how-card__no">02</div><h4>Поставщики и участники</h4><p>Те, кто ищет закупки, готовит заявки и исполняет контракты.</p></div>
+      <div class="how-card"><div class="how-card__no">03</div><h4>Руководители</h4><p>Кто хочет, чтобы ИИ-инструменты работали на отдел закупок и на бизнес.</p></div>
+      <div class="how-card"><div class="how-card__no">04</div><h4>Новички в нейросетях</h4><p>Начинаем с основ: как устроены модели, как ставить задачу и проверять ответ.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== Outcomes ===== -->
+<!-- ===== Outcomes (по разделу 2 программы) ===== -->
 <section class="section" id="outcomes">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Что вы получите</span>
-      <h2 class="h2">Не конспект, а собственный ИИ-арсенал</h2>
+      <span class="eyebrow">Результаты обучения</span>
+      <h2 class="h2">Что вы будете уметь после курса</h2>
     </div>
     <div class="outcomes-grid reveal">
-      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4 4 4 0 01-1 2.6A5 5 0 0118 13a5 5 0 01-2 4 4 4 0 01-4 3 4 4 0 01-4-3 5 5 0 01-2-4 5 5 0 013-4.4A4 4 0 016 6a4 4 0 014-4z"/></svg></span><div><b>Личный ИИ-агент закупщика</b><p>Помощник, который сводит все ваши инструменты в один и работает по шагам.</p></div></div>
-      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6v6H9z"/></svg></span><div><b>Свои инструменты</b><p>Excel-макросы, веб-инструменты и расширение браузера — под ваши задачи.</p></div></div>
-      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span><div><b>Библиотека промптов и шаблонов</b><p>Готовые формулировки для типовых задач закупок и тендеров.</p></div></div>
-      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Навык управлять ИИ — без кода</b><p>Вы ставите задачу — ИИ пишет код. Сможете собрать инструмент под любую новую задачу.</p></div></div>
+      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><div><b>Находить и отбирать закупки</b><p>Настраивать поиск и мониторинг закупок и приоритизировать их под профиль компании с помощью ИИ.</p></div></div>
+      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h4"/></svg></span><div><b>Быстро разбирать документацию</b><p>Проводить экспресс-анализ ТЗ и проекта контракта и выявлять риски с помощью ИИ.</p></div></div>
+      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></span><div><b>Готовить документы и переписку</b><p>Готовить проекты документов заявки и деловой переписки с поддержкой ИИ и проверять их корректность.</p></div></div>
+      <div class="outcome"><span class="outcome__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></span><div><b>Автоматизировать рутину</b><p>Автоматизировать рутинные операции закупочной деятельности без навыков программирования.</p></div></div>
     </div>
+    <p class="lead reveal" style="margin-top:26px;font-size:15.5px">А также знать устройство закупочного цикла по 44-ФЗ, 223-ФЗ и в коммерческих закупках в нужном для работы с ИИ объёме, возможности, ограничения и риски языковых моделей и правила обращения с конфиденциальными данными в ИИ-сервисах.</p>
   </div>
 </section>
 
-<!-- ===== Program ===== -->
+<!-- ===== Program (учебный план и содержание — разделы 3 и 5 программы) ===== -->
 <section class="section catalog" id="program">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Программа курса</span>
-      <h2 class="h2">10 занятий — от первого промпта до личного ИИ-агента</h2>
-      <p class="lead" style="margin-top:18px">Каждое занятие добавляет вашему агенту новое умение. Нажмите, чтобы раскрыть содержание.</p>
+      <h2 class="h2">10 тем по этапам закупки — по 2 академических часа</h2>
+      <p class="lead" style="margin-top:18px">Учебный план утверждённой дополнительной общеразвивающей программы. Нажмите на тему, чтобы раскрыть содержание.</p>
     </div>
+
+    <div class="doc-card reveal">
+      <span class="doc-card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+      <div class="doc-card__txt">
+        <b>Программа «Искусственный интеллект в закупках» полностью</b>
+        <span>Утверждена приказом № 1 от 21.09.2026 · PDF, 3 страницы · учебный план, содержание тем, формы аттестации</span>
+      </div>
+      <a href="documents/01-programma-ii-v-zakupkah.pdf" class="btn btn--primary" target="_blank" rel="noopener">Открыть программу (PDF)</a>
+    </div>
+
     <div class="modules reveal">
 
       <details class="module" open>
-        <summary class="module__head"><span class="module__no">01</span><span class="module__titles"><span class="module__title">Вход в ИИ: ландшафт и установка</span><span class="module__sub">С чего начать и какой инструмент под какую задачу</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">01</span><span class="module__titles"><span class="module__title">Рынок закупок и место ИИ</span><span class="module__sub">Обзор 44-ФЗ, 223-ФЗ и коммерческих закупок · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>Нейросети, языковые модели (LLM) и ИИ-агенты — простыми словами</li>
-          <li>Облачные, локальные и браузерные инструменты; Claude Code как «исполнитель»</li>
-          <li>Доступ: VPN и без него, регистрация, оплата, установка</li>
-        </ul></div>
+          <li>Роль закупок в экономике, различия 44-ФЗ, 223-ФЗ и коммерческих закупок</li>
+          <li>Возможности и границы применения ИИ на каждом этапе закупочного цикла</li>
+        </ul><div class="module__hw"><b>Контроль:</b> практическое задание.</div></div>
       </details>
 
       <details class="module">
-        <summary class="module__head"><span class="module__no">02</span><span class="module__titles"><span class="module__title">Промптинг и достоверность</span><span class="module__sub">Как формулировать, чтобы получать точные ответы</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">02</span><span class="module__titles"><span class="module__title">Основы работы с нейросетями</span><span class="module__sub">Модели, промптинг, ограничения и риски · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>Структура промпта: роль, контекст, задача, формат</li>
-          <li>Галлюцинации: как распознать и чем снизить</li>
-        </ul><div class="module__hw"><b>Домашка:</b> 2 рабочих промпта под свои задачи.</div></div>
+          <li>Как устроены большие языковые модели</li>
+          <li>Приёмы постановки задач (промптинг) и проверка результатов</li>
+          <li>Конфиденциальность данных и типовые ошибки доверия ИИ</li>
+        </ul><div class="module__hw"><b>Контроль:</b> практическое задание.</div></div>
       </details>
 
       <details class="module">
-        <summary class="module__head"><span class="module__no">03</span><span class="module__titles"><span class="module__title">Анализ закупки и документы промптами</span><span class="module__sub">ИИ разбирает документацию за вас</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">03</span><span class="module__titles"><span class="module__title">Поиск и мониторинг закупок с помощью ИИ</span><span class="module__sub">Агрегаторы, автопоиски · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>Регламенты, проекты контрактов, неценовые критерии</li>
-          <li>Запрос разъяснений, претензия, сравнение характеристик</li>
-        </ul></div>
+          <li>Настройка поиска и мониторинга закупок в агрегаторах</li>
+          <li>ИИ для фильтрации и приоритизации найденных закупок под профиль компании</li>
+        </ul><div class="module__hw"><b>Контроль:</b> практическое задание.</div></div>
       </details>
 
       <details class="module">
-        <summary class="module__head"><span class="module__no">04</span><span class="module__titles"><span class="module__title">Браузерная автоматизация</span><span class="module__sub">ИИ-ассистент действует прямо на странице</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">04</span><span class="module__titles"><span class="module__title">Экспресс-анализ документации закупки с ИИ</span><span class="module__sub">ТЗ, проект контракта, риски · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>Comet и Claude в браузере: помощник на странице площадки</li>
-          <li>Автозаполнение форм; выгрузка данных со страниц ЕИС и площадок</li>
-        </ul></div>
+          <li>Быстрый разбор технического задания и проекта контракта с помощью ИИ</li>
+          <li>Обязательные требования, документы на товар, риски и штрафные санкции</li>
+        </ul><div class="module__hw"><b>Контроль:</b> практическое задание.</div></div>
       </details>
 
       <details class="module">
-        <summary class="module__head"><span class="module__no">05</span><span class="module__titles"><span class="module__title">Excel и данные: ИИ считает за вас</span><span class="module__sub">Формулы и макросы под ваши таблицы</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">05</span><span class="module__titles"><span class="module__title">Анализ рынка и цен с ИИ</span><span class="module__sub">НМЦК, конкуренты, история закупок · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>ИИ пишет макрос — вы вставляете и запускаете</li>
-          <li>Обработка реестра закупок, сводки, расчёты</li>
-        </ul><div class="module__hw"><b>Домашка:</b> макрос под свою таблицу.</div></div>
+          <li>Оценка ёмкости рынка и цен, анализ истории закупок</li>
+          <li>Расчёт целесообразности участия и подготовка ценового предложения с поддержкой ИИ</li>
+        </ul><div class="module__hw"><b>Контроль:</b> практическое задание.</div></div>
       </details>
 
       <details class="module">
-        <summary class="module__head"><span class="module__no">06</span><span class="module__titles"><span class="module__title">Claude Code: собираем инструмент. GitHub</span><span class="module__sub">Вы ставите задачу — ИИ пишет код</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">06</span><span class="module__titles"><span class="module__title">Подготовка заявки с помощью ИИ</span><span class="module__sub">Формы, первые части, типовые ошибки · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>Принципы вайбкодинга: как ставить задачу и проверять результат</li>
-          <li>GitHub — где живёт и публикуется ваш инструмент</li>
-        </ul><div class="module__hw"><b>Домашка:</b> первый мини-инструмент под свою задачу.</div></div>
+          <li>Формирование заявки: соответствие формам, подготовка первых частей</li>
+          <li>Проверка комплектности с ИИ и типовые причины отклонения заявок</li>
+        </ul><div class="module__hw"><b>Контроль:</b> практическое задание.</div></div>
       </details>
 
       <details class="module">
-        <summary class="module__head"><span class="module__no">07</span><span class="module__titles"><span class="module__title">Веб-инструмент без сервера (HTML)</span><span class="module__sub">Своё мини-приложение в браузере</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">07</span><span class="module__titles"><span class="module__title">Деловая переписка и защита интересов</span><span class="module__sub">Запросы разъяснений, жалобы · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>Калькулятор цены выхода, генератор письма, чек-лист</li>
-          <li>Публикация ссылкой на GitHub Pages</li>
-        </ul><div class="module__hw"><b>Домашка:</b> свой инструмент опубликован ссылкой.</div></div>
+          <li>Запросы разъяснений, ответы заказчику, жалобы: структура документов и тональность</li>
+          <li>Подготовка проектов документов с ИИ</li>
+        </ul><div class="module__hw"><b>Контроль:</b> практическое задание.</div></div>
       </details>
 
       <details class="module">
-        <summary class="module__head"><span class="module__no">08</span><span class="module__titles"><span class="module__title">Своё расширение браузера</span><span class="module__sub">Кнопка-помощник на странице площадки</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">08</span><span class="module__titles"><span class="module__title">Автоматизация рутины</span><span class="module__sub">Таблицы, отчёты, ИИ-агенты без программирования · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>Автозаполнение и выгрузка прямо на площадке</li>
-          <li>ИИ собирает расширение — устанавливаем локально</li>
-        </ul><div class="module__hw"><b>Домашка:</b> расширение под своё действие.</div></div>
+          <li>Автоматизация повторяющихся операций: работа с таблицами, сводные отчёты</li>
+          <li>Простые ИИ-сценарии без навыков программирования</li>
+        </ul><div class="module__hw"><b>Контроль:</b> практическое задание.</div></div>
       </details>
 
       <details class="module">
-        <summary class="module__head"><span class="module__no">09</span><span class="module__titles"><span class="module__title">ИИ-агенты</span><span class="module__sub">Помощник, который работает по шагам</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">09</span><span class="module__titles"><span class="module__title">ИИ на этапе исполнения контракта</span><span class="module__sub">Документы, акты, претензионная работа · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>Агент vs промпт: инструкции, инструменты, данные</li>
-          <li>Собираем агента «анализ закупки под ключ»</li>
-        </ul><div class="module__hw"><b>Домашка:</b> рабочий агент под свою задачу.</div></div>
+          <li>Документооборот исполнения контракта: акты, счета, переписка</li>
+          <li>Претензионная работа с использованием ИИ-инструментов</li>
+        </ul><div class="module__hw"><b>Контроль:</b> практическое задание.</div></div>
       </details>
 
       <details class="module">
-        <summary class="module__head"><span class="module__no">10</span><span class="module__titles"><span class="module__title">Итоговый проект: личный ИИ-агент закупщика</span><span class="module__sub">Сводим всё в одного помощника — и защищаем</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
+        <summary class="module__head"><span class="module__no">10</span><span class="module__titles"><span class="module__title">Личная система работы с ИИ в закупках</span><span class="module__sub">Итоговая аттестация · 2 ак. ч</span></span><span class="module__toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></summary>
         <div class="module__body"><ul>
-          <li>Объединяем промпты, макрос, веб-инструмент и расширение в личного ИИ-агента</li>
-          <li>Защита итоговой работы на реальном кейсе</li>
-        </ul><div class="module__hw"><b>Итог:</b> личный ИИ-агент закупщика — ваш на всю работу.</div></div>
+          <li>Сборка индивидуальной системы работы с ИИ под задачи слушателя</li>
+          <li>Итоговое тестирование</li>
+        </ul><div class="module__hw"><b>Контроль:</b> итоговое тестирование.</div></div>
       </details>
 
     </div>
-    <p class="lead reveal" style="margin-top:26px;font-size:15.5px">А ещё — факультативные видео для желающих: локальные модели, Telegram-боты, углублённая работа с агентами.</p>
+    <p class="lead reveal" style="margin-top:22px;font-size:15.5px"><b style="color:var(--ink)">Итого 20 академических часов.</b> Все темы проходят в формате вебинара.</p>
+  </div>
+</section>
+
+<!-- ===== Format (разделы 4, 6, 7 программы) ===== -->
+<section class="section" id="format">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Как проходит обучение</span>
+      <h2 class="h2">Онлайн, раз в неделю, с практикой и итоговым тестированием</h2>
+    </div>
+    <div class="how-grid reveal">
+      <div class="how-card"><div class="how-card__no">01</div><h4>10 недель, один поток</h4><p>Один вебинар в неделю продолжительностью 2 академических часа. Старт — по мере набора группы.</p></div>
+      <div class="how-card"><div class="how-card__no">02</div><h4>Полностью дистанционно</h4><p>Заочная форма с применением электронного обучения. Вебинары, записи, задания и тестирование — на платформе школы.</p></div>
+      <div class="how-card"><div class="how-card__no">03</div><h4>Практика к каждой теме</h4><p>Текущий контроль — практические задания к темам 1–9 в личном кабинете.</p></div>
+      <div class="how-card"><div class="how-card__no">04</div><h4>Тест и сертификат</h4><p>Итоговое тестирование из 20 вопросов, зачёт от 70% верных ответов. Выдаётся сертификат о прохождении обучения.</p></div>
+    </div>
+    <p class="lead reveal" style="margin-top:22px;font-size:14.5px">Сертификат не является документом об образовании и (или) о квалификации. Категория слушателей — взрослые (18+). Сведения о школе и документы — на странице <a href="svedeniya.html" style="color:var(--accent);font-weight:700;text-decoration:underline">«Сведения об образовательной организации»</a>.</p>
   </div>
 </section>
 
@@ -222,8 +258,8 @@
 <section class="section experts" id="speaker">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Спикер курса</span>
-      <h2 class="h2">Ведёт практик, который сам строит ИИ-инструменты</h2>
+      <span class="eyebrow">Преподаватель курса</span>
+      <h2 class="h2">Ведёт практик закупок и ИИ-инструментов</h2>
     </div>
     <div class="exp-grid reveal" style="grid-template-columns:1fr">
       <div class="exp-card">
@@ -231,7 +267,7 @@
         <div>
           <div class="exp-card__name">Альберт Гизатуллин</div>
           <div class="exp-card__role">Тендерный аналитик · «Тендеры ex machina»</div>
-          <p class="exp-card__bio">Каждый день работает с реальными закупками и строит ИИ-инструменты — от анализа документации до собственных агентов и расширений. Ведёт Telegram-канал об ИИ в тендерах и госзакупках. На курсе — только то, что проверено на практике: рабочие промпты, макросы, инструменты и приёмы, которые экономят часы.</p>
+          <p class="exp-card__bio">Каждый день работает с реальными закупками и применяет ИИ на всех этапах — от поиска и анализа документации до подготовки документов и претензионной работы. Ведёт Telegram-канал об ИИ в тендерах и госзакупках. На курсе — приёмы, проверенные на практике.</p>
         </div>
       </div>
     </div>
@@ -247,9 +283,10 @@
         <span class="eyebrow">Запись на курс</span>
         <h2 class="h2">«Искусственный интеллект в закупках» — оставьте заявку на ближайший поток</h2>
         <div class="want-list">
-          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>10 занятий практики — раз в неделю</div>
-          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>На выходе — личный ИИ-агент и набор своих инструментов</div>
-          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Без программирования: ИИ делает, вы направляете</div>
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>20 академических часов: 10 недель, вебинар раз в неделю</div>
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>ИИ на каждом этапе закупки — от поиска до исполнения контракта</div>
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Без программирования, с практикой на ваших закупках</div>
+          <div class="want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span><a href="documents/01-programma-ii-v-zakupkah.pdf" target="_blank" rel="noopener" style="color:var(--green-light);text-decoration:underline;font-weight:700">Программа курса (PDF)</a></span></div>
         </div>
       </div>
       <div class="form-card" id="formCard">
@@ -289,13 +326,15 @@
         </span>
       </a>
       <nav class="footer__nav">
-        <a href="index.html#catalog">Все курсы</a>
+        <a href="index.html#schedule">Расписание</a>
         <a href="#program">Программа</a>
-        <a href="#speaker">Спикер</a>
+        <a href="documents/01-programma-ii-v-zakupkah.pdf" target="_blank" rel="noopener">Программа (PDF)</a>
+        <a href="#speaker">Преподаватель</a>
+        <a href="https://gc.cifrazakup.ru/cms/system/login" rel="noopener">Личный кабинет</a>
         <a href="#course-register">Записаться</a>
       </nav>
     </div>
-    <div class="footer__partner"><span class="footer__partner-lbl">Партнёр школы</span><span class="sber"><img src="assets/sber-mark.svg" alt="">Сбер А</span></div>
+    <div class="footer__partner"><span class="footer__partner-lbl">Партнёр школы</span><span class="sber"><img src="assets/sber-a-logo.svg" alt="Сбер А"></span></div>
     <p class="footer__req">ИП Герасимова Регина Гарифьяновна · ИНН 740416503778 · ОГРНИП 325745600086173 · г. Уфа. Партнёр ЭТП «Сбер А». Информация на сайте не является публичной офертой.</p>
     <div class="footer__bottom">
       <span>© 2026 Закупки в цифре · <a href="privacy.html" style="color:rgba(255,255,255,.6)">Политика обработки данных</a> · <a href="oferta.html" style="color:rgba(255,255,255,.6)">Договор-оферта</a> · <a href="svedeniya.html" style="color:rgba(255,255,255,.6)">Сведения об образовательной организации</a></span>
@@ -304,7 +343,7 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
-<script src="chatbot.js"></script>
+<script src="script.js?v=20261017"></script>
+<script src="chatbot.js?v=20261017"></script>
 </body>
 </html>
