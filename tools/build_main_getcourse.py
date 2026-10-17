@@ -84,6 +84,8 @@ extra = '''
 .cz .hero__actions .btn--ghost{color:#fff;border-color:rgba(255,255,255,.28)}
 .cz .section{padding:80px 0}
 .cz img{max-width:100%}
+/* анимация появления на сайте включается script.js; здесь его нет — показываем сразу */
+.cz .reveal{opacity:1;transform:none;transition:none}
 '''
 
 hero = section('<!-- ===== Hero', '<!-- ===== Trust')
@@ -132,3 +134,6 @@ parts.append('\n\n<!-- ✂ ======================== КОНЕЦ =================
 data = ''.join(parts)
 io.open(OUT, 'w', encoding='utf-8-sig', newline='\n').write(data)
 print('written', OUT, len(data.encode('utf-8')), 'bytes;', 'blocks', len(blocks))
+
+# встраиваемая версия главной (один блок на GetCourse)
+exec(io.open(os.path.join(ROOT, 'tools', 'gc_embed_part.py'), encoding='utf-8').read())
