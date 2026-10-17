@@ -4,6 +4,9 @@
   'use strict';
   var root = document.getElementById('cz-root');
   if (!root || root.getAttribute('data-ready')) return;
+  /* страница GetCourse — flex-строка: без этого блок не сжимается уже самой длинной строки и появляется горизонтальная прокрутка */
+  var blk = root.closest ? root.closest('.lt-block') : null;
+  if (blk) { blk.style.minWidth = '0'; blk.style.maxWidth = '100%'; blk.style.width = '100%'; blk.style.flex = '1 1 100%'; }
   var head = document.head || document.getElementsByTagName('head')[0];
   if (!document.getElementById('cz-font')) { var l = document.createElement('link'); l.id = 'cz-font'; l.rel = 'stylesheet';
     l.href = 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap'; head.appendChild(l); }
