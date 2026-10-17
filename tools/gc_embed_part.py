@@ -19,11 +19,15 @@ trust = section('<!-- ===== Trust', '<!-- ===== Schedule')
 register = section('<!-- ===== Register', '<!-- ===== Footer')
 footer = section('<!-- ===== Footer', '<script src="script.js')
 page_html = '<div class="cz">' + ''.join(absolutize(x) for x in (header_lite, hero, trust, sched, experts, about, register, footer)) + '</div>'
+# курс ИИ на платформе — своя страница /course_ai (для лицензии курс должен жить в ЭИОС GetCourse), на главной GetCourse он центральный
+GC_COURSE = 'https://gc.cifrazakup.ru/course_ai'
+assert page_html.count('https://cifrazakup.ru/course-ai.html') == 3, page_html.count('https://cifrazakup.ru/course-ai.html')
+page_html = page_html.replace('https://cifrazakup.ru/course-ai.html', GC_COURSE)
 assert 'id="leadForm"' in page_html and 'id="feed"' in page_html and 'id="nextCard"' in page_html
 
-js_embed = js.replace("var AI_COURSE_PAGE = 'course-ai.html';", "var AI_COURSE_PAGE = 'https://cifrazakup.ru/course-ai.html';")
+js_embed = js.replace("var AI_COURSE_PAGE = 'course-ai.html';", "var AI_COURSE_PAGE = '" + GC_COURSE + "';")
 js_embed = js_embed.replace("document.querySelector('.hero')", "document.querySelector('.cz .hero')")
-assert "cifrazakup.ru/course-ai.html" in js_embed
+assert GC_COURSE in js_embed and "cifrazakup.ru/course-ai.html" not in page_html
 
 site_js = io.open(os.path.join(ROOT, 'script.js'), encoding='utf-8').read()
 a = site_js.index('  // Lead form'); b = site_js.index('  // Аккордеон')
