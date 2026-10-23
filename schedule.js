@@ -139,12 +139,21 @@
       it.visible = /публикац|разработ/i.test(it.status);
       if (!it.link && /интеллект/i.test(it.title)) it.link = AI_COURSE_PAGE;
       var diff = it.date ? dayDiff(it.date.d, today) : null, endDiff = it.date && it.date.end ? dayDiff(it.date.end, today) : null;
-      if (it.soon) { it.state = 'soon'; it.badge = 'Скоро'; it.cls = 'pill--muted'; it.btn = it.link ? 'Подробнее о курсе' : 'Оставить заявку'; it.href = it.link || '#register'; }
+      /* занятие курса, заведённое отдельной строкой (тег «Занятие N», одна дата): своя дата, номер «N из M», после даты — прошедшее */
+      var lessonTag = it.isWeb ? null : it.tags.filter(function (t) { return /^занятие\s*\d+$/i.test(t); })[0];
+      it.lesson = !!(lessonTag && it.date && it.date.day && !it.date.end);
+      if (it.soon) { it.state = 'soon'; it.badge = 'Скоро'; it.cls = 'pill--muted'; it.btn = it.link ? (it.isWeb ? 'Зарегистрироваться' : 'Подробнее о курсе') : 'Оставить заявку'; it.href = it.link || '#register'; }
       else if (!it.date) { it.state = 'open'; it.badge = 'Идёт набор'; it.cls = 'pill--ok'; it.btn = 'Подробнее'; it.href = it.link || '#register'; }
       else if (it.isWeb) {
         if (diff === 0) { it.state = 'today'; it.badge = 'Сегодня' + (it.time ? ' в ' + it.time + ' МСК' : ''); it.cls = 'pill--live'; it.btn = 'Подключиться'; it.href = it.link || '#register'; }
         else if (diff > 0) { it.state = 'up'; it.badge = diff === 1 ? 'Завтра' : diff <= 7 ? 'Через ' + diff + ' дн.' : 'Регистрация открыта'; it.cls = diff <= 7 ? 'pill--hot' : 'pill--ok'; it.btn = it.free ? 'Зарегистрироваться бесплатно' : 'Зарегистрироваться'; it.href = it.link || '#register'; }
         else { it.state = 'past'; it.badge = 'Запись доступна'; it.cls = 'pill--muted'; it.btn = 'Смотреть запись'; it.href = it.link || '#register'; }
+      } else if (it.lesson) {
+        var ln = parseInt(lessonTag.replace(/\D+/g, ''), 10), lt = parseInt(it.dur, 10);
+        it.tags = it.tags.filter(function (t) { return t !== lessonTag; });
+        if (diff === 0) { it.state = 'today'; it.badge = 'Сегодня' + (it.time ? ' в ' + it.time + ' МСК' : ''); it.cls = 'pill--live'; it.btn = 'Подключиться'; it.href = it.link || '#register'; }
+        else if (diff > 0) { it.state = 'up'; it.badge = 'Занятие ' + ln + (lt >= ln ? ' из ' + lt : ''); it.cls = diff <= 7 ? 'pill--hot' : 'pill--ok'; it.btn = 'Записаться'; it.href = it.link || '#register'; }
+        else { it.state = 'past'; it.badge = 'Занятие ' + ln + ' прошло'; it.cls = 'pill--muted'; it.btn = it.free ? 'Смотреть запись' : 'Получить запись'; it.href = it.link || '#register'; }
       } else {
         if (!it.date.day) { it.state = diff >= 0 ? 'up' : 'open'; it.badge = diff >= 0 ? 'Старт в ' + inMonth(it.date.d.getMonth()) + ' ' + it.date.d.getFullYear() : 'Идёт набор'; it.cls = 'pill--ok'; it.btn = 'Записаться'; it.href = it.link || '#register'; }
         else if (diff > 0) { it.state = 'up'; it.badge = 'Старт ' + dayStr(it.date.d); it.cls = diff <= 7 ? 'pill--hot' : 'pill--ok'; it.btn = 'Записаться'; it.href = it.link || '#register'; }
@@ -155,12 +164,13 @@
       it.live = it.state === 'today' || (it.state === 'open' && diff === 0);
       return it;
     }).filter(function (it) { return it.visible; });
-    var rank = { today: 0, up: 1, open: 2, soon: 3, past: 4 };
-    function rk(i) { return i.live ? 0 : rank[i.state]; }
+    /* порядок: сегодня → всё с датой по возрастанию (в том числе «Скоро») → без даты по «Порядку на сайте» → прошедшее, свежее выше */
+    function grp(i) { if (i.live) return 0; if (i.state === 'past' || (i.date && i.diff < 0 && i.state === 'soon')) return 3; return i.date ? 1 : 2; }
     items.sort(function (a, b) {
-      if (rk(a) !== rk(b)) return rk(a) - rk(b);
-      if (a.state === 'past') return b.date.d - a.date.d;
-      if (a.date && b.date) return a.date.d - b.date.d;
+      var ga = grp(a), gb = grp(b);
+      if (ga !== gb) return ga - gb;
+      if (ga === 3) return b.date.d - a.date.d || a.order - b.order;
+      if (a.date && b.date && a.date.d - b.date.d) return a.date.d - b.date.d;
       return a.order - b.order;
     });
     utmItem = null;
