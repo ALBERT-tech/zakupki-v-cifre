@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Практикум заказчика: закупка ПО, ПП 1875 и отчёт по СМСП — три вебинара Ольги Мухиной · Закупки в цифре</title>
+<meta name="description" content="Три вебинара для заказчиков: особенности закупок программного обеспечения (12 ноября), описание объекта закупки по ПП 1875 (19 ноября), годовой отчёт по закупкам у СМСП (3 декабря). 10:00 МСК, 500 ₽ за вебинар. Спикер — Ольга Мухина, ЭТП «Сбер А».">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<style>body{margin:0}</style>
+</head>
+<body>
+<!-- ПРЕВЬЮ (черновик). Версию для ГетКурса (блоки, UTF-8 с BOM) собрать после согласования. -->
+<!-- ═════════════════════════════════════════════════════════════════════
+  «ПРАКТИКУМ ЗАКАЗЧИКА» · три вебинара · спикер — Ольга Мухина
+  Онлайн-школа «Закупки в цифре» · cifrazakup.ru
+  Префикс классов muh-. Страница собрана из независимых блоков (✂), как лендинг Кельберг.
+
+  Данные — из таблицы «Расписание ЦифраЗакуп» (строки Мухиной, статус «В разработке»):
+    1) 12.11.2026 10:00 МСК — Особенности проведения закупок программного обеспечения — 500 ₽ — utm mukhina1
+    2) 19.11.2026 10:00 МСК — Описание объекта закупки с учётом особенностей по ПП 1875 — 500 ₽ — utm mukhina2
+    3) 03.12.2026 10:00 МСК — Годовой отчёт по закупкам у СМСП — 500 ₽ — utm mukhina3
+  Пункты программы — дословно из перечня тем спикера, исправлены опечатки («ОПКД 2» → «ОКПД2»).
+  Название серии «Практикум заказчика» — рабочее, согласовать.
+
+  Открытые вопросы до наката: одна страница с тремя предложениями ГетКурса или три страницы;
+  есть ли цена за все три вебинара; письменное согласие спикера на фото и имя (правило 7).
+
+  Фото спикера: https://cifrazakup.ru/assets/muhina.jpg (портрет), muhina-sq.jpg (квадрат) — опубликованы.
+═════════════════════════════════════════════════════════════════════ -->
+
+<!-- ═════════ ✂ БЛОК 0. СТИЛИ + СКРИПТ — вставить первым ═════════ -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Плавная прокрутка по якорям */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ── База: каждый блок лендинга несёт класс .muh-sec и самодостаточен ── */
+.muh-sec{
+  --ink:#14161d;
+  --paper:#ffffff;
+  --cream:#f5f6f3;
+  --cream-2:#eef0ea;
+  --line:#e4e6e0;
+  --line-dark:rgba(255,255,255,.12);
+  --text:#1a1d26;
+  --muted:#5c616e;
+  --muted-2:#8a8f9c;
+  --accent:#0e8a52;
+  --accent-2:#0a6c40;
+  --accent-soft:#e7f3ec;
+  --accent-tint:#f1f8f4;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(20,22,29,.04),0 8px 30px rgba(20,22,29,.06);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ff:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  margin:0;
+  font-family:var(--ff);color:var(--text);background:var(--paper);
+  font-size:17px;line-height:1.6;font-weight:400;text-align:left;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.muh-sec,.muh-sec *,.muh-sec *::before,.muh-sec *::after{box-sizing:border-box}
+.muh-sec h1,.muh-sec h2,.muh-sec h3,.muh-sec h4{margin:0;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--ink);font-family:inherit}
+.muh-sec p{margin:0}
+.muh-sec a{color:inherit;text-decoration:none}
+.muh-sec ul{margin:0;padding:0;list-style:none}
+.muh-sec img{max-width:100%}
+.muh-sec ::selection{background:var(--accent);color:#fff}
+
+.muh-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
+.muh-section{padding:104px 0;position:relative}
+@media(max-width:860px){.muh-section{padding:68px 0}}
+
+.muh-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.muh-eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+.muh-eyebrow--light{color:#5fd29a}
+.muh-eyebrow--light::before{background:#5fd29a}
+
+.muh-h2{font-size:clamp(28px,4.2vw,46px)}
+.muh-lead{font-size:clamp(17px,2vw,20px);color:var(--muted);line-height:1.62;max-width:760px}
+.muh-section-head{max-width:820px;margin-bottom:54px}
+@media(max-width:860px){.muh-section-head{margin-bottom:38px}}
+
+/* ── Кнопки ── */
+.muh-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--ff);font-weight:700;font-size:16px;letter-spacing:-.01em;padding:16px 30px;border-radius:50px;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);white-space:nowrap;text-decoration:none}
+.muh-btn svg{width:18px;height:18px}
+.muh-btn--primary{background:var(--accent);color:#fff;box-shadow:0 10px 26px -10px rgba(14,138,82,.7)}
+.muh-btn--primary:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(14,138,82,.8)}
+.muh-btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.muh-btn--ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+.muh-btn--lg{padding:19px 38px;font-size:17px}
+.muh-btn--block{width:100%}
+/* страховка: ссылки-кнопки не наследуют цвет секции (перебивают .muh-sec a) */
+a.muh-btn--primary{color:#fff}
+a.muh-btn--ghost{color:var(--ink)}
+
+/* ── Шапка ── */
+.muh-header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);border-bottom:1px solid transparent;background:transparent}
+.muh-header.muh-scrolled{background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(20,22,29,.02)}
+.muh-nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.muh-brand,a.muh-brand{display:flex;align-items:center;gap:13px;color:#fff;transition:color .3s var(--ease)}
+.muh-header.muh-scrolled .muh-brand{color:var(--ink)}
+.muh-brand__mark{width:38px;height:38px;border-radius:9px;background:var(--ink);display:grid;place-items:center;flex:none}
+.muh-brand__mark span{width:16px;height:16px;border-radius:4px;background:var(--accent)}
+.muh-brand__txt{display:flex;flex-direction:column;line-height:1.05}
+.muh-brand__name{font-weight:800;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.muh-brand__sub{font-size:11px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.6);text-transform:uppercase;transition:color .3s var(--ease)}
+.muh-header.muh-scrolled .muh-brand__sub{color:var(--muted)}
+.muh-nav__links{display:flex;align-items:center;gap:32px}
+.muh-nav__links a{font-size:15px;font-weight:600;color:rgba(255,255,255,.78);transition:color .2s var(--ease)}
+.muh-nav__links a:hover{color:#fff}
+.muh-header.muh-scrolled .muh-nav__links a{color:var(--muted)}
+.muh-header.muh-scrolled .muh-nav__links a:hover{color:var(--ink)}
+.muh-nav__cta{display:flex;align-items:center;gap:14px}
+.muh-nav .muh-btn{padding:11px 22px;font-size:14.5px}
+.muh-header:not(.muh-scrolled) .muh-nav__cta .muh-btn--primary{background:#fff;color:var(--ink);box-shadow:none}
+.muh-header:not(.muh-scrolled) .muh-nav__cta .muh-btn--primary:hover{background:var(--accent);color:#fff}
+.muh-header:not(.muh-scrolled) .muh-nav__cta .muh-btn--ghost{color:#fff;border-color:rgba(255,255,255,.28)}
+.muh-header:not(.muh-scrolled) .muh-nav__cta .muh-btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.muh-burger{display:none;width:44px;height:44px;border:1px solid var(--line-dark);border-radius:10px;background:transparent;cursor:pointer;padding:0;place-items:center}
+.muh-burger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.3s var(--ease)}
+.muh-burger span::before,.muh-burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px;transition:.3s var(--ease)}
+.muh-burger span::before{top:-6px}.muh-burger span::after{top:6px}
+.muh-header.muh-scrolled .muh-burger{border-color:var(--line)}
+.muh-header.muh-scrolled .muh-burger span,.muh-header.muh-scrolled .muh-burger span::before,.muh-header.muh-scrolled .muh-burger span::after{background:var(--ink)}
+body.muh-menu-open .muh-burger span{background:transparent}
+body.muh-menu-open .muh-burger span::before{top:0;transform:rotate(45deg)}
+body.muh-menu-open .muh-burger span::after{top:0;transform:rotate(-45deg)}
+.muh-mobile-menu{position:fixed;inset:0;z-index:55;background:var(--ink);padding:96px 28px 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-100%);opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .3s var(--ease)}
+body.muh-menu-open .muh-mobile-menu{transform:translateY(0);opacity:1;pointer-events:auto}
+.muh-mobile-menu a{color:#fff;font-size:22px;font-weight:700;padding:16px 0;border-bottom:1px solid var(--line-dark)}
+.muh-mobile-menu .muh-btn{margin-top:24px}
+@media(max-width:880px){
+  .muh-nav__links{display:none}
+  .muh-nav__cta .muh-btn--ghost{display:none}
+  .muh-burger{display:grid}
+}
+@media(max-width:560px){
+  .muh-nav{height:64px}
+  .muh-brand{gap:10px}
+  .muh-brand__mark{width:34px;height:34px}
+  .muh-brand__mark span{width:14px;height:14px}
+  .muh-brand__name{font-size:15.5px}
+  .muh-brand__sub{display:none}
+  .muh-nav .muh-btn{padding:10px 17px;font-size:14px}
+}
+/* узкие телефоны: бренд и кнопка «Записаться» не наезжают друг на друга */
+@media(max-width:400px){
+  .muh-wrap{padding:0 20px}
+  .muh-nav__cta{gap:8px}
+  .muh-nav .muh-btn{padding:9px 13px;font-size:13.5px}
+  .muh-brand__name{font-size:15px}
+}
+
+/* ── Hero ── */
+/* 148px сверху — под фиксированную шапку. Без шапки поставьте 96px. */
+.muh-hero{position:relative;background:var(--ink);color:#fff;padding:148px 0 100px;overflow:hidden}
+.muh-hero__grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 100% 80% at 70% 0%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 100% 80% at 70% 0%,#000 30%,transparent 75%)}
+.muh-hero__glow{position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(14,138,82,.32),transparent 65%);top:-220px;right:-160px;filter:blur(10px);pointer-events:none}
+.muh-hero .muh-wrap{position:relative;z-index:2}
+.muh-hero__inner{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+@media(max-width:980px){.muh-hero__inner{grid-template-columns:1fr;gap:48px}}
+.muh-hero h1{font-size:clamp(36px,5.6vw,64px);line-height:1.04;letter-spacing:-.03em;color:#fff}
+.muh-hero__sub{display:block;font-size:clamp(22px,3.2vw,34px);font-weight:600;color:#5fd29a;margin-top:14px;letter-spacing:-.02em}
+.muh-hero__desc{margin-top:28px;font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.72);max-width:560px;line-height:1.6}
+.muh-hero__actions{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.muh-hero__chips{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.muh-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--line-dark);border-radius:50px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.85)}
+.muh-chip svg{width:15px;height:15px;color:#5fd29a}
+.muh-flow-card{background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:20px;padding:30px 28px;backdrop-filter:blur(4px)}
+.muh-flow-card__title{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.muh-flow-card__head{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:24px}
+.muh-vflow{display:flex;flex-direction:column}
+.muh-vflow__item{display:flex;align-items:flex-start;gap:16px;position:relative;padding-bottom:22px}
+.muh-vflow__item:last-child{padding-bottom:0}
+.muh-vflow__item:not(:last-child)::before{content:"";position:absolute;left:15px;top:34px;bottom:0;width:2px;background:linear-gradient(var(--accent),rgba(95,210,154,.25))}
+.muh-vflow__dot{width:32px;height:32px;border-radius:50%;background:rgba(14,138,82,.16);border:1.5px solid var(--accent);color:#5fd29a;display:grid;place-items:center;font-size:13px;font-weight:800;flex:none;z-index:1}
+.muh-vflow__txt b{display:block;font-size:16px;color:#fff;font-weight:700;letter-spacing:-.01em}
+.muh-vflow__txt span{font-size:13.5px;color:rgba(255,255,255,.55)}
+
+/* ── Цепочка этапов ── */
+.muh-offer{background:var(--cream)}
+.muh-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:46px 0 8px;counter-reset:muhstep}
+.muh-chain__step{position:relative;padding:30px 26px;background:var(--paper);border:1px solid var(--line);counter-increment:muhstep}
+.muh-chain__step:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+.muh-chain__step:last-child{border-radius:0 var(--radius) var(--radius) 0}
+.muh-chain__step:not(:first-child){border-left:none}
+.muh-chain__step::after{content:"";position:absolute;right:-11px;top:50%;transform:translateY(-50%) rotate(45deg);width:20px;height:20px;background:var(--paper);border-top:1px solid var(--line);border-right:1px solid var(--line);z-index:2}
+.muh-chain__step:last-child::after{display:none}
+.muh-chain__num{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.1em}
+.muh-chain__num::before{content:"0" counter(muhstep)}
+.muh-chain__step h4{font-size:18px;margin-top:12px;letter-spacing:-.01em}
+.muh-chain__step p{font-size:14px;color:var(--muted);margin-top:7px}
+@media(max-width:760px){
+  .muh-chain{grid-template-columns:1fr}
+  .muh-chain__step{border-radius:0!important;border-left:1px solid var(--line)!important}
+  .muh-chain__step:first-child{border-radius:var(--radius) var(--radius) 0 0!important}
+  .muh-chain__step:last-child{border-radius:0 0 var(--radius) var(--radius)!important}
+  .muh-chain__step:not(:first-child){border-top:none}
+  .muh-chain__step::after{right:auto;left:50%;top:auto;bottom:-11px;transform:translateX(-50%) rotate(135deg)}
+}
+.muh-checklist{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+@media(max-width:860px){.muh-checklist{grid-template-columns:1fr}}
+.muh-check-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.muh-check-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d4d8cf}
+.muh-check-ic{width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:18px}
+.muh-check-ic svg{width:23px;height:23px}
+.muh-check-card p{font-size:15.5px;color:var(--text);line-height:1.55}
+
+/* ── Для кого ── */
+.muh-aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.muh-aud-grid{grid-template-columns:1fr}}
+.muh-aud-item{display:flex;align-items:flex-start;gap:16px;padding:24px 26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:border-color .3s var(--ease),background .3s var(--ease)}
+.muh-aud-item:hover{border-color:var(--accent);background:var(--accent-tint)}
+.muh-aud-item__ic{width:44px;height:44px;border-radius:11px;background:var(--cream-2);color:var(--ink);display:grid;place-items:center;flex:none;transition:background .3s var(--ease),color .3s var(--ease)}
+.muh-aud-item:hover .muh-aud-item__ic{background:var(--accent);color:#fff}
+.muh-aud-item__ic svg{width:22px;height:22px}
+.muh-aud-item p{font-size:16px;font-weight:600;color:var(--text);line-height:1.45;padding-top:8px}
+.muh-org-note{margin-top:30px;padding:26px 30px;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);font-size:16px;color:var(--text);line-height:1.6;display:flex;gap:18px;align-items:flex-start}
+.muh-org-note svg{width:26px;height:26px;color:var(--accent);flex:none;margin-top:2px}
+
+/* ── Зачем сейчас ── */
+.muh-why{background:var(--ink);color:#fff}
+.muh-why h2{color:#fff}
+.muh-why__inner{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+@media(max-width:980px){.muh-why__inner{grid-template-columns:1fr;gap:40px}}
+.muh-pain-list{display:flex;flex-direction:column;gap:14px}
+.muh-pain{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:14px}
+.muh-pain__x{width:30px;height:30px;border-radius:8px;background:rgba(180,68,31,.18);color:#ff8d63;display:grid;place-items:center;flex:none}
+.muh-pain__x svg{width:17px;height:17px}
+.muh-pain p{font-size:15.5px;color:rgba(255,255,255,.88);line-height:1.5}
+.muh-why__solve{margin-top:28px;padding:26px 28px;border-radius:16px;background:linear-gradient(135deg,rgba(14,138,82,.2),rgba(14,138,82,.06));border:1px solid rgba(95,210,154,.3)}
+.muh-why__solve b{color:#5fd29a}
+.muh-why__solve p{font-size:16.5px;color:rgba(255,255,255,.92);line-height:1.6}
+
+/* ── Результаты ── */
+.muh-outcomes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.muh-outcomes-grid{grid-template-columns:1fr}}
+.muh-outcome{display:flex;gap:22px;align-items:flex-start;padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.muh-outcome:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.muh-outcome__num{font-size:40px;font-weight:800;line-height:1;color:var(--cream-2);letter-spacing:-.04em;flex:none;-webkit-text-stroke:1px var(--line)}
+.muh-outcome:hover .muh-outcome__num{color:var(--accent-soft);-webkit-text-stroke:1px var(--accent)}
+.muh-outcome p{font-size:16px;color:var(--text);line-height:1.5;padding-top:4px}
+.muh-result-banner{margin-top:30px;display:flex;align-items:center;gap:18px;padding:26px 30px;background:var(--ink);color:#fff;border-radius:var(--radius)}
+.muh-result-banner svg{width:30px;height:30px;color:#5fd29a;flex:none}
+.muh-result-banner p{font-size:17px;line-height:1.5}
+.muh-result-banner b{color:#5fd29a}
+
+/* ── Формат ── */
+.muh-format{background:var(--cream)}
+.muh-fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:30px}
+@media(max-width:760px){.muh-fmt-grid{grid-template-columns:1fr}}
+.muh-fmt-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px}
+.muh-fmt-card__big{font-size:46px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.muh-fmt-card__lbl{font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-top:10px}
+.muh-fmt-card p{font-size:14.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+.muh-fmt-note{display:flex;align-items:center;gap:14px;padding:22px 26px;border:1px dashed var(--line);border-radius:var(--radius);background:var(--paper);font-size:15.5px;color:var(--text)}
+.muh-fmt-note svg{width:22px;height:22px;color:var(--accent);flex:none}
+.muh-fmt-note b{color:var(--ink)}
+
+/* ── Программа ── */
+.muh-modules{display:flex;flex-direction:column;gap:18px}
+.muh-module{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.muh-module:hover{box-shadow:var(--shadow);border-color:#d4d8cf}
+.muh-module__head{display:flex;align-items:center;gap:22px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:26px 30px;font-family:var(--ff);list-style:none}
+.muh-module__head::-webkit-details-marker{display:none}
+.muh-module__no{font-size:14px;font-weight:800;color:var(--accent);letter-spacing:.1em;flex:none;width:54px}
+.muh-module__titles{flex:1;min-width:0}
+.muh-module__title{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.muh-module__sub{display:block;font-size:14.5px;color:var(--muted);margin-top:6px;font-style:italic}
+.muh-module__price{flex:none;padding:7px 14px;border-radius:50px;background:var(--accent-soft);color:var(--accent-2);font-size:13.5px;font-weight:800;white-space:nowrap}
+@media(max-width:640px){.muh-module__price{display:none}}
+.muh-module__toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:background .3s var(--ease),transform .3s var(--ease),border-color .3s var(--ease)}
+.muh-module__toggle svg{width:18px;height:18px;color:var(--ink);transition:transform .3s var(--ease)}
+.muh-module[open] .muh-module__toggle{background:var(--accent);border-color:var(--accent)}
+.muh-module[open] .muh-module__toggle svg{color:#fff;transform:rotate(45deg)}
+.muh-module__body{padding:0 30px 30px 106px}
+@media(max-width:640px){.muh-module__body{padding:0 24px 26px 24px}.muh-module__head{padding:22px 24px;gap:14px}.muh-module__no{width:auto}}
+.muh-module__body ul{display:flex;flex-direction:column;gap:11px;border-top:1px solid var(--line);padding-top:22px}
+.muh-module__body li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.muh-module__body li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+
+/* ── Участие (карточка условий) ── */
+.muh-price{background:var(--cream)}
+.muh-price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:920px}
+@media(max-width:760px){.muh-price-grid{grid-template-columns:1fr}}
+.muh-price-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:38px 34px;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.muh-price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.muh-price-card--hl{background:var(--ink);border-color:var(--ink);color:#fff}
+.muh-price-card__lbl{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+.muh-price-card--hl .muh-price-card__lbl{color:#5fd29a}
+.muh-price-card__val{font-size:46px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.muh-price-card--hl .muh-price-card__val{color:#fff}
+.muh-price-card__per{font-size:14.5px;color:var(--muted);margin-top:8px}
+.muh-price-card--hl .muh-price-card__per{color:rgba(255,255,255,.6)}
+.muh-price-card__list{margin:26px 0 30px;display:flex;flex-direction:column;gap:12px}
+.muh-price-card__list li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.5;color:var(--text)}
+.muh-price-card--hl .muh-price-card__list li{color:rgba(255,255,255,.88)}
+.muh-price-card__list svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:1px}
+.muh-price-card--hl .muh-price-card__list svg{color:#5fd29a}
+.muh-price-card .muh-btn{margin-top:auto}
+.muh-price-note{margin-top:22px;font-size:14.5px;color:var(--muted)}
+
+/* ── Спикер ── */
+.muh-speaker__card{display:grid;grid-template-columns:300px 1fr;gap:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--paper)}
+@media(max-width:860px){.muh-speaker__card{grid-template-columns:1fr}}
+.muh-speaker__aside{background:var(--ink);color:#fff;padding:44px 36px;display:flex;flex-direction:column}
+.muh-speaker__ava{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#13b06a);display:grid;place-items:center;font-size:32px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:24px}
+.muh-speaker__name{font-size:26px;font-weight:800;letter-spacing:-.02em;color:#fff}
+.muh-speaker__role{font-size:15px;color:rgba(255,255,255,.66);margin-top:12px;line-height:1.5}
+.muh-speaker__tag{margin-top:auto;padding-top:28px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#5fd29a}
+.muh-speaker__tag svg{width:16px;height:16px}
+.muh-speaker__body{padding:44px 40px}
+@media(max-width:640px){.muh-speaker__body{padding:32px 26px}.muh-speaker__aside{padding:36px 28px}}
+.muh-sp-block{margin-bottom:30px}
+.muh-sp-block:last-child{margin-bottom:0}
+.muh-sp-block h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+.muh-sp-block ul{display:flex;flex-direction:column;gap:10px}
+.muh-sp-block li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.muh-sp-block li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;border:2px solid var(--accent)}
+.muh-sp-format{padding:20px 22px;background:var(--cream);border-radius:12px;font-size:15px;color:var(--text);line-height:1.55}
+.muh-sp-format b{color:var(--ink)}
+
+/* ── Преимущества ── */
+.muh-ben-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.muh-ben-grid{grid-template-columns:1fr}}
+.muh-ben{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.muh-ben:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.muh-ben__ic{width:50px;height:50px;border-radius:13px;background:var(--ink);color:#5fd29a;display:grid;place-items:center;margin-bottom:20px}
+.muh-ben__ic svg{width:24px;height:24px}
+.muh-ben h4{font-size:18px;letter-spacing:-.01em;margin-bottom:10px}
+.muh-ben p{font-size:15px;color:var(--muted);line-height:1.55}
+
+/* ── Запись (тёмный призыв; форма ГетКурса ставится сразу после) ── */
+.muh-register{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.muh-register__grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 90% at 20% 100%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 90% at 20% 100%,#000 20%,transparent 70%)}
+.muh-register .muh-wrap{position:relative;z-index:2;max-width:860px}
+.muh-register h2{color:#fff;font-size:clamp(28px,4vw,42px)}
+.muh-want-list{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.muh-want{display:flex;align-items:flex-start;gap:14px;font-size:16.5px;color:rgba(255,255,255,.9);line-height:1.5}
+.muh-want svg{width:24px;height:24px;color:#5fd29a;flex:none;margin-top:1px}
+.muh-microcta{margin-top:30px;display:flex;align-items:center;gap:12px;font-size:14.5px;color:rgba(255,255,255,.6)}
+.muh-microcta b{color:#fff}
+.muh-pulse{width:10px;height:10px;border-radius:50%;background:#5fd29a;position:relative;flex:none}
+.muh-pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:#5fd29a;animation:muhPulse 2s infinite}
+@keyframes muhPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+@media(prefers-reduced-motion:reduce){.muh-pulse::after{animation:none}}
+
+/* ── Подвал ── */
+.muh-footer{background:#0e1015;color:rgba(255,255,255,.6);padding:56px 0 36px}
+.muh-footer__top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid var(--line-dark)}
+.muh-footer .muh-brand__sub{color:rgba(255,255,255,.45)}
+.muh-footer__nav{display:flex;gap:30px;flex-wrap:wrap}
+.muh-footer__nav a{font-size:14.5px;color:rgba(255,255,255,.6);transition:color .2s}
+.muh-footer__nav a:hover{color:#fff}
+.muh-footer__bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:13px}
+.muh-footer__credit a{color:#5fd29a;font-weight:600}
+.muh-footer__credit a:hover{text-decoration:underline}
+.muh-footer__legal{display:flex;gap:24px;flex-wrap:wrap;padding-top:24px;font-size:13.5px}
+.muh-footer__legal a{color:rgba(255,255,255,.55);text-decoration:underline;text-underline-offset:3px;transition:color .2s}
+.muh-footer__legal a:hover{color:#fff}
+/* Партнёр школы — Сбер */
+.muh-chip--partner{border-color:rgba(255,255,255,.28);color:#fff}
+.muh-chip--partner img{width:17px;height:17px;display:block}
+.muh-sber{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:7px 12px;line-height:0}
+.muh-sber img{height:26px;width:auto;aspect-ratio:1094/251;display:block}
+.muh-footer__partner{display:flex;align-items:center;gap:14px;padding-top:26px}
+.muh-footer__partner-lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* ── Появление при прокрутке (без скрипта всё просто видимо) ── */
+html.muh-js .muh-reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+html.muh-js .muh-reveal.muh-on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.muh-js .muh-reveal{opacity:1;transform:none;transition:none}}
+
+/* ── Дополнения: фото спикера и одна карточка ── */
+/* Фото спикера вместо аватара-инициалов */
+.muh-speaker__photo{display:block;width:100%;max-width:228px;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:18px;margin-bottom:24px;border:1px solid var(--line-dark);background:#1c1f28}
+@media(max-width:860px){.muh-speaker__photo{max-width:200px}}
+/* Одна карточка стоимости по центру сетки */
+.muh-price-grid--one{grid-template-columns:1fr;max-width:560px}
+/* ── Практикум заказчика: мини-блок спикера в hero ── */
+.muh-flow-speaker{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-dark)}
+.muh-flow-speaker img{width:54px;height:54px;border-radius:50%;object-fit:cover;flex:none;border:2px solid rgba(95,210,154,.5)}
+.muh-flow-speaker b{display:block;font-size:15.5px;color:#fff;font-weight:700}
+.muh-flow-speaker span span{display:block;font-size:13.5px;color:rgba(255,255,255,.55)}
+.muh-vflow__txt span{display:block;margin-top:2px}
+/* вопросы вместо «болей» */
+.muh-pain__q{background:rgba(95,210,154,.14);color:#5fd29a;font-size:16px;font-weight:800}
+/* ── Карточки вебинаров ── */
+.muh-sessions{display:flex;flex-direction:column;gap:18px}
+.muh-session{display:grid;grid-template-columns:210px 1fr;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--paper);transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.muh-session:hover{box-shadow:var(--shadow);border-color:#d4d8cf}
+.muh-session__date{background:var(--ink);color:#fff;padding:32px 28px;display:flex;flex-direction:column}
+.muh-session__no{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#5fd29a}
+.muh-session__day{font-size:68px;font-weight:800;line-height:1;letter-spacing:-.04em;margin-top:20px}
+.muh-session__month{font-size:16px;font-weight:700;margin-top:8px;color:rgba(255,255,255,.9)}
+.muh-session__time{font-size:14px;color:rgba(255,255,255,.55);margin-top:auto;padding-top:24px}
+.muh-session__body{padding:32px 36px;display:flex;flex-direction:column}
+.muh-sec h3.muh-session__title{font-size:clamp(20px,2.4vw,25px);line-height:1.2;letter-spacing:-.02em}
+.muh-sec .muh-session__sub{font-size:15px;color:var(--muted);margin-top:8px;font-style:italic}
+/* .muh-sec p{margin:0} перебивал отступ описания в hero */
+.muh-hero p.muh-hero__desc{margin-top:28px}
+.muh-session__list{display:flex;flex-direction:column;gap:11px;margin-top:22px!important;padding-top:20px!important;border-top:1px solid var(--line)}
+.muh-session__list li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.muh-session__list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+.muh-session__foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:26px}
+.muh-session__price{font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.muh-session__price small{font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0}
+@media(max-width:760px){
+  .muh-session{grid-template-columns:1fr}
+  .muh-session__date{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:22px 24px}
+  .muh-session__no{width:100%}
+  .muh-session__day{font-size:44px;margin-top:8px}
+  .muh-session__month{margin-top:0}
+  .muh-session__time{margin-top:0;padding-top:0;width:100%}
+  .muh-session__body{padding:26px 24px}
+  .muh-session__foot .muh-btn{width:100%}
+}
+.muh-want span b{color:#fff}
+</style>
+
+<script>
+(function(){
+  "use strict";
+  /* Флаг «скрипт есть»: без него секции остаются видимыми без анимаций */
+  document.documentElement.classList.add('muh-js');
+
+  function init(){
+    /* Шапка при прокрутке */
+    var header=document.getElementById('muhHeader');
+    if(header){
+      var onScroll=function(){ if(window.scrollY>20){header.classList.add('muh-scrolled');}else{header.classList.remove('muh-scrolled');} };
+      onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+    }
+
+    /* Мобильное меню */
+    var burger=document.getElementById('muhBurger');
+    var menu=document.getElementById('muhMenu');
+    if(burger&&menu){
+      var toggleMenu=function(force){
+        var open=force!==undefined?force:!document.body.classList.contains('muh-menu-open');
+        document.body.classList.toggle('muh-menu-open',open);
+        burger.setAttribute('aria-expanded',open);
+      };
+      burger.addEventListener('click',function(){toggleMenu();});
+      menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggleMenu(false);});});
+    }
+
+    /* Появление секций */
+    var els=document.querySelectorAll('.muh-reveal');
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('muh-on'); io.unobserve(e.target);} });
+      },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+      els.forEach(function(el){io.observe(el);});
+    }else{ els.forEach(function(el){el.classList.add('muh-on');}); }
+
+    /* Аккордеон программы: открыта одна тема */
+    var modules=document.querySelectorAll('.muh-module');
+    modules.forEach(function(m){
+      var head=m.querySelector('.muh-module__head');
+      if(!head) return;
+      head.addEventListener('click',function(){
+        setTimeout(function(){
+          if(m.open){ modules.forEach(function(other){ if(other!==m){other.open=false;} }); }
+        },0);
+      });
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
+</script>
+<!-- ═════════ конец БЛОКА 0 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 1. ШАПКА (необязательный — пропустите, если у страницы своё меню) ═════════ -->
+<header class="muh-sec muh-header" id="muhHeader">
+  <div class="muh-wrap">
+    <nav class="muh-nav">
+      <a href="#muh-hero" class="muh-brand" aria-label="Онлайн-школа «Закупки в цифре», cifrazakup.ru">
+        <span class="muh-brand__mark"><span></span></span>
+        <span class="muh-brand__txt">
+          <span class="muh-brand__name">Закупки в цифре</span>
+          <span class="muh-brand__sub">онлайн-школа</span>
+        </span>
+      </a>
+      <div class="muh-nav__links">
+        <a href="#muh-audience">Для кого</a>
+        <a href="#muh-program">Программа</a>
+        <a href="#muh-price">Участие</a>
+        <a href="#muh-speaker">Спикер</a>
+      </div>
+      <div class="muh-nav__cta">
+        <a href="#muh-program" class="muh-btn muh-btn--ghost">Даты</a>
+        <a href="#muh-register" class="muh-btn muh-btn--primary">Записаться</a>
+        <button class="muh-burger" id="muhBurger" aria-label="Меню" aria-expanded="false" type="button"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="muh-sec muh-mobile-menu" id="muhMenu">
+  <a href="#muh-audience">Для кого</a>
+  <a href="#muh-program">Программа</a>
+  <a href="#muh-price">Участие</a>
+  <a href="#muh-speaker">Спикер</a>
+  <a href="#muh-register" class="muh-btn muh-btn--primary muh-btn--lg muh-btn--block">Записаться на вебинар</a>
+</div>
+<!-- ═════════ конец БЛОКА 1 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 2. HERO (первый экран) ═════════ -->
+<section class="muh-sec muh-hero" id="muh-hero">
+  <div class="muh-hero__grid-bg"></div>
+  <div class="muh-hero__glow"></div>
+  <div class="muh-wrap">
+    <div class="muh-hero__inner">
+      <div>
+        <span class="muh-eyebrow muh-eyebrow--light">Онлайн-школа «Закупки в цифре» · три вебинара для заказчиков</span>
+        <h1>Практикум заказчика<span class="muh-hero__sub">закупка ПО, описание объекта по ПП&nbsp;1875 и годовой отчёт по&nbsp;СМСП</span></h1>
+        <p class="muh-hero__desc">Три вебинара по полтора часа, по четвергам в 10:00 по Москве. Ведёт Ольга Мухина, региональный представитель ЭТП «Сбер А», в закупках больше 10 лет. Можно прийти на одну тему или на все три.</p>
+        <div class="muh-hero__actions">
+          <a href="#muh-register" class="muh-btn muh-btn--primary muh-btn--lg">Записаться
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#muh-program" class="muh-btn muh-btn--ghost muh-btn--lg" style="color:#fff;border-color:rgba(255,255,255,.25)">Смотреть программу</a>
+        </div>
+        <div class="muh-hero__chips">
+          <span class="muh-chip muh-chip--partner"><img src="https://cifrazakup.ru/assets/sber-mark.svg" alt="">Партнёр ЭТП «Сбер А»</span>
+          <span class="muh-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>12 ноября — 3 декабря · 10:00 МСК</span>
+          <span class="muh-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>500 ₽ за вебинар</span>
+          <span class="muh-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>Онлайн + запись на 90 дней</span>
+          <span class="muh-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg>44-ФЗ и 223-ФЗ</span>
+        </div>
+      </div>
+      <div class="muh-flow-card muh-reveal">
+        <div class="muh-flow-card__title">Расписание</div>
+        <div class="muh-flow-card__head">Три четверга, три темы</div>
+        <div class="muh-vflow">
+          <div class="muh-vflow__item"><span class="muh-vflow__dot">1</span><span class="muh-vflow__txt"><b>Закупки программного обеспечения</b><span>12 ноября · 10:00 МСК</span></span></div>
+          <div class="muh-vflow__item"><span class="muh-vflow__dot">2</span><span class="muh-vflow__txt"><b>Описание объекта закупки по ПП 1875</b><span>19 ноября · 10:00 МСК</span></span></div>
+          <div class="muh-vflow__item"><span class="muh-vflow__dot">3</span><span class="muh-vflow__txt"><b>Годовой отчёт по закупкам у СМСП</b><span>3 декабря · 10:00 МСК</span></span></div>
+        </div>
+        <div class="muh-flow-speaker">
+          <img src="https://cifrazakup.ru/assets/muhina-sq.jpg" alt="Ольга Мухина">
+          <span><b>Ведёт Ольга Мухина</b><span>региональный представитель ЭТП «Сбер А»</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 2 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 3. ДЛЯ КОГО ═════════ -->
+<section class="muh-sec muh-section" id="muh-audience">
+  <div class="muh-wrap">
+    <div class="muh-section-head muh-reveal">
+      <span class="muh-eyebrow">Для кого</span>
+      <h2 class="muh-h2">Для заказчиков, которые сами готовят закупку и отчитываются по&nbsp;ней</h2>
+      <p class="muh-lead" style="margin-top:18px">Вебинары для тех, кто пишет описание объекта закупки, рассматривает заявки и сдаёт отчётность в ЕИС.</p>
+    </div>
+    <div class="muh-aud-grid muh-reveal">
+      <div class="muh-aud-item"><span class="muh-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg></span><p>Контрактные управляющие и сотрудники контрактных служб по 44-ФЗ</p></div>
+      <div class="muh-aud-item"><span class="muh-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7"/></svg></span><p>Специалисты по закупкам заказчиков, работающих по 223-ФЗ</p></div>
+      <div class="muh-aud-item"><span class="muh-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span><p>Сотрудники, которые готовят годовой отчёт о закупках у СМСП</p></div>
+      <div class="muh-aud-item"><span class="muh-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><p>ИТ-специалисты заказчика, которые пишут техническое задание на программное обеспечение</p></div>
+    </div>
+    <div class="muh-org-note muh-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Темы не зависят друг от друга, выберите те, что нужны сейчас. Первые два вебинара о закупках по 44-ФЗ, третий о закупках по 223-ФЗ.</p>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 3 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 4. ВОПРОСЫ (тёмный) ═════════ -->
+<section class="muh-sec muh-section muh-why" id="muh-why">
+  <div class="muh-wrap">
+    <div class="muh-why__inner">
+      <div class="muh-reveal">
+        <span class="muh-eyebrow muh-eyebrow--light">Зачем идти</span>
+        <h2 class="muh-h2">Практикум пригодится, если вы сейчас решаете один из этих вопросов</h2>
+        <div class="muh-why__solve">
+          <p>Каждому вопросу отведено место в программе. <b>В эфире можно спросить про свою закупку.</b></p>
+        </div>
+      </div>
+      <div class="muh-pain-list muh-reveal">
+        <div class="muh-pain"><span class="muh-pain__x muh-pain__q">?</span><p>Как описать программное обеспечение с учётом КТРУ и можно ли указать товарный знак</p></div>
+        <div class="muh-pain"><span class="muh-pain__x muh-pain__q">?</span><p>Какую защитную меру по ПП 1875 применять к вашему коду ОКПД2</p></div>
+        <div class="muh-pain"><span class="muh-pain__x muh-pain__q">?</span><p>Как сформировать лот и не нарушить ч.&nbsp;1.1 ст.&nbsp;33 Закона № 44-ФЗ</p></div>
+        <div class="muh-pain"><span class="muh-pain__x muh-pain__q">?</span><p>Какие договоры включать в годовой отчёт по СМСП и как посчитать процент выполнения квоты</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 4 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 5. ПРОГРАММА (три вебинара) ═════════
+     Пункты — дословно по перечню тем спикера (docx «Перечень тем»), правлены только опечатки. -->
+<section class="muh-sec muh-section muh-format" id="muh-program">
+  <div class="muh-wrap">
+    <div class="muh-section-head muh-reveal">
+      <span class="muh-eyebrow">Программа</span>
+      <h2 class="muh-h2">Три вебинара, каждый можно взять отдельно</h2>
+      <p class="muh-lead" style="margin-top:18px">Все эфиры по четвергам в 10:00 по Москве, продолжительность полтора часа.</p>
+    </div>
+    <div class="muh-sessions">
+      <article class="muh-session muh-reveal">
+        <div class="muh-session__date">
+          <span class="muh-session__no">Вебинар 1</span>
+          <span class="muh-session__day">12</span>
+          <span class="muh-session__month">ноября, четверг</span>
+          <span class="muh-session__time">10:00 МСК · 1,5 часа</span>
+        </div>
+        <div class="muh-session__body">
+          <h3 class="muh-session__title">Особенности проведения закупок программного обеспечения</h3>
+          <p class="muh-session__sub">КТРУ, товарный знак, права на ПО и требования ПП 1875</p>
+          <ul class="muh-session__list">
+            <li>Подготовка описания объекта закупки с учётом применения КТРУ и использования товарного знака</li>
+            <li>Варианты приобретения прав на ПО</li>
+            <li>Соблюдение требований ПП 1875, в том числе требований к доверенному ПО</li>
+            <li>Требования к содержанию и составу заявок</li>
+          </ul>
+          <div class="muh-session__foot">
+            <span class="muh-session__price">500 ₽ <small>за вебинар</small></span>
+            <a href="#muh-register" class="muh-btn muh-btn--primary">Записаться на 12 ноября</a>
+          </div>
+        </div>
+      </article>
+      <article class="muh-session muh-reveal">
+        <div class="muh-session__date">
+          <span class="muh-session__no">Вебинар 2</span>
+          <span class="muh-session__day">19</span>
+          <span class="muh-session__month">ноября, четверг</span>
+          <span class="muh-session__time">10:00 МСК · 1,5 часа</span>
+        </div>
+        <div class="muh-session__body">
+          <h3 class="muh-session__title">Описание объекта закупки с учётом особенностей по ПП 1875</h3>
+          <p class="muh-session__sub">Код ОКПД2, защитная мера и формирование лота</p>
+          <ul class="muh-session__list">
+            <li>Определение кода ОКПД2 и соответствующей защитной меры по ПП 1875</li>
+            <li>Особенности формирования лота</li>
+            <li>Соблюдение требований ч. 1.1 ст. 33 Закона № 44-ФЗ</li>
+            <li>Учёт особенностей подпункта «а» пункта 7 ПП 1875</li>
+          </ul>
+          <div class="muh-session__foot">
+            <span class="muh-session__price">500 ₽ <small>за вебинар</small></span>
+            <a href="#muh-register" class="muh-btn muh-btn--primary">Записаться на 19 ноября</a>
+          </div>
+        </div>
+      </article>
+      <article class="muh-session muh-reveal">
+        <div class="muh-session__date">
+          <span class="muh-session__no">Вебинар 3</span>
+          <span class="muh-session__day">3</span>
+          <span class="muh-session__month">декабря, четверг</span>
+          <span class="muh-session__time">10:00 МСК · 1,5 часа</span>
+        </div>
+        <div class="muh-session__body">
+          <h3 class="muh-session__title">Годовой отчёт по закупкам у СМСП</h3>
+          <p class="muh-session__sub">Разберём до сдачи отчёта за 2026 год</p>
+          <ul class="muh-session__list">
+            <li>Кто обязан сдавать отчёт о закупках у СМСП</li>
+            <li>Состав годового отчёта: какие договоры включаются</li>
+            <li>Виды закупок, которые учитываются в квоту СМСП</li>
+            <li>Как рассчитывается процент выполнения квоты: формула и исключения</li>
+            <li>Как создать годовой отчёт в ЕИС: пошаговая инструкция</li>
+          </ul>
+          <div class="muh-session__foot">
+            <span class="muh-session__price">500 ₽ <small>за вебинар</small></span>
+            <a href="#muh-register" class="muh-btn muh-btn--primary">Записаться на 3 декабря</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 5 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 6. ФОРМАТ И УЧАСТИЕ ═════════ -->
+<section class="muh-sec muh-section" id="muh-price">
+  <div class="muh-wrap">
+    <div class="muh-section-head muh-reveal">
+      <span class="muh-eyebrow">Формат и участие</span>
+      <h2 class="muh-h2">Онлайн-эфир, вопросы спикеру и запись на&nbsp;90&nbsp;дней</h2>
+    </div>
+    <div class="muh-fmt-grid muh-reveal">
+      <div class="muh-fmt-card"><div class="muh-fmt-card__big">3</div><div class="muh-fmt-card__lbl">вебинара</div><p>Одна тема — один эфир. Можно прийти на любой из трёх.</p></div>
+      <div class="muh-fmt-card"><div class="muh-fmt-card__big">1,5</div><div class="muh-fmt-card__lbl">часа каждый</div><p>Разбор пунктов программы и ответы на вопросы в эфире.</p></div>
+      <div class="muh-fmt-card"><div class="muh-fmt-card__big">500 ₽</div><div class="muh-fmt-card__lbl">за вебинар</div><p>Оплачивается каждый вебинар отдельно, за выбранные темы.</p></div>
+    </div>
+    <div class="muh-fmt-note muh-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg>
+      <span><b>Когда:</b> 12 ноября, 19 ноября и 3 декабря 2026, в 10:00 по Москве. Онлайн, запись каждого эфира доступна 90 дней.</span>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 6 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 7. О СПИКЕРЕ ═════════ -->
+<section class="muh-sec muh-section muh-format" id="muh-speaker">
+  <div class="muh-wrap">
+    <div class="muh-section-head muh-reveal">
+      <span class="muh-eyebrow">О спикере</span>
+      <h2 class="muh-h2">Больше 10 лет в закупках, представитель электронной площадки и&nbsp;преподаватель</h2>
+    </div>
+    <div class="muh-speaker__card muh-reveal">
+      <div class="muh-speaker__aside">
+        <img class="muh-speaker__photo" src="https://cifrazakup.ru/assets/muhina.jpg" alt="Ольга Мухина" loading="lazy">
+        <div class="muh-speaker__name">Ольга Мухина</div>
+        <div class="muh-speaker__role">Региональный представитель ЭТП «Сбер А» (бывшая Сбербанк-АСТ).</div>
+        <div class="muh-speaker__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg>Практик закупок</div>
+      </div>
+      <div class="muh-speaker__body">
+        <div class="muh-sp-block">
+          <h4>Опыт</h4>
+          <ul>
+            <li>Региональный представитель ЭТП «Сбер А»</li>
+            <li>Практический опыт работы в сфере закупок более 10 лет</li>
+            <li>Внештатный преподаватель центра дополнительного образования Владимирского филиала РАНХиГС при Президенте РФ</li>
+          </ul>
+        </div>
+        <div class="muh-sp-block">
+          <h4>Темы практикума</h4>
+          <ul>
+            <li>Закупки программного обеспечения</li>
+            <li>Описание объекта закупки с учётом ПП 1875</li>
+            <li>Годовой отчёт по закупкам у СМСП</li>
+          </ul>
+        </div>
+        <div class="muh-sp-format">
+          <b>Формат подачи:</b> разбор по пунктам программы и ответы на вопросы участников в эфире.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════════ конец БЛОКА 7 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 8. ЗАПИСЬ (тёмный призыв) ═════════
+     СРАЗУ ПОСЛЕ этого блока вставьте нативный блок «Форма» ГетКурса
+     (или предложения на каждый вебинар) — заявки будут попадать в CRM.
+     ОБЯЗАТЕЛЬНО добавьте в форму чекбокс согласия со ссылками на
+     публичную оферту (https://cifrazakup.ru/oferta.html) и политику
+     обработки персональных данных (https://cifrazakup.ru/privacy.html). ═════════ -->
+<section class="muh-sec muh-section muh-register" id="muh-register">
+  <div class="muh-register__grid-bg"></div>
+  <div class="muh-wrap">
+    <div class="muh-reveal">
+      <span class="muh-eyebrow muh-eyebrow--light">Запись на вебинары</span>
+      <h2>Выберите тему и запишитесь</h2>
+      <div class="muh-want-list">
+        <div class="muh-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span><b>12 ноября.</b> Особенности проведения закупок программного обеспечения</span></div>
+        <div class="muh-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span><b>19 ноября.</b> Описание объекта закупки с учётом особенностей по ПП 1875</span></div>
+        <div class="muh-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span><b>3 декабря.</b> Годовой отчёт по закупкам у СМСП</span></div>
+      </div>
+      <div class="muh-microcta">
+        <span class="muh-pulse"></span>
+        <span><b>Начало в 10:00 по Москве, 500 ₽ за вебинар.</b> Заполните форму ниже, и мы пришлём ссылку на эфир.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ═════ Здесь вставьте нативный блок «Форма» ГетКурса ═════ -->
+<!-- ═════════ конец БЛОКА 8 ═════════ -->
+
+
+<!-- ═════════ ✂ БЛОК 9. ПОДВАЛ ═════════ -->
+<footer class="muh-sec muh-footer">
+  <div class="muh-wrap">
+    <div class="muh-footer__top">
+      <div class="muh-brand" style="color:#fff">
+        <span class="muh-brand__mark"><span></span></span>
+        <span class="muh-brand__txt">
+          <span class="muh-brand__name">Закупки в цифре</span>
+          <span class="muh-brand__sub">онлайн-школа</span>
+        </span>
+      </div>
+      <div class="muh-footer__nav">
+        <a href="#muh-audience">Для кого</a>
+        <a href="#muh-program">Программа</a>
+        <a href="#muh-price">Участие</a>
+        <a href="#muh-speaker">Спикер</a>
+        <a href="#muh-register">Записаться</a>
+      </div>
+    </div>
+    <div class="muh-footer__partner"><span class="muh-footer__partner-lbl">Партнёр школы</span><span class="muh-sber"><img src="https://cifrazakup.ru/assets/sber-a-logo.svg" alt="Сбер А"></span></div>
+    <div class="muh-footer__legal">
+      <a href="https://cifrazakup.ru/oferta.html" target="_blank" rel="noopener">Публичная оферта</a>
+      <a href="https://cifrazakup.ru/privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>
+      <a href="https://cifrazakup.ru" target="_blank" rel="noopener">cifrazakup.ru</a>
+    </div>
+    <div class="muh-footer__bottom">
+      <span>© Онлайн-школа «Закупки в цифре» · cifrazakup.ru. «Практикум заказчика»: три вебинара Ольги Мухиной.</span>
+      <span class="muh-footer__credit">Разработано в лаборатории <a href="https://t.me/tickettotender" target="_blank" rel="noopener">«Тендеры ex machina»</a></span>
+    </div>
+  </div>
+</footer>
+<!-- ═════════ конец БЛОКА 9 ═════════ -->
+
+</body>
+</html>
