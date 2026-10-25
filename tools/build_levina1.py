@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
 """ЧЕРНОВИК. Вебинар Ильяны Левиной «Новая модель бизнеса в эпоху ИИ» (10.11.2026): из одного исходника
-landings/levina.html собирает
-1) novaya-model-biznesa.html — страница на cifrazakup.ru. Записи и оплаты на сайте нет: все кнопки «Записаться»
+landings/levina1.html собирает
+1) levina1.html — страница на cifrazakup.ru. Записи и оплаты на сайте нет: все кнопки «Записаться»
    ведут на форму GetCourse (GC_FORM), utm-метки захода дописываются в ссылку;
-2) landings/gc-levina.js — содержимое для страницы GetCourse (GC_PAGE; слаг задаёт Михаил). На GetCourse ставятся
+2) landings/gc-levina1.js — содержимое для страницы GetCourse (GC_PAGE; слаг задаёт Михаил). На GetCourse ставятся
    блок «HTML-код» с <div id="lev-root"> (всё до тёмного блока «Запись»), родная форма GetCourse с предложением
    на 3 000 ₽ и блок «HTML-код» с <div id="lev-foot"> (подвал). Правки исходника попадают на GetCourse
-   сами после пуша (кеш GitHub Pages до 10 минут). Коды блоков — landings/gc-levina-blocks.html.
-Допущения и вопросы команде — в шапке landings/levina.html. Устроен как tools/build_mukhina.py.
+   сами после пуша (кеш GitHub Pages до 10 минут). Коды блоков — landings/gc-levina1-blocks.html.
+Допущения и вопросы команде — в шапке landings/levina1.html. Устроен как tools/build_mukhina.py.
 
-Запуск: python tools/build_levina.py
+Запуск: python tools/build_levina1.py
 """
 import io, json, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC = os.path.join(ROOT, 'landings', 'levina.html')
-GC_PAGE = 'https://gc.cifrazakup.ru/novaya_model_biznesa'  # [Д5] предложение, слаг подтверждает Михаил
+SRC = os.path.join(ROOT, 'landings', 'levina1.html')
+GC_PAGE = 'https://gc.cifrazakup.ru/levina1'  # правило: адрес = utm_campaign из таблицы (levina1)
 GC_FORM = GC_PAGE + '#kel-register'  # якорь-блок на странице GetCourse стоит прямо перед формой
 
 
@@ -96,7 +96,7 @@ site = '''<!DOCTYPE html>
 <style>body{margin:0;background:#fff}</style>
 </head>
 <body>
-<!-- ЧЕРНОВИК, не публиковать до согласования (meta robots noindex снять при публикации). НЕ ПРАВИТЬ РУКАМИ: собирается tools/build_levina.py из landings/levina.html. Запись и оплата — на GetCourse. -->
+<!-- ЧЕРНОВИК, не публиковать до согласования (meta robots noindex снять при публикации). НЕ ПРАВИТЬ РУКАМИ: собирается tools/build_levina1.py из landings/levina1.html. Запись и оплата — на GetCourse. -->
 <style>
 ''' + style + '''</style>
 <script>
@@ -104,13 +104,13 @@ site = '''<!DOCTYPE html>
 ''' + site_main + site_foot + UTM_JS + '''</body>
 </html>
 '''
-write(os.path.join(ROOT, 'novaya-model-biznesa.html'), site)
+write(os.path.join(ROOT, 'levina1.html'), site)
 
 # ---------- 2. GetCourse ----------
 gc_css = style + '\n/* только для GetCourse: блоки страницы — flex-строка */\n#lev-root,#lev-foot{width:100%}\n'
 bundle = (
     "/* Вебинар Ильяны Левиной для " + GC_PAGE + ". НЕ ПРАВИТЬ РУКАМИ:\n"
-    "   собирается tools/build_levina.py из landings/levina.html. */\n"
+    "   собирается tools/build_levina1.py из landings/levina1.html. */\n"
     "(function () {\n"
     "  'use strict';\n"
     "  var CSS = " + json.dumps(gc_css, ensure_ascii=False) + ";\n"
@@ -130,19 +130,19 @@ bundle = (
     + init_js +
     "})();\n"
 )
-write(os.path.join(ROOT, 'landings', 'gc-levina.js'), bundle)
+write(os.path.join(ROOT, 'landings', 'gc-levina1.js'), bundle)
 
 blocks = '''<!-- Вебинар Ильяны Левиной на GetCourse (''' + GC_PAGE + '''). Порядок блоков:
      1) «HTML-код» — БЛОК А ниже; 2) якорь kel-register; 3) родная форма GetCourse с предложением
-     на 3 000 ₽ (ещё не заведено, см. вопросы в landings/levina.html); 4) «HTML-код» — БЛОК Б ниже.
+     на 3 000 ₽ (ещё не заведено, см. вопросы в landings/levina1.html); 4) «HTML-код» — БЛОК Б ниже.
      Содержимое подтягивается с cifrazakup.ru. -->
 
 <!-- ✂ БЛОК А -->
-<div id="lev-root"><div style="padding:48px 20px;text-align:center;font:16px/1.5 Arial,sans-serif;color:#5c616e">Загружаем страницу… Если она не появилась, откройте <a href="https://cifrazakup.ru/novaya-model-biznesa.html" style="color:#0e8a52">cifrazakup.ru/novaya-model-biznesa.html</a>.</div></div>
-<script src="https://cifrazakup.ru/landings/gc-levina.js"></script>
+<div id="lev-root"><div style="padding:48px 20px;text-align:center;font:16px/1.5 Arial,sans-serif;color:#5c616e">Загружаем страницу… Если она не появилась, откройте <a href="https://cifrazakup.ru/levina1.html" style="color:#0e8a52">cifrazakup.ru/levina1.html</a>.</div></div>
+<script src="https://cifrazakup.ru/landings/gc-levina1.js"></script>
 
 <!-- ✂ БЛОК Б -->
 <div id="lev-foot"></div>
 '''
-write(os.path.join(ROOT, 'landings', 'gc-levina-blocks.html'), blocks)
-print('ok: novaya-model-biznesa.html %d, gc-levina.js %d' % (len(site), len(bundle)))
+write(os.path.join(ROOT, 'landings', 'gc-levina1-blocks.html'), blocks)
+print('ok: levina1.html %d, gc-levina1.js %d' % (len(site), len(bundle)))
