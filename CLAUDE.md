@@ -15,6 +15,7 @@
 - `script.js` — шапка, мобильное меню, анимации, отправка формы на бэкенд. `chatbot.js` — чат-ассистент.
 - `course-ai.html` — страница главного курса «Искусственный интеллект в закупках».
 - `praktikum-zakazchika.html` — «Практикум заказчика», три вебинара Ольги Мухиной (12.11, 19.11, 03.12). Не править руками: собирается `python tools/build_mukhina.py` из `landings/mukhina.html` вместе с `landings/gc-mukhina.js`. Записи и оплаты на сайте нет, кнопки «Записаться» ведут на форму gc.cifrazakup.ru/praktikum_zakazchika#kel-register, utm захода дописываются.
+- `novaya-model-biznesa.html` — ЧЕРНОВИК (25.10.2026, не опубликован, в GetCourse не накатан): вебинар Ильяны Левиной «Новая модель бизнеса в эпоху ИИ» 10.11.2026. Не править руками: собирается `python tools/build_levina.py` из `landings/levina.html` вместе с `landings/gc-levina.js` и `landings/gc-levina-blocks.html`. Допущения и вопросы команде — в шапке `landings/levina.html`; адрес страницы GetCourse (`GC_PAGE` в сборщике) пока предложение. Копия для просмотра с встроенными картинками — `Claude outputs/levina-preview.html`.
 - `landings/` — файлы для GetCourse и их превью (закрыто от индексации в `robots.txt`):
   `ocenka-getcourse.html` (вебинар Кельберг, префикс `kel-`), `ocenka.html` (превью), `main-getcourse.html` (главная для GetCourse, собирается скриптом).
 - `tools/build_main_getcourse.py` — собирает `landings/main-getcourse.html` из `index.html`, `styles.css`, `schedule.js`.
