@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ИИ в закупках: поставщики из реестра контрактов. Три КП за день вместо трёх недель · Закупки в цифре</title>
+<meta name="description" content="Вебинар для заказчиков и поставщиков 16 ноября 2026 в 18:30 МСК: как собрать базу поставщиков под предмет закупки из реестра контрактов ЕИС и разослать запрос КП, написанный нейросетью по ТЗ. Промпт, скилл, сервис kp.robotender.ru. 1,5 часа, 2 500 ₽, запись на 90 дней. Спикер — Альберт Гизатуллин.">
+<meta name="theme-color" content="#14161d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ИИ в закупках: поставщики из реестра контрактов">
+<meta property="og:description" content="Вебинар Альберта Гизатуллина 16 ноября в 18:30 МСК. Три КП за день вместо трёх недель: промпт, скилл, сервис kp.robotender.ru. 1,5 часа, 2 500 ₽.">
+<meta property="og:image" content="https://cifrazakup.ru/assets/albert.jpg">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>body{margin:0;background:#fff}</style>
+</head>
+<body>
+<!-- НЕ ПРАВИТЬ РУКАМИ: собирается tools/build_webinar.py postavshiki из landings/postavshiki.html. Запись и оплата — на GetCourse. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Плавная прокрутка по якорям */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ── База: каждый блок лендинга несёт класс .pst-sec и самодостаточен ── */
+.pst-sec{
+  --ink:#14161d;
+  --paper:#ffffff;
+  --cream:#f5f6f3;
+  --cream-2:#eef0ea;
+  --line:#e4e6e0;
+  --line-dark:rgba(255,255,255,.12);
+  --text:#1a1d26;
+  --muted:#5c616e;
+  --muted-2:#8a8f9c;
+  --accent:#0e8a52;
+  --accent-2:#0a6c40;
+  --accent-soft:#e7f3ec;
+  --accent-tint:#f1f8f4;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(20,22,29,.04),0 8px 30px rgba(20,22,29,.06);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ff:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  margin:0;
+  font-family:var(--ff);color:var(--text);background:var(--paper);
+  font-size:17px;line-height:1.6;font-weight:400;text-align:left;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.pst-sec,.pst-sec *,.pst-sec *::before,.pst-sec *::after{box-sizing:border-box}
+.pst-sec h1,.pst-sec h2,.pst-sec h3,.pst-sec h4{margin:0;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--ink);font-family:inherit}
+.pst-sec p{margin:0}
+.pst-sec a{color:inherit;text-decoration:none}
+.pst-sec ul{margin:0;padding:0;list-style:none}
+.pst-sec img{max-width:100%}
+.pst-sec ::selection{background:var(--accent);color:#fff}
+
+.pst-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
+.pst-section{padding:104px 0;position:relative}
+@media(max-width:860px){.pst-section{padding:68px 0}}
+
+.pst-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.pst-eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+.pst-eyebrow--light{color:#5fd29a}
+.pst-eyebrow--light::before{background:#5fd29a}
+
+.pst-h2{font-size:clamp(28px,4.2vw,46px)}
+.pst-lead{font-size:clamp(17px,2vw,20px);color:var(--muted);line-height:1.62;max-width:760px}
+.pst-section-head{max-width:820px;margin-bottom:54px}
+@media(max-width:860px){.pst-section-head{margin-bottom:38px}}
+
+/* ── Кнопки ── */
+.pst-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--ff);font-weight:700;font-size:16px;letter-spacing:-.01em;padding:16px 30px;border-radius:50px;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);white-space:nowrap;text-decoration:none}
+.pst-btn svg{width:18px;height:18px}
+.pst-btn--primary{background:var(--accent);color:#fff;box-shadow:0 10px 26px -10px rgba(14,138,82,.7)}
+.pst-btn--primary:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(14,138,82,.8)}
+.pst-btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.pst-btn--ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+.pst-btn--lg{padding:19px 38px;font-size:17px}
+.pst-btn--block{width:100%}
+/* страховка: ссылки-кнопки не наследуют цвет секции (перебивают .pst-sec a) */
+a.pst-btn--primary{color:#fff}
+a.pst-btn--ghost{color:var(--ink)}
+
+/* ── Шапка ── */
+.pst-header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);border-bottom:1px solid transparent;background:transparent}
+.pst-header.pst-scrolled{background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(20,22,29,.02)}
+.pst-nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.pst-brand,a.pst-brand{display:flex;align-items:center;gap:13px;color:#fff;transition:color .3s var(--ease)}
+.pst-header.pst-scrolled .pst-brand{color:var(--ink)}
+.pst-brand__mark{width:38px;height:38px;border-radius:9px;background:var(--ink);display:grid;place-items:center;flex:none}
+.pst-brand__mark span{width:16px;height:16px;border-radius:4px;background:var(--accent)}
+.pst-brand__txt{display:flex;flex-direction:column;line-height:1.05}
+.pst-brand__name{font-weight:800;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.pst-brand__sub{font-size:11px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.6);text-transform:uppercase;transition:color .3s var(--ease)}
+.pst-header.pst-scrolled .pst-brand__sub{color:var(--muted)}
+.pst-nav__links{display:flex;align-items:center;gap:32px}
+.pst-nav__links a{font-size:15px;font-weight:600;color:rgba(255,255,255,.78);transition:color .2s var(--ease)}
+.pst-nav__links a:hover{color:#fff}
+.pst-header.pst-scrolled .pst-nav__links a{color:var(--muted)}
+.pst-header.pst-scrolled .pst-nav__links a:hover{color:var(--ink)}
+.pst-nav__cta{display:flex;align-items:center;gap:14px}
+.pst-nav .pst-btn{padding:11px 22px;font-size:14.5px}
+.pst-header:not(.pst-scrolled) .pst-nav__cta .pst-btn--primary{background:#fff;color:var(--ink);box-shadow:none}
+.pst-header:not(.pst-scrolled) .pst-nav__cta .pst-btn--primary:hover{background:var(--accent);color:#fff}
+.pst-header:not(.pst-scrolled) .pst-nav__cta .pst-btn--ghost{color:#fff;border-color:rgba(255,255,255,.28)}
+.pst-header:not(.pst-scrolled) .pst-nav__cta .pst-btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.pst-burger{display:none;width:44px;height:44px;border:1px solid var(--line-dark);border-radius:10px;background:transparent;cursor:pointer;padding:0;place-items:center}
+.pst-burger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.3s var(--ease)}
+.pst-burger span::before,.pst-burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px;transition:.3s var(--ease)}
+.pst-burger span::before{top:-6px}.pst-burger span::after{top:6px}
+.pst-header.pst-scrolled .pst-burger{border-color:var(--line)}
+.pst-header.pst-scrolled .pst-burger span,.pst-header.pst-scrolled .pst-burger span::before,.pst-header.pst-scrolled .pst-burger span::after{background:var(--ink)}
+body.pst-menu-open .pst-burger span{background:transparent}
+body.pst-menu-open .pst-burger span::before{top:0;transform:rotate(45deg)}
+body.pst-menu-open .pst-burger span::after{top:0;transform:rotate(-45deg)}
+.pst-mobile-menu{position:fixed;inset:0;z-index:55;background:var(--ink);padding:96px 28px 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-100%);opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .3s var(--ease)}
+body.pst-menu-open .pst-mobile-menu{transform:translateY(0);opacity:1;pointer-events:auto}
+.pst-mobile-menu a{color:#fff;font-size:22px;font-weight:700;padding:16px 0;border-bottom:1px solid var(--line-dark)}
+.pst-mobile-menu .pst-btn{margin-top:24px}
+@media(max-width:880px){
+  .pst-nav__links{display:none}
+  .pst-nav__cta .pst-btn--ghost{display:none}
+  .pst-burger{display:grid}
+}
+@media(max-width:560px){
+  .pst-nav{height:64px}
+  .pst-brand{gap:10px}
+  .pst-brand__mark{width:34px;height:34px}
+  .pst-brand__mark span{width:14px;height:14px}
+  .pst-brand__name{font-size:15.5px}
+  .pst-brand__sub{display:none}
+  .pst-nav .pst-btn{padding:10px 17px;font-size:14px}
+}
+/* узкие телефоны: бренд и кнопка «Записаться» не наезжают друг на друга */
+@media(max-width:400px){
+  .pst-wrap{padding:0 20px}
+  .pst-nav__cta{gap:8px}
+  .pst-nav .pst-btn{padding:9px 13px;font-size:13.5px}
+  .pst-brand__name{font-size:15px}
+}
+
+/* ── Hero ── */
+/* 148px сверху — под фиксированную шапку. Без шапки поставьте 96px. */
+.pst-hero{position:relative;background:var(--ink);color:#fff;padding:148px 0 100px;overflow:hidden}
+.pst-hero__grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 100% 80% at 70% 0%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 100% 80% at 70% 0%,#000 30%,transparent 75%)}
+.pst-hero__glow{position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(14,138,82,.32),transparent 65%);top:-220px;right:-160px;filter:blur(10px);pointer-events:none}
+.pst-hero .pst-wrap{position:relative;z-index:2}
+.pst-hero__inner{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+@media(max-width:980px){.pst-hero__inner{grid-template-columns:1fr;gap:48px}}
+.pst-hero h1{font-size:clamp(36px,5.6vw,64px);line-height:1.04;letter-spacing:-.03em;color:#fff}
+.pst-hero__sub{display:block;font-size:clamp(22px,3.2vw,34px);font-weight:600;color:#5fd29a;margin-top:14px;letter-spacing:-.02em}
+.pst-hero__desc{margin-top:28px;font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.72);max-width:560px;line-height:1.6}
+.pst-hero__actions{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.pst-hero__chips{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.pst-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--line-dark);border-radius:50px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.85)}
+.pst-chip svg{width:15px;height:15px;color:#5fd29a}
+.pst-flow-card{background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:20px;padding:30px 28px;backdrop-filter:blur(4px)}
+.pst-flow-card__title{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.pst-flow-card__head{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:24px}
+.pst-vflow{display:flex;flex-direction:column}
+.pst-vflow__item{display:flex;align-items:flex-start;gap:16px;position:relative;padding-bottom:22px}
+.pst-vflow__item:last-child{padding-bottom:0}
+.pst-vflow__item:not(:last-child)::before{content:"";position:absolute;left:15px;top:34px;bottom:0;width:2px;background:linear-gradient(var(--accent),rgba(95,210,154,.25))}
+.pst-vflow__dot{width:32px;height:32px;border-radius:50%;background:rgba(14,138,82,.16);border:1.5px solid var(--accent);color:#5fd29a;display:grid;place-items:center;font-size:13px;font-weight:800;flex:none;z-index:1}
+.pst-vflow__txt b{display:block;font-size:16px;color:#fff;font-weight:700;letter-spacing:-.01em}
+.pst-vflow__txt span{font-size:13.5px;color:rgba(255,255,255,.55)}
+
+/* ── Цепочка этапов ── */
+.pst-offer{background:var(--cream)}
+.pst-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:46px 0 8px;counter-reset:pststep}
+.pst-chain__step{position:relative;padding:30px 26px;background:var(--paper);border:1px solid var(--line);counter-increment:pststep}
+.pst-chain__step:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+.pst-chain__step:last-child{border-radius:0 var(--radius) var(--radius) 0}
+.pst-chain__step:not(:first-child){border-left:none}
+.pst-chain__step::after{content:"";position:absolute;right:-11px;top:50%;transform:translateY(-50%) rotate(45deg);width:20px;height:20px;background:var(--paper);border-top:1px solid var(--line);border-right:1px solid var(--line);z-index:2}
+.pst-chain__step:last-child::after{display:none}
+.pst-chain__num{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.1em}
+.pst-chain__num::before{content:"0" counter(pststep)}
+.pst-chain__step h4{font-size:18px;margin-top:12px;letter-spacing:-.01em}
+.pst-chain__step p{font-size:14px;color:var(--muted);margin-top:7px}
+@media(max-width:760px){
+  .pst-chain{grid-template-columns:1fr}
+  .pst-chain__step{border-radius:0!important;border-left:1px solid var(--line)!important}
+  .pst-chain__step:first-child{border-radius:var(--radius) var(--radius) 0 0!important}
+  .pst-chain__step:last-child{border-radius:0 0 var(--radius) var(--radius)!important}
+  .pst-chain__step:not(:first-child){border-top:none}
+  .pst-chain__step::after{right:auto;left:50%;top:auto;bottom:-11px;transform:translateX(-50%) rotate(135deg)}
+}
+.pst-checklist{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+@media(max-width:860px){.pst-checklist{grid-template-columns:1fr}}
+.pst-check-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.pst-check-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d4d8cf}
+.pst-check-ic{width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:18px}
+.pst-check-ic svg{width:23px;height:23px}
+.pst-check-card p{font-size:15.5px;color:var(--text);line-height:1.55}
+
+/* ── Для кого ── */
+.pst-aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.pst-aud-grid{grid-template-columns:1fr}}
+.pst-aud-item{display:flex;align-items:flex-start;gap:16px;padding:24px 26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:border-color .3s var(--ease),background .3s var(--ease)}
+.pst-aud-item:hover{border-color:var(--accent);background:var(--accent-tint)}
+.pst-aud-item__ic{width:44px;height:44px;border-radius:11px;background:var(--cream-2);color:var(--ink);display:grid;place-items:center;flex:none;transition:background .3s var(--ease),color .3s var(--ease)}
+.pst-aud-item:hover .pst-aud-item__ic{background:var(--accent);color:#fff}
+.pst-aud-item__ic svg{width:22px;height:22px}
+.pst-aud-item p{font-size:16px;font-weight:600;color:var(--text);line-height:1.45;padding-top:8px}
+.pst-org-note{margin-top:30px;padding:26px 30px;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);font-size:16px;color:var(--text);line-height:1.6;display:flex;gap:18px;align-items:flex-start}
+.pst-org-note svg{width:26px;height:26px;color:var(--accent);flex:none;margin-top:2px}
+
+/* ── Зачем сейчас ── */
+.pst-why{background:var(--ink);color:#fff}
+.pst-why h2{color:#fff}
+.pst-why__inner{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+@media(max-width:980px){.pst-why__inner{grid-template-columns:1fr;gap:40px}}
+.pst-pain-list{display:flex;flex-direction:column;gap:14px}
+.pst-pain{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:14px}
+.pst-pain__x{width:30px;height:30px;border-radius:8px;background:rgba(180,68,31,.18);color:#ff8d63;display:grid;place-items:center;flex:none}
+.pst-pain__x svg{width:17px;height:17px}
+.pst-pain p{font-size:15.5px;color:rgba(255,255,255,.88);line-height:1.5}
+.pst-why__solve{margin-top:28px;padding:26px 28px;border-radius:16px;background:linear-gradient(135deg,rgba(14,138,82,.2),rgba(14,138,82,.06));border:1px solid rgba(95,210,154,.3)}
+.pst-why__solve b{color:#5fd29a}
+.pst-why__solve p{font-size:16.5px;color:rgba(255,255,255,.92);line-height:1.6}
+
+/* ── Результаты ── */
+.pst-outcomes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.pst-outcomes-grid{grid-template-columns:1fr}}
+.pst-outcome{display:flex;gap:22px;align-items:flex-start;padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.pst-outcome:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.pst-outcome__num{font-size:40px;font-weight:800;line-height:1;color:var(--cream-2);letter-spacing:-.04em;flex:none;-webkit-text-stroke:1px var(--line)}
+.pst-outcome:hover .pst-outcome__num{color:var(--accent-soft);-webkit-text-stroke:1px var(--accent)}
+.pst-outcome p{font-size:16px;color:var(--text);line-height:1.5;padding-top:4px}
+.pst-result-banner{margin-top:30px;display:flex;align-items:center;gap:18px;padding:26px 30px;background:var(--ink);color:#fff;border-radius:var(--radius)}
+.pst-result-banner svg{width:30px;height:30px;color:#5fd29a;flex:none}
+.pst-result-banner p{font-size:17px;line-height:1.5}
+.pst-result-banner b{color:#5fd29a}
+
+/* ── Формат ── */
+.pst-format{background:var(--cream)}
+.pst-fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:30px}
+@media(max-width:760px){.pst-fmt-grid{grid-template-columns:1fr}}
+.pst-fmt-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px}
+.pst-fmt-card__big{font-size:46px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.pst-fmt-card__lbl{font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-top:10px}
+.pst-fmt-card p{font-size:14.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+.pst-fmt-note{display:flex;align-items:center;gap:14px;padding:22px 26px;border:1px dashed var(--line);border-radius:var(--radius);background:var(--paper);font-size:15.5px;color:var(--text)}
+.pst-fmt-note svg{width:22px;height:22px;color:var(--accent);flex:none}
+.pst-fmt-note b{color:var(--ink)}
+
+/* ── Программа ── */
+.pst-modules{display:flex;flex-direction:column;gap:18px}
+.pst-module{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.pst-module:hover{box-shadow:var(--shadow);border-color:#d4d8cf}
+.pst-module__head{display:flex;align-items:center;gap:22px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:26px 30px;font-family:var(--ff);list-style:none}
+.pst-module__head::-webkit-details-marker{display:none}
+.pst-module__no{font-size:14px;font-weight:800;color:var(--accent);letter-spacing:.1em;flex:none;width:54px}
+.pst-module__titles{flex:1;min-width:0}
+.pst-module__title{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.pst-module__sub{display:block;font-size:14.5px;color:var(--muted);margin-top:6px;font-style:italic}
+.pst-module__price{flex:none;padding:7px 14px;border-radius:50px;background:var(--accent-soft);color:var(--accent-2);font-size:13.5px;font-weight:800;white-space:nowrap}
+@media(max-width:640px){.pst-module__price{display:none}}
+.pst-module__toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:background .3s var(--ease),transform .3s var(--ease),border-color .3s var(--ease)}
+.pst-module__toggle svg{width:18px;height:18px;color:var(--ink);transition:transform .3s var(--ease)}
+.pst-module[open] .pst-module__toggle{background:var(--accent);border-color:var(--accent)}
+.pst-module[open] .pst-module__toggle svg{color:#fff;transform:rotate(45deg)}
+.pst-module__body{padding:0 30px 30px 106px}
+@media(max-width:640px){.pst-module__body{padding:0 24px 26px 24px}.pst-module__head{padding:22px 24px;gap:14px}.pst-module__no{width:auto}}
+.pst-module__body ul{display:flex;flex-direction:column;gap:11px;border-top:1px solid var(--line);padding-top:22px}
+.pst-module__body li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.pst-module__body li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+
+/* ── Участие (карточка условий) ── */
+.pst-price{background:var(--cream)}
+.pst-price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:920px}
+@media(max-width:760px){.pst-price-grid{grid-template-columns:1fr}}
+.pst-price-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:38px 34px;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.pst-price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pst-price-card--hl{background:var(--ink);border-color:var(--ink);color:#fff}
+.pst-price-card__lbl{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+.pst-price-card--hl .pst-price-card__lbl{color:#5fd29a}
+.pst-price-card__val{font-size:46px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.pst-price-card--hl .pst-price-card__val{color:#fff}
+.pst-price-card__per{font-size:14.5px;color:var(--muted);margin-top:8px}
+.pst-price-card--hl .pst-price-card__per{color:rgba(255,255,255,.6)}
+.pst-price-card__list{margin:26px 0 30px;display:flex;flex-direction:column;gap:12px}
+.pst-price-card__list li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.5;color:var(--text)}
+.pst-price-card--hl .pst-price-card__list li{color:rgba(255,255,255,.88)}
+.pst-price-card__list svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:1px}
+.pst-price-card--hl .pst-price-card__list svg{color:#5fd29a}
+.pst-price-card .pst-btn{margin-top:auto}
+.pst-price-note{margin-top:22px;font-size:14.5px;color:var(--muted)}
+
+/* ── Спикер ── */
+.pst-speaker__card{display:grid;grid-template-columns:300px 1fr;gap:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--paper)}
+@media(max-width:860px){.pst-speaker__card{grid-template-columns:1fr}}
+.pst-speaker__aside{background:var(--ink);color:#fff;padding:44px 36px;display:flex;flex-direction:column}
+.pst-speaker__ava{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#13b06a);display:grid;place-items:center;font-size:32px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:24px}
+.pst-speaker__name{font-size:26px;font-weight:800;letter-spacing:-.02em;color:#fff}
+.pst-speaker__role{font-size:15px;color:rgba(255,255,255,.66);margin-top:12px;line-height:1.5}
+.pst-speaker__tag{margin-top:auto;padding-top:28px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#5fd29a}
+.pst-speaker__tag svg{width:16px;height:16px}
+.pst-speaker__body{padding:44px 40px}
+@media(max-width:640px){.pst-speaker__body{padding:32px 26px}.pst-speaker__aside{padding:36px 28px}}
+.pst-sp-block{margin-bottom:30px}
+.pst-sp-block:last-child{margin-bottom:0}
+.pst-sp-block h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+.pst-sp-block ul{display:flex;flex-direction:column;gap:10px}
+.pst-sp-block li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.pst-sp-block li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;border:2px solid var(--accent)}
+.pst-sp-format{padding:20px 22px;background:var(--cream);border-radius:12px;font-size:15px;color:var(--text);line-height:1.55}
+.pst-sp-format b{color:var(--ink)}
+
+/* ── Преимущества ── */
+.pst-ben-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.pst-ben-grid{grid-template-columns:1fr}}
+.pst-ben{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.pst-ben:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.pst-ben__ic{width:50px;height:50px;border-radius:13px;background:var(--ink);color:#5fd29a;display:grid;place-items:center;margin-bottom:20px}
+.pst-ben__ic svg{width:24px;height:24px}
+.pst-ben h4{font-size:18px;letter-spacing:-.01em;margin-bottom:10px}
+.pst-ben p{font-size:15px;color:var(--muted);line-height:1.55}
+
+/* ── Запись (тёмный призыв; форма ГетКурса ставится сразу после) ── */
+.pst-register{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.pst-register__grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 90% at 20% 100%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 90% at 20% 100%,#000 20%,transparent 70%)}
+.pst-register .pst-wrap{position:relative;z-index:2;max-width:860px}
+.pst-register h2{color:#fff;font-size:clamp(28px,4vw,42px)}
+.pst-want-list{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.pst-want{display:flex;align-items:flex-start;gap:14px;font-size:16.5px;color:rgba(255,255,255,.9);line-height:1.5}
+.pst-want svg{width:24px;height:24px;color:#5fd29a;flex:none;margin-top:1px}
+.pst-microcta{margin-top:30px;display:flex;align-items:center;gap:12px;font-size:14.5px;color:rgba(255,255,255,.6)}
+.pst-microcta b{color:#fff}
+.pst-pulse{width:10px;height:10px;border-radius:50%;background:#5fd29a;position:relative;flex:none}
+.pst-pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:#5fd29a;animation:pstPulse 2s infinite}
+@keyframes pstPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+@media(prefers-reduced-motion:reduce){.pst-pulse::after{animation:none}}
+
+/* ── Подвал ── */
+.pst-footer{background:#0e1015;color:rgba(255,255,255,.6);padding:56px 0 36px}
+.pst-footer__top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid var(--line-dark)}
+.pst-footer .pst-brand__sub{color:rgba(255,255,255,.45)}
+.pst-footer__nav{display:flex;gap:30px;flex-wrap:wrap}
+.pst-footer__nav a{font-size:14.5px;color:rgba(255,255,255,.6);transition:color .2s}
+.pst-footer__nav a:hover{color:#fff}
+.pst-footer__bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:13px}
+.pst-footer__credit a{color:#5fd29a;font-weight:600}
+.pst-footer__credit a:hover{text-decoration:underline}
+.pst-footer__legal{display:flex;gap:24px;flex-wrap:wrap;padding-top:24px;font-size:13.5px}
+.pst-footer__legal a{color:rgba(255,255,255,.55);text-decoration:underline;text-underline-offset:3px;transition:color .2s}
+.pst-footer__legal a:hover{color:#fff}
+/* Партнёр школы — Сбер */
+.pst-chip--partner{border-color:rgba(255,255,255,.28);color:#fff}
+.pst-chip--partner img{width:17px;height:17px;display:block}
+.pst-sber{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:7px 12px;line-height:0}
+.pst-sber img{height:26px;width:auto;aspect-ratio:1094/251;display:block}
+.pst-footer__partner{display:flex;align-items:center;gap:14px;padding-top:26px}
+.pst-footer__partner-lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* ── Появление при прокрутке (без скрипта всё просто видимо) ── */
+html.pst-js .pst-reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+html.pst-js .pst-reveal.pst-on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.pst-js .pst-reveal{opacity:1;transform:none;transition:none}}
+
+/* ── Дополнения: фото спикера и одна карточка ── */
+/* Фото спикера вместо аватара-инициалов */
+.pst-speaker__photo{display:block;width:100%;max-width:228px;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:18px;margin-bottom:24px;border:1px solid var(--line-dark);background:#1c1f28}
+@media(max-width:860px){.pst-speaker__photo{max-width:200px}}
+/* Одна карточка стоимости по центру сетки */
+.pst-price-grid--one{grid-template-columns:1fr;max-width:560px}
+/* ── Мини-блок спикера в hero ── */
+.pst-flow-speaker{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-dark)}
+.pst-flow-speaker img{width:54px;height:54px;border-radius:50%;object-fit:cover;flex:none;border:2px solid rgba(95,210,154,.5)}
+.pst-flow-speaker b{display:block;font-size:15.5px;color:#fff;font-weight:700}
+.pst-flow-speaker span span{display:block;font-size:13.5px;color:rgba(255,255,255,.55)}
+.pst-vflow__txt span{display:block;margin-top:2px}
+/* вопросы вместо «болей» */
+.pst-pain__q{background:rgba(95,210,154,.14);color:#5fd29a;font-size:16px;font-weight:800}
+/* ── Карточки вебинаров ── */
+.pst-sessions{display:flex;flex-direction:column;gap:18px}
+.pst-session{display:grid;grid-template-columns:210px 1fr;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--paper);transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.pst-session:hover{box-shadow:var(--shadow);border-color:#d4d8cf}
+.pst-session__date{background:var(--ink);color:#fff;padding:32px 28px;display:flex;flex-direction:column}
+.pst-session__no{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#5fd29a}
+.pst-session__day{font-size:68px;font-weight:800;line-height:1;letter-spacing:-.04em;margin-top:20px}
+.pst-session__month{font-size:16px;font-weight:700;margin-top:8px;color:rgba(255,255,255,.9)}
+.pst-session__time{font-size:14px;color:rgba(255,255,255,.55);margin-top:auto;padding-top:24px}
+.pst-session__body{padding:32px 36px;display:flex;flex-direction:column}
+.pst-sec h3.pst-session__title{font-size:clamp(20px,2.4vw,25px);line-height:1.2;letter-spacing:-.02em}
+.pst-sec .pst-session__sub{font-size:15px;color:var(--muted);margin-top:8px;font-style:italic}
+/* .pst-sec p{margin:0} перебивал отступ описания в hero */
+.pst-hero p.pst-hero__desc{margin-top:28px}
+.pst-session__list{display:flex;flex-direction:column;gap:11px;margin-top:22px!important;padding-top:20px!important;border-top:1px solid var(--line)}
+.pst-session__list li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.pst-session__list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+.pst-session__foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:26px}
+.pst-session__price{font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.pst-session__price small{font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0}
+@media(max-width:760px){
+  .pst-session{grid-template-columns:1fr}
+  .pst-session__date{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:22px 24px}
+  .pst-session__no{width:100%}
+  .pst-session__day{font-size:44px;margin-top:8px}
+  .pst-session__month{margin-top:0}
+  .pst-session__time{margin-top:0;padding-top:0;width:100%}
+  .pst-session__body{padding:26px 24px}
+  .pst-session__foot .pst-btn{width:100%}
+}
+.pst-want span b{color:#fff}
+</style>
+<script>
+(function(){
+  "use strict";
+  /* Флаг «скрипт есть»: без него секции остаются видимыми без анимаций */
+  document.documentElement.classList.add('pst-js');
+
+  function init(){
+    /* Шапка при прокрутке */
+    var header=document.getElementById('pstHeader');
+    if(header){
+      var onScroll=function(){ if(window.scrollY>20){header.classList.add('pst-scrolled');}else{header.classList.remove('pst-scrolled');} };
+      onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+    }
+
+    /* Мобильное меню */
+    var burger=document.getElementById('pstBurger');
+    var menu=document.getElementById('pstMenu');
+    if(burger&&menu){
+      var toggleMenu=function(force){
+        var open=force!==undefined?force:!document.body.classList.contains('pst-menu-open');
+        document.body.classList.toggle('pst-menu-open',open);
+        burger.setAttribute('aria-expanded',open);
+      };
+      burger.addEventListener('click',function(){toggleMenu();});
+      menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggleMenu(false);});});
+    }
+
+    /* Появление секций */
+    var els=document.querySelectorAll('.pst-reveal');
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('pst-on'); io.unobserve(e.target);} });
+      },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+      els.forEach(function(el){io.observe(el);});
+    }else{ els.forEach(function(el){el.classList.add('pst-on');}); }
+
+    /* Аккордеон программы: открыта одна тема */
+    var modules=document.querySelectorAll('.pst-module');
+    modules.forEach(function(m){
+      var head=m.querySelector('.pst-module__head');
+      if(!head) return;
+      head.addEventListener('click',function(){
+        setTimeout(function(){
+          if(m.open){ modules.forEach(function(other){ if(other!==m){other.open=false;} }); }
+        },0);
+      });
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
+</script>
+<header class="pst-sec pst-header" id="pstHeader">
+  <div class="pst-wrap">
+    <nav class="pst-nav">
+      <a href="index.html" class="pst-brand" aria-label="Онлайн-школа «Закупки в цифре», cifrazakup.ru">
+        <span class="pst-brand__mark"><span></span></span>
+        <span class="pst-brand__txt">
+          <span class="pst-brand__name">Закупки в цифре</span>
+          <span class="pst-brand__sub">онлайн-школа</span>
+        </span>
+      </a>
+      <div class="pst-nav__links">
+        <a href="#pst-audience">Для кого</a>
+        <a href="#pst-program">Программа</a>
+        <a href="#pst-price">Участие</a>
+        <a href="#pst-speaker">Спикер</a>
+      </div>
+      <div class="pst-nav__cta">
+        <a href="#pst-program" class="pst-btn pst-btn--ghost">16 ноября</a>
+        <a href="https://gc.cifrazakup.ru/postavshiki#kel-register" class="pst-btn pst-btn--primary">Записаться</a>
+        <button class="pst-burger" id="pstBurger" aria-label="Меню" aria-expanded="false" type="button"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="pst-sec pst-mobile-menu" id="pstMenu">
+  <a href="#pst-audience">Для кого</a>
+  <a href="#pst-program">Программа</a>
+  <a href="#pst-price">Участие</a>
+  <a href="#pst-speaker">Спикер</a>
+  <a href="https://gc.cifrazakup.ru/postavshiki#kel-register" class="pst-btn pst-btn--primary pst-btn--lg pst-btn--block">Записаться на вебинар</a>
+</div>
+
+
+<section class="pst-sec pst-hero" id="pst-hero">
+  <div class="pst-hero__grid-bg"></div>
+  <div class="pst-hero__glow"></div>
+  <div class="pst-wrap">
+    <div class="pst-hero__inner">
+      <div>
+        <span class="pst-eyebrow pst-eyebrow--light">Онлайн-школа «Закупки в цифре» · ИИ в закупках: одна проблема, три уровня решения</span>
+        <h1>ИИ в закупках: поставщики из&nbsp;реестра контрактов<span class="pst-hero__sub">три КП за день вместо трёх недель</span></h1>
+        <p class="pst-hero__desc">Полтора часа 16 ноября в 18:30 по Москве. Берём одну проблему: заказчику нужны три КП для НМЦК, а поставщику нужны производители и субподрядчики, которые реально исполняют контракты. Решаем её на трёх уровнях: промпт в любом чате, скилл на данных реестра контрактов и сервис kp.robotender.ru, который делает всё одной кнопкой. Ведёт Альберт Гизатуллин, автор сервиса.</p>
+        <div class="pst-hero__actions">
+          <a href="https://gc.cifrazakup.ru/postavshiki#kel-register" class="pst-btn pst-btn--primary pst-btn--lg">Записаться
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#pst-program" class="pst-btn pst-btn--ghost pst-btn--lg" style="color:#fff;border-color:rgba(255,255,255,.25)">Смотреть программу</a>
+        </div>
+        <div class="pst-hero__chips">
+          <span class="pst-chip pst-chip--partner"><img src="https://cifrazakup.ru/assets/sber-mark.svg" alt="">Партнёр ЭТП «Сбер А»</span>
+          <span class="pst-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>16 ноября, понедельник · 18:30 МСК</span>
+          <span class="pst-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>2 500 ₽</span>
+          <span class="pst-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>1,5 часа онлайн + запись на 90 дней</span>
+          <span class="pst-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M4 21a8 8 0 0116 0"/></svg>Для заказчиков и поставщиков</span>
+        </div>
+      </div>
+      <div class="pst-flow-card pst-reveal">
+        <div class="pst-flow-card__title">Одна проблема</div>
+        <div class="pst-flow-card__head">Три КП не собрать: на запросы по справочникам никто не отвечает</div>
+        <div class="pst-vflow">
+          <div class="pst-vflow__item"><span class="pst-vflow__dot">1</span><span class="pst-vflow__txt"><b>Уровень 1. Промпт</b><span>запрос КП и поисковые фразы из вашего ТЗ в любом чате</span></span></div>
+          <div class="pst-vflow__item"><span class="pst-vflow__dot">2</span><span class="pst-vflow__txt"><b>Уровень 2. Скилл</b><span>поставщики из реестра контрактов ЕИС в таблицу, без выдуманных компаний</span></span></div>
+          <div class="pst-vflow__item"><span class="pst-vflow__dot">3</span><span class="pst-vflow__txt"><b>Уровень 3. Сервис</b><span>kp.robotender.ru: база, письмо от ИИ, рассылка, пополнение из ЕИС</span></span></div>
+        </div>
+        <div class="pst-flow-speaker">
+          <img src="https://cifrazakup.ru/assets/albert.jpg" alt="Альберт Гизатуллин">
+          <span><b>Ведёт Альберт Гизатуллин</b><span>тендерный аналитик · лаборатория «Тендеры ex machina»</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pst-sec pst-section" id="pst-audience">
+  <div class="pst-wrap">
+    <div class="pst-section-head pst-reveal">
+      <span class="pst-eyebrow">Для кого</span>
+      <h2 class="pst-h2">Для тех, кому нужны поставщики, которые ответят</h2>
+      <p class="pst-lead" style="margin-top:18px">Вебинар для специалистов заказчика и поставщика по 44-ФЗ и 223-ФЗ. Одна и та же база нужна обеим сторонам: заказчику для НМЦК, поставщику для производителей, субподрядчиков и понимания рынка.</p>
+    </div>
+    <div class="pst-aud-grid pst-reveal">
+      <div class="pst-aud-item"><span class="pst-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01M15 9h.01M15 13h.01M15 17h.01"/></svg></span><p>Специалисты заказчика, которые обосновывают НМЦК и собирают три КП к каждой закупке</p></div>
+      <div class="pst-aud-item"><span class="pst-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><p>Поставщики, которым под контракт нужны производители и субподрядчики с реальным опытом поставок</p></div>
+      <div class="pst-aud-item"><span class="pst-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span><p>Руководители тендерных отделов, которые хотят видеть, кто исполняет контракты по их направлению</p></div>
+      <div class="pst-aud-item"><span class="pst-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0116 0"/></svg></span><p>Контрактные управляющие небольших учреждений, где закупками занимается один человек</p></div>
+    </div>
+    <div class="pst-org-note pst-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Программировать не нужно. Промпты из раздатки проверены в GigaChat и DeepSeek на вложенных файлах, без VPN. Поиск в ЕИС показываем руками и в сервисе.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="pst-sec pst-section pst-why" id="pst-why">
+  <div class="pst-wrap">
+    <div class="pst-why__inner">
+      <div class="pst-reveal">
+        <span class="pst-eyebrow pst-eyebrow--light">Зачем идти</span>
+        <h2 class="pst-h2">Вебинар пригодится, если вы узнаёте себя в одном из этих вопросов</h2>
+        <div class="pst-why__solve">
+          <p>Каждому вопросу отведён свой блок программы. <b>В эфире разбираем одну закупку из зала.</b></p>
+        </div>
+      </div>
+      <div class="pst-pain-list pst-reveal">
+        <div class="pst-pain"><span class="pst-pain__x pst-pain__q">?</span><p>Как собрать три КП, если на запросы по справочникам и 2ГИС никто не отвечает</p></div>
+        <div class="pst-pain"><span class="pst-pain__x pst-pain__q">?</span><p>Где найти поставщиков, которые реально исполняют контракты, а не просто числятся в каталоге</p></div>
+        <div class="pst-pain"><span class="pst-pain__x pst-pain__q">?</span><p>Как поручить нейросети письмо и поиск так, чтобы она не выдумала компании, адреса и цены</p></div>
+        <div class="pst-pain"><span class="pst-pain__x pst-pain__q">?</span><p>Как проверить поставщика на неустойки до того, как отправить ему запрос или заявиться с ним на закупку</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pst-sec pst-section pst-format" id="pst-program">
+  <div class="pst-wrap">
+    <div class="pst-section-head pst-reveal">
+      <span class="pst-eyebrow">Программа</span>
+      <h2 class="pst-h2">Одна проблема, три уровня решения и&nbsp;закупка из&nbsp;зала</h2>
+      <p class="pst-lead" style="margin-top:18px">Понедельник, 16 ноября, в 18:30 по Москве. Полтора часа: проблема, три уровня решения вживую и ответы на вопросы.</p>
+    </div>
+    <div class="pst-sessions">
+      <article class="pst-session pst-reveal">
+        <div class="pst-session__date">
+          <span class="pst-session__no">Вебинар</span>
+          <span class="pst-session__day">16</span>
+          <span class="pst-session__month">ноября, понедельник</span>
+          <span class="pst-session__time">18:30 МСК · 1,5 часа</span>
+        </div>
+        <div class="pst-session__body">
+          <h3 class="pst-session__title">ИИ в закупках: поставщики из реестра контрактов. Три КП за день вместо трёх недель</h3>
+          <p class="pst-session__sub">Промпт, скилл, сервис: от письма в чате до рассылки одной кнопкой</p>
+          <ul class="pst-session__list">
+            <li>Проблема. Метод сопоставимых рыночных цен требует минимум три КП, а запросы по справочникам остаются без ответа. У поставщика та же задача с другой стороны: производители, субподрядчики, конкуренты</li>
+            <li>Где лежат поставщики. Реестр контрактов ЕИС: статус «Исполнение завершено», неустойки и контакты в карточке. Что ЕИС отдаёт, чего нет и почему это достаём правилами, а не нейросетью</li>
+            <li>Уровень 1, промпт. Из ТЗ делаем обезличенный запрос КП: срок действия, условия поставки, НДС, без подсказки цены. Поисковые фразы: как товар называют в контрактах. Разбор пришедшего КП против ТЗ. Прогон на закупке из зала</li>
+            <li>Ловушка. Нейросеть выдумывает компании, адреса и цены. Что ей не поручаем и как это проверять</li>
+            <li>Уровень 2, скилл. Поиск в реестре по фразе с фильтрами, карточка контракта, проверка неустоек, контакты в таблицу: компания, почта, предмет, цена, дата. Лимиты ЕИС и паузы</li>
+            <li>Уровень 3, сервис kp.robotender.ru. Своя почта, база, письмо от ИИ, направления, письмо каждому отдельно, пополнение базы из ЕИС, статус по получателям. Участники отправляют запрос с демо-доступа</li>
+            <li>Вопросы участников</li>
+          </ul>
+          <div class="pst-session__foot">
+            <span class="pst-session__price">2 500 ₽ <small>за вебинар</small></span>
+            <a href="https://gc.cifrazakup.ru/postavshiki#kel-register" class="pst-btn pst-btn--primary">Записаться на 16 ноября</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="pst-sec pst-section" id="pst-outcomes">
+  <div class="pst-wrap">
+    <div class="pst-section-head pst-reveal">
+      <span class="pst-eyebrow">Что уносите</span>
+      <h2 class="pst-h2">Инструменты, чтобы дальше делать это за&nbsp;20&nbsp;минут</h2>
+    </div>
+    <div class="pst-outcomes-grid pst-reveal">
+      <div class="pst-outcome"><span class="pst-outcome__num">01</span><p>Три промпта: запрос КП из ТЗ, поисковые фразы для реестра, разбор пришедшего КП против ТЗ</p></div>
+      <div class="pst-outcome"><span class="pst-outcome__num">02</span><p>Шаблон базы поставщиков и инструкция по поиску в реестре контрактов с проверкой неустоек</p></div>
+      <div class="pst-outcome"><span class="pst-outcome__num">03</span><p>Доступ к сервису kp.robotender.ru на 30 дней: база, письмо от ИИ, рассылка, пополнение из ЕИС</p></div>
+      <div class="pst-outcome"><span class="pst-outcome__num">04</span><p>Запись эфира на 90 дней и ответы на вопросы участников</p></div>
+    </div>
+    <div class="pst-result-banner pst-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4M4 4h12l-2 4 2 4H4"/></svg>
+      <p><b>Цель вебинара:</b> запрос КП по новому ТЗ занимает 20 минут, а не неделю переписки, и уходит поставщикам, которые уже исполняли такие контракты.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="pst-sec pst-section pst-format" id="pst-price">
+  <div class="pst-wrap">
+    <div class="pst-section-head pst-reveal">
+      <span class="pst-eyebrow">Формат и участие</span>
+      <h2 class="pst-h2">Онлайн-эфир, вопросы спикеру и запись на&nbsp;90&nbsp;дней</h2>
+    </div>
+    <div class="pst-fmt-grid pst-reveal">
+      <div class="pst-fmt-card"><div class="pst-fmt-card__big">1,5</div><div class="pst-fmt-card__lbl">часа в эфире</div><p>Проблема, три уровня решения вживую на реальных закупках и ответы на вопросы участников.</p></div>
+      <div class="pst-fmt-card"><div class="pst-fmt-card__big">16.11</div><div class="pst-fmt-card__lbl">понедельник, 18:30 МСК</div><p>Онлайн. Ссылка на эфир придёт на почту после записи.</p></div>
+      <div class="pst-fmt-card"><div class="pst-fmt-card__big">2 500 ₽</div><div class="pst-fmt-card__lbl">за вебинар</div><p>В стоимость входит участие в эфире, раздатка с промптами и запись на 90 дней.</p></div>
+    </div>
+    <div class="pst-fmt-note pst-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg>
+      <span><b>Когда:</b> 16 ноября 2026, понедельник, в 18:30 по Москве. Онлайн, запись эфира доступна 90 дней.</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="pst-sec pst-section" id="pst-speaker">
+  <div class="pst-wrap">
+    <div class="pst-section-head pst-reveal">
+      <span class="pst-eyebrow">О спикере</span>
+      <h2 class="pst-h2">Тендерный аналитик, который собирает ИИ-сервисы для&nbsp;закупок своими руками</h2>
+    </div>
+    <div class="pst-speaker__card pst-reveal">
+      <div class="pst-speaker__aside">
+        <img class="pst-speaker__photo" src="https://cifrazakup.ru/assets/albert.jpg" alt="Альберт Гизатуллин" loading="lazy">
+        <div class="pst-speaker__name">Альберт Гизатуллин</div>
+        <div class="pst-speaker__role">Тендерный аналитик, основатель лаборатории «Тендеры ex machina». Внедряет ИИ в работу заказчиков и поставщиков.</div>
+        <div class="pst-speaker__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg>Преподаватель курса «ИИ в закупках»</div>
+      </div>
+      <div class="pst-speaker__body">
+        <div class="pst-sp-block">
+          <h4>Опыт</h4>
+          <ul>
+            <li>Тендерный аналитик, основатель лаборатории «Тендеры ex machina»</li>
+            <li>Внедряет ИИ в работу заказчиков и поставщиков: от анализа документации до сборки ИИ-агентов</li>
+            <li>Автор Telegram-канала «Тендеры и госзакупки | ИИ-инструменты» и сервисов для закупок, в том числе kp.robotender.ru</li>
+            <li>Преподаватель курса «Искусственный интеллект в закупках» онлайн-школы «Закупки в цифре»</li>
+          </ul>
+        </div>
+        <div class="pst-sp-block">
+          <h4>О чём вебинар</h4>
+          <ul>
+            <li>Где взять поставщиков, которые ответят на запрос КП</li>
+            <li>Как нейросеть пишет запрос и ищет поставщиков без выдумок</li>
+            <li>Что делает сервис kp.robotender.ru и как им пользоваться после эфира</li>
+          </ul>
+        </div>
+        <div class="pst-sp-format">
+          <b>Формат подачи:</b> одна проблема и три уровня решения: промпт, скилл, сервис. Всё вживую на реальных закупках из ЕИС, с одной закупкой из зала.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pst-sec pst-section pst-register" id="pst-register">
+  <div class="pst-register__grid-bg"></div>
+  <div class="pst-wrap">
+    <div class="pst-reveal">
+      <span class="pst-eyebrow pst-eyebrow--light">Запись на вебинар</span>
+      <h2>Запишитесь на 16 ноября</h2>
+      <div class="pst-want-list">
+        <div class="pst-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span><b>16 ноября, понедельник, 18:30 МСК.</b> ИИ в закупках: поставщики из реестра контрактов</span></div>
+        <div class="pst-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span>Полтора часа в эфире, раздатка с промптами и запись на 90 дней</span></div>
+        <div class="pst-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span>Доступ к сервису kp.robotender.ru на 30 дней и одна закупка из зала в эфире</span></div>
+      </div>
+      <div class="pst-microcta">
+        <span class="pst-pulse"></span>
+        <span><b>Начало в 18:30 по Москве, 2 500 ₽.</b> Запись и оплата на учебной платформе школы, ссылку на эфир пришлём на почту.</span>
+      </div>
+      <a href="https://gc.cifrazakup.ru/postavshiki#kel-register" class="pst-btn pst-btn--primary pst-btn--lg" style="margin-top:30px">Записаться и оплатить
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<footer class="pst-sec pst-footer">
+  <div class="pst-wrap">
+    <div class="pst-footer__top">
+      <div class="pst-brand" style="color:#fff">
+        <span class="pst-brand__mark"><span></span></span>
+        <span class="pst-brand__txt">
+          <span class="pst-brand__name">Закупки в цифре</span>
+          <span class="pst-brand__sub">онлайн-школа</span>
+        </span>
+      </div>
+      <div class="pst-footer__nav">
+        <a href="#pst-audience">Для кого</a>
+        <a href="#pst-program">Программа</a>
+        <a href="#pst-price">Участие</a>
+        <a href="#pst-speaker">Спикер</a>
+        <a href="https://gc.cifrazakup.ru/postavshiki#kel-register">Записаться</a>
+      </div>
+    </div>
+    <div class="pst-footer__partner"><span class="pst-footer__partner-lbl">Партнёр школы</span><span class="pst-sber"><img src="https://cifrazakup.ru/assets/sber-a-logo.svg" alt="Сбер А"></span></div>
+    <div class="pst-footer__legal">
+      <a href="https://cifrazakup.ru/oferta.html" target="_blank" rel="noopener">Публичная оферта</a>
+      <a href="https://cifrazakup.ru/privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>
+      <a href="svedeniya.html">Сведения об образовательной организации</a>
+      <a href="index.html">Все курсы и вебинары</a>
+    </div>
+    <div class="pst-footer__bottom">
+      <span>© Онлайн-школа «Закупки в цифре» · cifrazakup.ru. Вебинар Альберта Гизатуллина «ИИ в закупках: поставщики из реестра контрактов. Три КП за день вместо трёх недель».</span>
+      <span class="pst-footer__credit">Разработано в лаборатории <a href="https://t.me/tickettotender" target="_blank" rel="noopener">«Тендеры ex machina»</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* utm-метки захода дописываются в ссылки на GetCourse — как на главной */
+(function(){
+  var q=location.search.slice(1).split('&').filter(function(p){return /^utm_/.test(p);});
+  if(!q.length) return;
+  document.querySelectorAll('a[href^="https://gc.cifrazakup.ru/"]').forEach(function(a){
+    var h=a.getAttribute('href'), k=h.indexOf('#'), base=k<0?h:h.slice(0,k), hash=k<0?'':h.slice(k);
+    a.setAttribute('href', base+(base.indexOf('?')<0?'?':'&')+q.join('&')+hash);
+  });
+})();
+</script>
+</body>
+</html>

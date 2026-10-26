@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ИИ в закупках: опыт по 44-ФЗ. Какой контракт подтвердит опыт, а какой отклонят · Закупки в цифре</title>
+<meta name="description" content="Вебинар для поставщиков и комиссий заказчиков 23 ноября 2026 в 18:30 МСК: какой контракт подтвердит опыт по ч. 2.1 ст. 31 44-ФЗ и ПП 2571, а какой отклонят. Три года, 20% НМЦК, неустойки, реестровая запись. Промпт-чеклист, выгрузка из ЕИС, сервис проверки по ИНН. 1,5 часа, 2 500 ₽, запись на 90 дней. Спикер — Альберт Гизатуллин.">
+<meta name="theme-color" content="#14161d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ИИ в закупках: опыт по 44-ФЗ">
+<meta property="og:description" content="Вебинар Альберта Гизатуллина 23 ноября в 18:30 МСК. Какой контракт подтвердит опыт, а какой отклонят: промпт-чеклист, выгрузка из ЕИС, сервис проверки по ИНН. 1,5 часа, 2 500 ₽.">
+<meta property="og:image" content="https://cifrazakup.ru/assets/albert.jpg">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>body{margin:0;background:#fff}</style>
+</head>
+<body>
+<!-- НЕ ПРАВИТЬ РУКАМИ: собирается tools/build_webinar.py opyt44 из landings/opyt44.html. Запись и оплата — на GetCourse. -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Плавная прокрутка по якорям */
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ── База: каждый блок лендинга несёт класс .opt-sec и самодостаточен ── */
+.opt-sec{
+  --ink:#14161d;
+  --paper:#ffffff;
+  --cream:#f5f6f3;
+  --cream-2:#eef0ea;
+  --line:#e4e6e0;
+  --line-dark:rgba(255,255,255,.12);
+  --text:#1a1d26;
+  --muted:#5c616e;
+  --muted-2:#8a8f9c;
+  --accent:#0e8a52;
+  --accent-2:#0a6c40;
+  --accent-soft:#e7f3ec;
+  --accent-tint:#f1f8f4;
+  --radius:16px;
+  --shadow:0 1px 2px rgba(20,22,29,.04),0 8px 30px rgba(20,22,29,.06);
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ff:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  margin:0;
+  font-family:var(--ff);color:var(--text);background:var(--paper);
+  font-size:17px;line-height:1.6;font-weight:400;text-align:left;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.opt-sec,.opt-sec *,.opt-sec *::before,.opt-sec *::after{box-sizing:border-box}
+.opt-sec h1,.opt-sec h2,.opt-sec h3,.opt-sec h4{margin:0;font-weight:800;letter-spacing:-.02em;line-height:1.1;color:var(--ink);font-family:inherit}
+.opt-sec p{margin:0}
+.opt-sec a{color:inherit;text-decoration:none}
+.opt-sec ul{margin:0;padding:0;list-style:none}
+.opt-sec img{max-width:100%}
+.opt-sec ::selection{background:var(--accent);color:#fff}
+
+.opt-wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 28px}
+.opt-section{padding:104px 0;position:relative}
+@media(max-width:860px){.opt-section{padding:68px 0}}
+
+.opt-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+.opt-eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+.opt-eyebrow--light{color:#5fd29a}
+.opt-eyebrow--light::before{background:#5fd29a}
+
+.opt-h2{font-size:clamp(28px,4.2vw,46px)}
+.opt-lead{font-size:clamp(17px,2vw,20px);color:var(--muted);line-height:1.62;max-width:760px}
+.opt-section-head{max-width:820px;margin-bottom:54px}
+@media(max-width:860px){.opt-section-head{margin-bottom:38px}}
+
+/* ── Кнопки ── */
+.opt-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--ff);font-weight:700;font-size:16px;letter-spacing:-.01em;padding:16px 30px;border-radius:50px;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s var(--ease),box-shadow .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);white-space:nowrap;text-decoration:none}
+.opt-btn svg{width:18px;height:18px}
+.opt-btn--primary{background:var(--accent);color:#fff;box-shadow:0 10px 26px -10px rgba(14,138,82,.7)}
+.opt-btn--primary:hover{background:var(--accent-2);transform:translateY(-2px);box-shadow:0 16px 34px -12px rgba(14,138,82,.8)}
+.opt-btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.opt-btn--ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+.opt-btn--lg{padding:19px 38px;font-size:17px}
+.opt-btn--block{width:100%}
+/* страховка: ссылки-кнопки не наследуют цвет секции (перебивают .opt-sec a) */
+a.opt-btn--primary{color:#fff}
+a.opt-btn--ghost{color:var(--ink)}
+
+/* ── Шапка ── */
+.opt-header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease);border-bottom:1px solid transparent;background:transparent}
+.opt-header.opt-scrolled{background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom-color:var(--line);box-shadow:0 1px 0 rgba(20,22,29,.02)}
+.opt-nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.opt-brand,a.opt-brand{display:flex;align-items:center;gap:13px;color:#fff;transition:color .3s var(--ease)}
+.opt-header.opt-scrolled .opt-brand{color:var(--ink)}
+.opt-brand__mark{width:38px;height:38px;border-radius:9px;background:var(--ink);display:grid;place-items:center;flex:none}
+.opt-brand__mark span{width:16px;height:16px;border-radius:4px;background:var(--accent)}
+.opt-brand__txt{display:flex;flex-direction:column;line-height:1.05}
+.opt-brand__name{font-weight:800;font-size:17px;letter-spacing:-.02em;white-space:nowrap}
+.opt-brand__sub{font-size:11px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.6);text-transform:uppercase;transition:color .3s var(--ease)}
+.opt-header.opt-scrolled .opt-brand__sub{color:var(--muted)}
+.opt-nav__links{display:flex;align-items:center;gap:32px}
+.opt-nav__links a{font-size:15px;font-weight:600;color:rgba(255,255,255,.78);transition:color .2s var(--ease)}
+.opt-nav__links a:hover{color:#fff}
+.opt-header.opt-scrolled .opt-nav__links a{color:var(--muted)}
+.opt-header.opt-scrolled .opt-nav__links a:hover{color:var(--ink)}
+.opt-nav__cta{display:flex;align-items:center;gap:14px}
+.opt-nav .opt-btn{padding:11px 22px;font-size:14.5px}
+.opt-header:not(.opt-scrolled) .opt-nav__cta .opt-btn--primary{background:#fff;color:var(--ink);box-shadow:none}
+.opt-header:not(.opt-scrolled) .opt-nav__cta .opt-btn--primary:hover{background:var(--accent);color:#fff}
+.opt-header:not(.opt-scrolled) .opt-nav__cta .opt-btn--ghost{color:#fff;border-color:rgba(255,255,255,.28)}
+.opt-header:not(.opt-scrolled) .opt-nav__cta .opt-btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.06)}
+.opt-burger{display:none;width:44px;height:44px;border:1px solid var(--line-dark);border-radius:10px;background:transparent;cursor:pointer;padding:0;place-items:center}
+.opt-burger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;position:relative;transition:.3s var(--ease)}
+.opt-burger span::before,.opt-burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff;border-radius:2px;transition:.3s var(--ease)}
+.opt-burger span::before{top:-6px}.opt-burger span::after{top:6px}
+.opt-header.opt-scrolled .opt-burger{border-color:var(--line)}
+.opt-header.opt-scrolled .opt-burger span,.opt-header.opt-scrolled .opt-burger span::before,.opt-header.opt-scrolled .opt-burger span::after{background:var(--ink)}
+body.opt-menu-open .opt-burger span{background:transparent}
+body.opt-menu-open .opt-burger span::before{top:0;transform:rotate(45deg)}
+body.opt-menu-open .opt-burger span::after{top:0;transform:rotate(-45deg)}
+.opt-mobile-menu{position:fixed;inset:0;z-index:55;background:var(--ink);padding:96px 28px 40px;display:flex;flex-direction:column;gap:6px;transform:translateY(-100%);opacity:0;pointer-events:none;transition:transform .4s var(--ease),opacity .3s var(--ease)}
+body.opt-menu-open .opt-mobile-menu{transform:translateY(0);opacity:1;pointer-events:auto}
+.opt-mobile-menu a{color:#fff;font-size:22px;font-weight:700;padding:16px 0;border-bottom:1px solid var(--line-dark)}
+.opt-mobile-menu .opt-btn{margin-top:24px}
+@media(max-width:880px){
+  .opt-nav__links{display:none}
+  .opt-nav__cta .opt-btn--ghost{display:none}
+  .opt-burger{display:grid}
+}
+@media(max-width:560px){
+  .opt-nav{height:64px}
+  .opt-brand{gap:10px}
+  .opt-brand__mark{width:34px;height:34px}
+  .opt-brand__mark span{width:14px;height:14px}
+  .opt-brand__name{font-size:15.5px}
+  .opt-brand__sub{display:none}
+  .opt-nav .opt-btn{padding:10px 17px;font-size:14px}
+}
+/* узкие телефоны: бренд и кнопка «Записаться» не наезжают друг на друга */
+@media(max-width:400px){
+  .opt-wrap{padding:0 20px}
+  .opt-nav__cta{gap:8px}
+  .opt-nav .opt-btn{padding:9px 13px;font-size:13.5px}
+  .opt-brand__name{font-size:15px}
+}
+
+/* ── Hero ── */
+/* 148px сверху — под фиксированную шапку. Без шапки поставьте 96px. */
+.opt-hero{position:relative;background:var(--ink);color:#fff;padding:148px 0 100px;overflow:hidden}
+.opt-hero__grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 100% 80% at 70% 0%,#000 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 100% 80% at 70% 0%,#000 30%,transparent 75%)}
+.opt-hero__glow{position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(14,138,82,.32),transparent 65%);top:-220px;right:-160px;filter:blur(10px);pointer-events:none}
+.opt-hero .opt-wrap{position:relative;z-index:2}
+.opt-hero__inner{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+@media(max-width:980px){.opt-hero__inner{grid-template-columns:1fr;gap:48px}}
+.opt-hero h1{font-size:clamp(36px,5.6vw,64px);line-height:1.04;letter-spacing:-.03em;color:#fff}
+.opt-hero__sub{display:block;font-size:clamp(22px,3.2vw,34px);font-weight:600;color:#5fd29a;margin-top:14px;letter-spacing:-.02em}
+.opt-hero__desc{margin-top:28px;font-size:clamp(16px,2vw,19px);color:rgba(255,255,255,.72);max-width:560px;line-height:1.6}
+.opt-hero__actions{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.opt-hero__chips{margin-top:38px;display:flex;flex-wrap:wrap;gap:10px}
+.opt-chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--line-dark);border-radius:50px;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.85)}
+.opt-chip svg{width:15px;height:15px;color:#5fd29a}
+.opt-flow-card{background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:20px;padding:30px 28px;backdrop-filter:blur(4px)}
+.opt-flow-card__title{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.opt-flow-card__head{font-size:21px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:24px}
+.opt-vflow{display:flex;flex-direction:column}
+.opt-vflow__item{display:flex;align-items:flex-start;gap:16px;position:relative;padding-bottom:22px}
+.opt-vflow__item:last-child{padding-bottom:0}
+.opt-vflow__item:not(:last-child)::before{content:"";position:absolute;left:15px;top:34px;bottom:0;width:2px;background:linear-gradient(var(--accent),rgba(95,210,154,.25))}
+.opt-vflow__dot{width:32px;height:32px;border-radius:50%;background:rgba(14,138,82,.16);border:1.5px solid var(--accent);color:#5fd29a;display:grid;place-items:center;font-size:13px;font-weight:800;flex:none;z-index:1}
+.opt-vflow__txt b{display:block;font-size:16px;color:#fff;font-weight:700;letter-spacing:-.01em}
+.opt-vflow__txt span{font-size:13.5px;color:rgba(255,255,255,.55)}
+
+/* ── Цепочка этапов ── */
+.opt-offer{background:var(--cream)}
+.opt-chain{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:46px 0 8px;counter-reset:optstep}
+.opt-chain__step{position:relative;padding:30px 26px;background:var(--paper);border:1px solid var(--line);counter-increment:optstep}
+.opt-chain__step:first-child{border-radius:var(--radius) 0 0 var(--radius)}
+.opt-chain__step:last-child{border-radius:0 var(--radius) var(--radius) 0}
+.opt-chain__step:not(:first-child){border-left:none}
+.opt-chain__step::after{content:"";position:absolute;right:-11px;top:50%;transform:translateY(-50%) rotate(45deg);width:20px;height:20px;background:var(--paper);border-top:1px solid var(--line);border-right:1px solid var(--line);z-index:2}
+.opt-chain__step:last-child::after{display:none}
+.opt-chain__num{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.1em}
+.opt-chain__num::before{content:"0" counter(optstep)}
+.opt-chain__step h4{font-size:18px;margin-top:12px;letter-spacing:-.01em}
+.opt-chain__step p{font-size:14px;color:var(--muted);margin-top:7px}
+@media(max-width:760px){
+  .opt-chain{grid-template-columns:1fr}
+  .opt-chain__step{border-radius:0!important;border-left:1px solid var(--line)!important}
+  .opt-chain__step:first-child{border-radius:var(--radius) var(--radius) 0 0!important}
+  .opt-chain__step:last-child{border-radius:0 0 var(--radius) var(--radius)!important}
+  .opt-chain__step:not(:first-child){border-top:none}
+  .opt-chain__step::after{right:auto;left:50%;top:auto;bottom:-11px;transform:translateX(-50%) rotate(135deg)}
+}
+.opt-checklist{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+@media(max-width:860px){.opt-checklist{grid-template-columns:1fr}}
+.opt-check-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .3s var(--ease),box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.opt-check-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#d4d8cf}
+.opt-check-ic{width:46px;height:46px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:18px}
+.opt-check-ic svg{width:23px;height:23px}
+.opt-check-card p{font-size:15.5px;color:var(--text);line-height:1.55}
+
+/* ── Для кого ── */
+.opt-aud-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(max-width:760px){.opt-aud-grid{grid-template-columns:1fr}}
+.opt-aud-item{display:flex;align-items:flex-start;gap:16px;padding:24px 26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:border-color .3s var(--ease),background .3s var(--ease)}
+.opt-aud-item:hover{border-color:var(--accent);background:var(--accent-tint)}
+.opt-aud-item__ic{width:44px;height:44px;border-radius:11px;background:var(--cream-2);color:var(--ink);display:grid;place-items:center;flex:none;transition:background .3s var(--ease),color .3s var(--ease)}
+.opt-aud-item:hover .opt-aud-item__ic{background:var(--accent);color:#fff}
+.opt-aud-item__ic svg{width:22px;height:22px}
+.opt-aud-item p{font-size:16px;font-weight:600;color:var(--text);line-height:1.45;padding-top:8px}
+.opt-org-note{margin-top:30px;padding:26px 30px;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);font-size:16px;color:var(--text);line-height:1.6;display:flex;gap:18px;align-items:flex-start}
+.opt-org-note svg{width:26px;height:26px;color:var(--accent);flex:none;margin-top:2px}
+
+/* ── Зачем сейчас ── */
+.opt-why{background:var(--ink);color:#fff}
+.opt-why h2{color:#fff}
+.opt-why__inner{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center}
+@media(max-width:980px){.opt-why__inner{grid-template-columns:1fr;gap:40px}}
+.opt-pain-list{display:flex;flex-direction:column;gap:14px}
+.opt-pain{display:flex;align-items:flex-start;gap:16px;padding:20px 22px;background:rgba(255,255,255,.04);border:1px solid var(--line-dark);border-radius:14px}
+.opt-pain__x{width:30px;height:30px;border-radius:8px;background:rgba(180,68,31,.18);color:#ff8d63;display:grid;place-items:center;flex:none}
+.opt-pain__x svg{width:17px;height:17px}
+.opt-pain p{font-size:15.5px;color:rgba(255,255,255,.88);line-height:1.5}
+.opt-why__solve{margin-top:28px;padding:26px 28px;border-radius:16px;background:linear-gradient(135deg,rgba(14,138,82,.2),rgba(14,138,82,.06));border:1px solid rgba(95,210,154,.3)}
+.opt-why__solve b{color:#5fd29a}
+.opt-why__solve p{font-size:16.5px;color:rgba(255,255,255,.92);line-height:1.6}
+
+/* ── Результаты ── */
+.opt-outcomes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.opt-outcomes-grid{grid-template-columns:1fr}}
+.opt-outcome{display:flex;gap:22px;align-items:flex-start;padding:28px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.opt-outcome:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.opt-outcome__num{font-size:40px;font-weight:800;line-height:1;color:var(--cream-2);letter-spacing:-.04em;flex:none;-webkit-text-stroke:1px var(--line)}
+.opt-outcome:hover .opt-outcome__num{color:var(--accent-soft);-webkit-text-stroke:1px var(--accent)}
+.opt-outcome p{font-size:16px;color:var(--text);line-height:1.5;padding-top:4px}
+.opt-result-banner{margin-top:30px;display:flex;align-items:center;gap:18px;padding:26px 30px;background:var(--ink);color:#fff;border-radius:var(--radius)}
+.opt-result-banner svg{width:30px;height:30px;color:#5fd29a;flex:none}
+.opt-result-banner p{font-size:17px;line-height:1.5}
+.opt-result-banner b{color:#5fd29a}
+
+/* ── Формат ── */
+.opt-format{background:var(--cream)}
+.opt-fmt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:30px}
+@media(max-width:760px){.opt-fmt-grid{grid-template-columns:1fr}}
+.opt-fmt-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px}
+.opt-fmt-card__big{font-size:46px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.opt-fmt-card__lbl{font-size:14px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-top:10px}
+.opt-fmt-card p{font-size:14.5px;color:var(--muted);margin-top:12px;line-height:1.5}
+.opt-fmt-note{display:flex;align-items:center;gap:14px;padding:22px 26px;border:1px dashed var(--line);border-radius:var(--radius);background:var(--paper);font-size:15.5px;color:var(--text)}
+.opt-fmt-note svg{width:22px;height:22px;color:var(--accent);flex:none}
+.opt-fmt-note b{color:var(--ink)}
+
+/* ── Программа ── */
+.opt-modules{display:flex;flex-direction:column;gap:18px}
+.opt-module{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.opt-module:hover{box-shadow:var(--shadow);border-color:#d4d8cf}
+.opt-module__head{display:flex;align-items:center;gap:22px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:26px 30px;font-family:var(--ff);list-style:none}
+.opt-module__head::-webkit-details-marker{display:none}
+.opt-module__no{font-size:14px;font-weight:800;color:var(--accent);letter-spacing:.1em;flex:none;width:54px}
+.opt-module__titles{flex:1;min-width:0}
+.opt-module__title{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.opt-module__sub{display:block;font-size:14.5px;color:var(--muted);margin-top:6px;font-style:italic}
+.opt-module__price{flex:none;padding:7px 14px;border-radius:50px;background:var(--accent-soft);color:var(--accent-2);font-size:13.5px;font-weight:800;white-space:nowrap}
+@media(max-width:640px){.opt-module__price{display:none}}
+.opt-module__toggle{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;flex:none;transition:background .3s var(--ease),transform .3s var(--ease),border-color .3s var(--ease)}
+.opt-module__toggle svg{width:18px;height:18px;color:var(--ink);transition:transform .3s var(--ease)}
+.opt-module[open] .opt-module__toggle{background:var(--accent);border-color:var(--accent)}
+.opt-module[open] .opt-module__toggle svg{color:#fff;transform:rotate(45deg)}
+.opt-module__body{padding:0 30px 30px 106px}
+@media(max-width:640px){.opt-module__body{padding:0 24px 26px 24px}.opt-module__head{padding:22px 24px;gap:14px}.opt-module__no{width:auto}}
+.opt-module__body ul{display:flex;flex-direction:column;gap:11px;border-top:1px solid var(--line);padding-top:22px}
+.opt-module__body li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.opt-module__body li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+
+/* ── Участие (карточка условий) ── */
+.opt-price{background:var(--cream)}
+.opt-price-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:920px}
+@media(max-width:760px){.opt-price-grid{grid-template-columns:1fr}}
+.opt-price-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:38px 34px;display:flex;flex-direction:column;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.opt-price-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.opt-price-card--hl{background:var(--ink);border-color:var(--ink);color:#fff}
+.opt-price-card__lbl{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+.opt-price-card--hl .opt-price-card__lbl{color:#5fd29a}
+.opt-price-card__val{font-size:46px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.opt-price-card--hl .opt-price-card__val{color:#fff}
+.opt-price-card__per{font-size:14.5px;color:var(--muted);margin-top:8px}
+.opt-price-card--hl .opt-price-card__per{color:rgba(255,255,255,.6)}
+.opt-price-card__list{margin:26px 0 30px;display:flex;flex-direction:column;gap:12px}
+.opt-price-card__list li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;line-height:1.5;color:var(--text)}
+.opt-price-card--hl .opt-price-card__list li{color:rgba(255,255,255,.88)}
+.opt-price-card__list svg{width:20px;height:20px;color:var(--accent);flex:none;margin-top:1px}
+.opt-price-card--hl .opt-price-card__list svg{color:#5fd29a}
+.opt-price-card .opt-btn{margin-top:auto}
+.opt-price-note{margin-top:22px;font-size:14.5px;color:var(--muted)}
+
+/* ── Спикер ── */
+.opt-speaker__card{display:grid;grid-template-columns:300px 1fr;gap:0;border:1px solid var(--line);border-radius:24px;overflow:hidden;background:var(--paper)}
+@media(max-width:860px){.opt-speaker__card{grid-template-columns:1fr}}
+.opt-speaker__aside{background:var(--ink);color:#fff;padding:44px 36px;display:flex;flex-direction:column}
+.opt-speaker__ava{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#13b06a);display:grid;place-items:center;font-size:32px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:24px}
+.opt-speaker__name{font-size:26px;font-weight:800;letter-spacing:-.02em;color:#fff}
+.opt-speaker__role{font-size:15px;color:rgba(255,255,255,.66);margin-top:12px;line-height:1.5}
+.opt-speaker__tag{margin-top:auto;padding-top:28px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#5fd29a}
+.opt-speaker__tag svg{width:16px;height:16px}
+.opt-speaker__body{padding:44px 40px}
+@media(max-width:640px){.opt-speaker__body{padding:32px 26px}.opt-speaker__aside{padding:36px 28px}}
+.opt-sp-block{margin-bottom:30px}
+.opt-sp-block:last-child{margin-bottom:0}
+.opt-sp-block h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
+.opt-sp-block ul{display:flex;flex-direction:column;gap:10px}
+.opt-sp-block li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.opt-sp-block li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:50%;border:2px solid var(--accent)}
+.opt-sp-format{padding:20px 22px;background:var(--cream);border-radius:12px;font-size:15px;color:var(--text);line-height:1.55}
+.opt-sp-format b{color:var(--ink)}
+
+/* ── Преимущества ── */
+.opt-ben-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+@media(max-width:760px){.opt-ben-grid{grid-template-columns:1fr}}
+.opt-ben{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.opt-ben:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.opt-ben__ic{width:50px;height:50px;border-radius:13px;background:var(--ink);color:#5fd29a;display:grid;place-items:center;margin-bottom:20px}
+.opt-ben__ic svg{width:24px;height:24px}
+.opt-ben h4{font-size:18px;letter-spacing:-.01em;margin-bottom:10px}
+.opt-ben p{font-size:15px;color:var(--muted);line-height:1.55}
+
+/* ── Запись (тёмный призыв; форма ГетКурса ставится сразу после) ── */
+.opt-register{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.opt-register__grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 90% at 20% 100%,#000 20%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse 80% 90% at 20% 100%,#000 20%,transparent 70%)}
+.opt-register .opt-wrap{position:relative;z-index:2;max-width:860px}
+.opt-register h2{color:#fff;font-size:clamp(28px,4vw,42px)}
+.opt-want-list{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.opt-want{display:flex;align-items:flex-start;gap:14px;font-size:16.5px;color:rgba(255,255,255,.9);line-height:1.5}
+.opt-want svg{width:24px;height:24px;color:#5fd29a;flex:none;margin-top:1px}
+.opt-microcta{margin-top:30px;display:flex;align-items:center;gap:12px;font-size:14.5px;color:rgba(255,255,255,.6)}
+.opt-microcta b{color:#fff}
+.opt-pulse{width:10px;height:10px;border-radius:50%;background:#5fd29a;position:relative;flex:none}
+.opt-pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:#5fd29a;animation:optPulse 2s infinite}
+@keyframes optPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(3.2);opacity:0}}
+@media(prefers-reduced-motion:reduce){.opt-pulse::after{animation:none}}
+
+/* ── Подвал ── */
+.opt-footer{background:#0e1015;color:rgba(255,255,255,.6);padding:56px 0 36px}
+.opt-footer__top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;padding-bottom:32px;border-bottom:1px solid var(--line-dark)}
+.opt-footer .opt-brand__sub{color:rgba(255,255,255,.45)}
+.opt-footer__nav{display:flex;gap:30px;flex-wrap:wrap}
+.opt-footer__nav a{font-size:14.5px;color:rgba(255,255,255,.6);transition:color .2s}
+.opt-footer__nav a:hover{color:#fff}
+.opt-footer__bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:28px;font-size:13px}
+.opt-footer__credit a{color:#5fd29a;font-weight:600}
+.opt-footer__credit a:hover{text-decoration:underline}
+.opt-footer__legal{display:flex;gap:24px;flex-wrap:wrap;padding-top:24px;font-size:13.5px}
+.opt-footer__legal a{color:rgba(255,255,255,.55);text-decoration:underline;text-underline-offset:3px;transition:color .2s}
+.opt-footer__legal a:hover{color:#fff}
+/* Партнёр школы — Сбер */
+.opt-chip--partner{border-color:rgba(255,255,255,.28);color:#fff}
+.opt-chip--partner img{width:17px;height:17px;display:block}
+.opt-sber{display:inline-flex;align-items:center;background:#fff;border-radius:10px;padding:7px 12px;line-height:0}
+.opt-sber img{height:26px;width:auto;aspect-ratio:1094/251;display:block}
+.opt-footer__partner{display:flex;align-items:center;gap:14px;padding-top:26px}
+.opt-footer__partner-lbl{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+
+/* ── Появление при прокрутке (без скрипта всё просто видимо) ── */
+html.opt-js .opt-reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.22,.61,.36,1),transform .7s cubic-bezier(.22,.61,.36,1)}
+html.opt-js .opt-reveal.opt-on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html.opt-js .opt-reveal{opacity:1;transform:none;transition:none}}
+
+/* ── Дополнения: фото спикера и одна карточка ── */
+/* Фото спикера вместо аватара-инициалов */
+.opt-speaker__photo{display:block;width:100%;max-width:228px;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:18px;margin-bottom:24px;border:1px solid var(--line-dark);background:#1c1f28}
+@media(max-width:860px){.opt-speaker__photo{max-width:200px}}
+/* Одна карточка стоимости по центру сетки */
+.opt-price-grid--one{grid-template-columns:1fr;max-width:560px}
+/* ── Мини-блок спикера в hero ── */
+.opt-flow-speaker{display:flex;align-items:center;gap:14px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-dark)}
+.opt-flow-speaker img{width:54px;height:54px;border-radius:50%;object-fit:cover;flex:none;border:2px solid rgba(95,210,154,.5)}
+.opt-flow-speaker b{display:block;font-size:15.5px;color:#fff;font-weight:700}
+.opt-flow-speaker span span{display:block;font-size:13.5px;color:rgba(255,255,255,.55)}
+.opt-vflow__txt span{display:block;margin-top:2px}
+/* вопросы вместо «болей» */
+.opt-pain__q{background:rgba(95,210,154,.14);color:#5fd29a;font-size:16px;font-weight:800}
+/* ── Карточки вебинаров ── */
+.opt-sessions{display:flex;flex-direction:column;gap:18px}
+.opt-session{display:grid;grid-template-columns:210px 1fr;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--paper);transition:box-shadow .3s var(--ease),border-color .3s var(--ease)}
+.opt-session:hover{box-shadow:var(--shadow);border-color:#d4d8cf}
+.opt-session__date{background:var(--ink);color:#fff;padding:32px 28px;display:flex;flex-direction:column}
+.opt-session__no{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#5fd29a}
+.opt-session__day{font-size:68px;font-weight:800;line-height:1;letter-spacing:-.04em;margin-top:20px}
+.opt-session__month{font-size:16px;font-weight:700;margin-top:8px;color:rgba(255,255,255,.9)}
+.opt-session__time{font-size:14px;color:rgba(255,255,255,.55);margin-top:auto;padding-top:24px}
+.opt-session__body{padding:32px 36px;display:flex;flex-direction:column}
+.opt-sec h3.opt-session__title{font-size:clamp(20px,2.4vw,25px);line-height:1.2;letter-spacing:-.02em}
+.opt-sec .opt-session__sub{font-size:15px;color:var(--muted);margin-top:8px;font-style:italic}
+/* .opt-sec p{margin:0} перебивал отступ описания в hero */
+.opt-hero p.opt-hero__desc{margin-top:28px}
+.opt-session__list{display:flex;flex-direction:column;gap:11px;margin-top:22px!important;padding-top:20px!important;border-top:1px solid var(--line)}
+.opt-session__list li{position:relative;padding-left:26px;font-size:15.5px;color:var(--text);line-height:1.5}
+.opt-session__list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:2px;background:var(--accent)}
+.opt-session__foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:26px}
+.opt-session__price{font-size:28px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.opt-session__price small{font-size:14px;font-weight:600;color:var(--muted);letter-spacing:0}
+@media(max-width:760px){
+  .opt-session{grid-template-columns:1fr}
+  .opt-session__date{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:22px 24px}
+  .opt-session__no{width:100%}
+  .opt-session__day{font-size:44px;margin-top:8px}
+  .opt-session__month{margin-top:0}
+  .opt-session__time{margin-top:0;padding-top:0;width:100%}
+  .opt-session__body{padding:26px 24px}
+  .opt-session__foot .opt-btn{width:100%}
+}
+.opt-want span b{color:#fff}
+</style>
+<script>
+(function(){
+  "use strict";
+  /* Флаг «скрипт есть»: без него секции остаются видимыми без анимаций */
+  document.documentElement.classList.add('opt-js');
+
+  function init(){
+    /* Шапка при прокрутке */
+    var header=document.getElementById('optHeader');
+    if(header){
+      var onScroll=function(){ if(window.scrollY>20){header.classList.add('opt-scrolled');}else{header.classList.remove('opt-scrolled');} };
+      onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+    }
+
+    /* Мобильное меню */
+    var burger=document.getElementById('optBurger');
+    var menu=document.getElementById('optMenu');
+    if(burger&&menu){
+      var toggleMenu=function(force){
+        var open=force!==undefined?force:!document.body.classList.contains('opt-menu-open');
+        document.body.classList.toggle('opt-menu-open',open);
+        burger.setAttribute('aria-expanded',open);
+      };
+      burger.addEventListener('click',function(){toggleMenu();});
+      menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){toggleMenu(false);});});
+    }
+
+    /* Появление секций */
+    var els=document.querySelectorAll('.opt-reveal');
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('opt-on'); io.unobserve(e.target);} });
+      },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+      els.forEach(function(el){io.observe(el);});
+    }else{ els.forEach(function(el){el.classList.add('opt-on');}); }
+
+    /* Аккордеон программы: открыта одна тема */
+    var modules=document.querySelectorAll('.opt-module');
+    modules.forEach(function(m){
+      var head=m.querySelector('.opt-module__head');
+      if(!head) return;
+      head.addEventListener('click',function(){
+        setTimeout(function(){
+          if(m.open){ modules.forEach(function(other){ if(other!==m){other.open=false;} }); }
+        },0);
+      });
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+})();
+</script>
+<header class="opt-sec opt-header" id="optHeader">
+  <div class="opt-wrap">
+    <nav class="opt-nav">
+      <a href="index.html" class="opt-brand" aria-label="Онлайн-школа «Закупки в цифре», cifrazakup.ru">
+        <span class="opt-brand__mark"><span></span></span>
+        <span class="opt-brand__txt">
+          <span class="opt-brand__name">Закупки в цифре</span>
+          <span class="opt-brand__sub">онлайн-школа</span>
+        </span>
+      </a>
+      <div class="opt-nav__links">
+        <a href="#opt-audience">Для кого</a>
+        <a href="#opt-program">Программа</a>
+        <a href="#opt-price">Участие</a>
+        <a href="#opt-speaker">Спикер</a>
+      </div>
+      <div class="opt-nav__cta">
+        <a href="#opt-program" class="opt-btn opt-btn--ghost">23 ноября</a>
+        <a href="https://gc.cifrazakup.ru/opyt44#kel-register" class="opt-btn opt-btn--primary">Записаться</a>
+        <button class="opt-burger" id="optBurger" aria-label="Меню" aria-expanded="false" type="button"><span></span></button>
+      </div>
+    </nav>
+  </div>
+</header>
+<div class="opt-sec opt-mobile-menu" id="optMenu">
+  <a href="#opt-audience">Для кого</a>
+  <a href="#opt-program">Программа</a>
+  <a href="#opt-price">Участие</a>
+  <a href="#opt-speaker">Спикер</a>
+  <a href="https://gc.cifrazakup.ru/opyt44#kel-register" class="opt-btn opt-btn--primary opt-btn--lg opt-btn--block">Записаться на вебинар</a>
+</div>
+
+
+<section class="opt-sec opt-hero" id="opt-hero">
+  <div class="opt-hero__grid-bg"></div>
+  <div class="opt-hero__glow"></div>
+  <div class="opt-wrap">
+    <div class="opt-hero__inner">
+      <div>
+        <span class="opt-eyebrow opt-eyebrow--light">Онлайн-школа «Закупки в цифре» · ИИ в закупках: одна проблема, три уровня решения</span>
+        <h1>ИИ в закупках: опыт по&nbsp;44-ФЗ<span class="opt-hero__sub">какой контракт подтвердит опыт, а какой отклонят</span></h1>
+        <p class="opt-hero__desc">Полтора часа 23 ноября в 18:30 по Москве. Одна проблема: универсальная предквалификация по ч. 2.1 ст. 31 44-ФЗ и доптребования по ПП 2571 требуют подтвердить опыт контрактом, и заявки отклоняют за три года, 20% и неустойки. Решаем на трёх уровнях: промпт-чеклист в любом чате, выгрузка реестра контрактов по ИНН и сервис, который по ИНН показывает контракты, годные для опыта. Ведёт Альберт Гизатуллин.</p>
+        <div class="opt-hero__actions">
+          <a href="https://gc.cifrazakup.ru/opyt44#kel-register" class="opt-btn opt-btn--primary opt-btn--lg">Записаться
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#opt-program" class="opt-btn opt-btn--ghost opt-btn--lg" style="color:#fff;border-color:rgba(255,255,255,.25)">Смотреть программу</a>
+        </div>
+        <div class="opt-hero__chips">
+          <span class="opt-chip opt-chip--partner"><img src="https://cifrazakup.ru/assets/sber-mark.svg" alt="">Партнёр ЭТП «Сбер А»</span>
+          <span class="opt-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>23 ноября, понедельник · 18:30 МСК</span>
+          <span class="opt-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>2 500 ₽</span>
+          <span class="opt-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z"/><path d="M12 7v5l3 2"/></svg>1,5 часа онлайн + запись на 90 дней</span>
+          <span class="opt-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4v2a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M4 21a8 8 0 0116 0"/></svg>Для поставщиков и комиссий заказчиков</span>
+        </div>
+      </div>
+      <div class="opt-flow-card opt-reveal">
+        <div class="opt-flow-card__title">Одна проблема</div>
+        <div class="opt-flow-card__head">Опыт есть, а подтвердить нечем: комиссия отклоняет за три года, 20% и неустойки</div>
+        <div class="opt-vflow">
+          <div class="opt-vflow__item"><span class="opt-vflow__dot">1</span><span class="opt-vflow__txt"><b>Уровень 1. Промпт</b><span>чек-лист проверки контракта по извещению: подходит, не подходит, почему</span></span></div>
+          <div class="opt-vflow__item"><span class="opt-vflow__dot">2</span><span class="opt-vflow__txt"><b>Уровень 2. Скилл</b><span>выгрузка реестра контрактов по ИНН в таблицу «портфель опыта»</span></span></div>
+          <div class="opt-vflow__item"><span class="opt-vflow__dot">3</span><span class="opt-vflow__txt"><b>Уровень 3. Сервис</b><span>по ИНН три крупнейших контракта за три года без неустоек и потолок НМЦК</span></span></div>
+        </div>
+        <div class="opt-flow-speaker">
+          <img src="https://cifrazakup.ru/assets/albert.jpg" alt="Альберт Гизатуллин">
+          <span><b>Ведёт Альберт Гизатуллин</b><span>тендерный аналитик · лаборатория «Тендеры ex machina»</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="opt-sec opt-section" id="opt-audience">
+  <div class="opt-wrap">
+    <div class="opt-section-head opt-reveal">
+      <span class="opt-eyebrow">Для кого</span>
+      <h2 class="opt-h2">Для тех, кто подтверждает опыт и для тех, кто его проверяет</h2>
+      <p class="opt-lead" style="margin-top:18px">Вебинар для тендерных специалистов поставщика и комиссий заказчика по 44-ФЗ. Правило одно на обе стороны, ошибки у каждой свои: поставщик теряет закупку, заказчик получает жалобу.</p>
+    </div>
+    <div class="opt-aud-grid opt-reveal">
+      <div class="opt-aud-item"><span class="opt-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span><p>Тендерные специалисты поставщиков, которые подают заявки на закупки от 20 млн и по доптребованиям ПП 2571</p></div>
+      <div class="opt-aud-item"><span class="opt-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span><p>Руководители компаний-поставщиков, которые решают, на какие закупки идти и какие контракты держать наготове</p></div>
+      <div class="opt-aud-item"><span class="opt-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><p>Члены комиссий заказчика, которые проверяют опыт в заявках и обосновывают отклонения</p></div>
+      <div class="opt-aud-item"><span class="opt-aud-item__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8"/></svg></span><p>Специалисты заказчика, которые устанавливают требования к участникам в извещении</p></div>
+    </div>
+    <div class="opt-org-note opt-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M12 16v-4M12 8h.01"/></svg>
+      <p>Разбираем на реестровых записях из ЕИС. Нейросеть здесь помогает проверять и считать, а источником остаётся реестр контрактов: решение комиссии и возражение участника опираются на документы, а не на пересказ.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="opt-sec opt-section opt-why" id="opt-why">
+  <div class="opt-wrap">
+    <div class="opt-why__inner">
+      <div class="opt-reveal">
+        <span class="opt-eyebrow opt-eyebrow--light">Зачем идти</span>
+        <h2 class="opt-h2">Вебинар пригодится, если вы узнаёте себя в одном из этих вопросов</h2>
+        <div class="opt-why__solve">
+          <p>Каждому вопросу отведён свой блок программы. <b>В эфире проверяем ИНН участников.</b></p>
+        </div>
+      </div>
+      <div class="opt-pain-list opt-reveal">
+        <div class="opt-pain"><span class="opt-pain__x opt-pain__q">?</span><p>Какие из моих контрактов подтвердят опыт сегодня и когда они перестанут считаться</p></div>
+        <div class="opt-pain"><span class="opt-pain__x opt-pain__q">?</span><p>На какую НМЦК даёт право мой самый крупный исполненный контракт</p></div>
+        <div class="opt-pain"><span class="opt-pain__x opt-pain__q">?</span><p>Что делать, если по контракту начисляли неустойку: он потерян для опыта или нет</p></div>
+        <div class="opt-pain"><span class="opt-pain__x opt-pain__q">?</span><p>Как комиссии проверить опыт в заявке за десять минут и не получить жалобу в ФАС</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="opt-sec opt-section opt-format" id="opt-program">
+  <div class="opt-wrap">
+    <div class="opt-section-head opt-reveal">
+      <span class="opt-eyebrow">Программа</span>
+      <h2 class="opt-h2">Норма, пять причин отказа и&nbsp;три уровня проверки</h2>
+      <p class="opt-lead" style="margin-top:18px">Понедельник, 23 ноября, в 18:30 по Москве. Полтора часа: проблема, три уровня решения вживую и ответы на вопросы.</p>
+    </div>
+    <div class="opt-sessions">
+      <article class="opt-session opt-reveal">
+        <div class="opt-session__date">
+          <span class="opt-session__no">Вебинар</span>
+          <span class="opt-session__day">23</span>
+          <span class="opt-session__month">ноября, понедельник</span>
+          <span class="opt-session__time">18:30 МСК · 1,5 часа</span>
+        </div>
+        <div class="opt-session__body">
+          <h3 class="opt-session__title">ИИ в закупках: опыт по 44-ФЗ. Какой контракт подтвердит опыт, а какой отклонят</h3>
+          <p class="opt-session__sub">Промпт, скилл, сервис: от чек-листа в чате до проверки по ИНН одной кнопкой</p>
+          <ul class="opt-session__list">
+            <li>Норма без воды. Универсальная предквалификация по ч. 2.1 ст. 31 44-ФЗ: НМЦК от 20 млн, контракт по 44-ФЗ или договор по 223-ФЗ, исполнение в течение трёх лет до подачи заявки, стоимость исполненных обязательств от 20% НМЦК, предъявленные неустойки уплачены. Доптребования по ч. 2 ст. 31 и ПП 2571. Как подтверждают: реестр контрактов, реестр договоров, документы в реестре участников на площадке</li>
+            <li>Пять причин отказа по опыту: контракт расторгнут или исполнен частично, акт старше трёх лет на дату подачи, неустойка начислена и не закрыта, цена ниже 20%, не тот вид работ по ПП 2571. Решения ФАС. Для заказчика: при 20 млн требование обязательно, ошибка комиссии ведёт к жалобе и ст. 7.30 КоАП</li>
+            <li>Уровень 1, промпт. Чек-лист: извещение и карточка контракта из ЕИС в чат, на выходе «подходит, не подходит, почему» и расчёт 20%. Второй промпт: возражение на отклонение по опыту или ответ комиссии участнику</li>
+            <li>Ловушка. Нейросеть считает три года от сегодня и путает дату заключения с датой исполнения</li>
+            <li>Уровень 2, скилл. Выгрузка реестра контрактов по ИНН в таблицу «портфель опыта»: дата исполнения, цена, неустойки, колонки «сгорает» и «потолок НМЦК». Нейросеть размечает таблицу по чек-листу</li>
+            <li>Уровень 3, сервис. Ввели ИНН: три крупнейших исполненных контракта за три года без неустоек, дата сгорания, потолок НМЦК. Ввели реестровые номера: вердикт по каждому. Комиссия вставляет номера из заявки и получает отчёт. Участники проверяют свой ИНН</li>
+            <li>Вопросы участников</li>
+          </ul>
+          <div class="opt-session__foot">
+            <span class="opt-session__price">2 500 ₽ <small>за вебинар</small></span>
+            <a href="https://gc.cifrazakup.ru/opyt44#kel-register" class="opt-btn opt-btn--primary">Записаться на 23 ноября</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<section class="opt-sec opt-section" id="opt-outcomes">
+  <div class="opt-wrap">
+    <div class="opt-section-head opt-reveal">
+      <span class="opt-eyebrow">Что уносите</span>
+      <h2 class="opt-h2">Инструменты, чтобы знать свой опыт заранее, а&nbsp;не&nbsp;после отклонения</h2>
+    </div>
+    <div class="opt-outcomes-grid opt-reveal">
+      <div class="opt-outcome"><span class="opt-outcome__num">01</span><p>Промпт-чеклист проверки контракта по извещению и промпт возражения на отклонение по опыту</p></div>
+      <div class="opt-outcome"><span class="opt-outcome__num">02</span><p>Таблица «портфель опыта» и инструкция по выгрузке реестра контрактов по ИНН из ЕИС</p></div>
+      <div class="opt-outcome"><span class="opt-outcome__num">03</span><p>Доступ к сервису проверки опыта по ИНН на 30 дней: три крупнейших контракта, дата сгорания, потолок НМЦК</p></div>
+      <div class="opt-outcome"><span class="opt-outcome__num">04</span><p>Запись эфира на 90 дней и ответы на вопросы участников</p></div>
+    </div>
+    <div class="opt-result-banner opt-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4M4 4h12l-2 4 2 4H4"/></svg>
+      <p><b>Цель вебинара:</b> за десять минут знать, какие контракты подтвердят опыт в конкретной закупке. Поставщику до подачи заявки, комиссии до протокола.</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="opt-sec opt-section opt-format" id="opt-price">
+  <div class="opt-wrap">
+    <div class="opt-section-head opt-reveal">
+      <span class="opt-eyebrow">Формат и участие</span>
+      <h2 class="opt-h2">Онлайн-эфир, вопросы спикеру и запись на&nbsp;90&nbsp;дней</h2>
+    </div>
+    <div class="opt-fmt-grid opt-reveal">
+      <div class="opt-fmt-card"><div class="opt-fmt-card__big">1,5</div><div class="opt-fmt-card__lbl">часа в эфире</div><p>Проблема, три уровня решения вживую на реальных закупках и ответы на вопросы участников.</p></div>
+      <div class="opt-fmt-card"><div class="opt-fmt-card__big">23.11</div><div class="opt-fmt-card__lbl">понедельник, 18:30 МСК</div><p>Онлайн. Ссылка на эфир придёт на почту после записи.</p></div>
+      <div class="opt-fmt-card"><div class="opt-fmt-card__big">2 500 ₽</div><div class="opt-fmt-card__lbl">за вебинар</div><p>В стоимость входит участие в эфире, раздатка с промптами и запись на 90 дней.</p></div>
+    </div>
+    <div class="opt-fmt-note opt-reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg>
+      <span><b>Когда:</b> 23 ноября 2026, понедельник, в 18:30 по Москве. Онлайн, запись эфира доступна 90 дней.</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="opt-sec opt-section" id="opt-speaker">
+  <div class="opt-wrap">
+    <div class="opt-section-head opt-reveal">
+      <span class="opt-eyebrow">О спикере</span>
+      <h2 class="opt-h2">Тендерный аналитик, который собирает ИИ-сервисы для&nbsp;закупок своими руками</h2>
+    </div>
+    <div class="opt-speaker__card opt-reveal">
+      <div class="opt-speaker__aside">
+        <img class="opt-speaker__photo" src="https://cifrazakup.ru/assets/albert.jpg" alt="Альберт Гизатуллин" loading="lazy">
+        <div class="opt-speaker__name">Альберт Гизатуллин</div>
+        <div class="opt-speaker__role">Тендерный аналитик, основатель лаборатории «Тендеры ex machina». Внедряет ИИ в работу заказчиков и поставщиков.</div>
+        <div class="opt-speaker__tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg>Преподаватель курса «ИИ в закупках»</div>
+      </div>
+      <div class="opt-speaker__body">
+        <div class="opt-sp-block">
+          <h4>Опыт</h4>
+          <ul>
+            <li>Тендерный аналитик, основатель лаборатории «Тендеры ex machina»</li>
+            <li>Внедряет ИИ в работу заказчиков и поставщиков: от анализа документации до сборки ИИ-агентов</li>
+            <li>Автор Telegram-канала «Тендеры и госзакупки | ИИ-инструменты» и сервисов для закупок, в том числе kp.robotender.ru</li>
+            <li>Преподаватель курса «Искусственный интеллект в закупках» онлайн-школы «Закупки в цифре»</li>
+          </ul>
+        </div>
+        <div class="opt-sp-block">
+          <h4>О чём вебинар</h4>
+          <ul>
+            <li>Какой контракт подтвердит опыт по ч. 2.1 ст. 31 44-ФЗ и ПП 2571, а какой отклонят</li>
+            <li>Как нейросеть проверяет контракт по чек-листу и где она ошибается в датах</li>
+            <li>Как сервис по ИНН показывает контракты, годные для опыта, и потолок НМЦК</li>
+          </ul>
+        </div>
+        <div class="opt-sp-format">
+          <b>Формат подачи:</b> одна проблема и три уровня решения: промпт, скилл, сервис. Всё вживую на реальных закупках из ЕИС, с одной закупкой из зала.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="opt-sec opt-section opt-register" id="opt-register">
+  <div class="opt-register__grid-bg"></div>
+  <div class="opt-wrap">
+    <div class="opt-reveal">
+      <span class="opt-eyebrow opt-eyebrow--light">Запись на вебинар</span>
+      <h2>Запишитесь на 23 ноября</h2>
+      <div class="opt-want-list">
+        <div class="opt-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span><b>23 ноября, понедельник, 18:30 МСК.</b> ИИ в закупках: опыт по 44-ФЗ</span></div>
+        <div class="opt-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span>Полтора часа в эфире, раздатка с промптами и запись на 90 дней</span></div>
+        <div class="opt-want"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg><span>Доступ к сервису проверки опыта по ИНН на 30 дней и проверка вашего ИНН в эфире</span></div>
+      </div>
+      <div class="opt-microcta">
+        <span class="opt-pulse"></span>
+        <span><b>Начало в 18:30 по Москве, 2 500 ₽.</b> Запись и оплата на учебной платформе школы, ссылку на эфир пришлём на почту.</span>
+      </div>
+      <a href="https://gc.cifrazakup.ru/opyt44#kel-register" class="opt-btn opt-btn--primary opt-btn--lg" style="margin-top:30px">Записаться и оплатить
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+<footer class="opt-sec opt-footer">
+  <div class="opt-wrap">
+    <div class="opt-footer__top">
+      <div class="opt-brand" style="color:#fff">
+        <span class="opt-brand__mark"><span></span></span>
+        <span class="opt-brand__txt">
+          <span class="opt-brand__name">Закупки в цифре</span>
+          <span class="opt-brand__sub">онлайн-школа</span>
+        </span>
+      </div>
+      <div class="opt-footer__nav">
+        <a href="#opt-audience">Для кого</a>
+        <a href="#opt-program">Программа</a>
+        <a href="#opt-price">Участие</a>
+        <a href="#opt-speaker">Спикер</a>
+        <a href="https://gc.cifrazakup.ru/opyt44#kel-register">Записаться</a>
+      </div>
+    </div>
+    <div class="opt-footer__partner"><span class="opt-footer__partner-lbl">Партнёр школы</span><span class="opt-sber"><img src="https://cifrazakup.ru/assets/sber-a-logo.svg" alt="Сбер А"></span></div>
+    <div class="opt-footer__legal">
+      <a href="https://cifrazakup.ru/oferta.html" target="_blank" rel="noopener">Публичная оферта</a>
+      <a href="https://cifrazakup.ru/privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a>
+      <a href="svedeniya.html">Сведения об образовательной организации</a>
+      <a href="index.html">Все курсы и вебинары</a>
+    </div>
+    <div class="opt-footer__bottom">
+      <span>© Онлайн-школа «Закупки в цифре» · cifrazakup.ru. Вебинар Альберта Гизатуллина «ИИ в закупках: опыт по 44-ФЗ. Какой контракт подтвердит опыт, а какой отклонят».</span>
+      <span class="opt-footer__credit">Разработано в лаборатории <a href="https://t.me/tickettotender" target="_blank" rel="noopener">«Тендеры ex machina»</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* utm-метки захода дописываются в ссылки на GetCourse — как на главной */
+(function(){
+  var q=location.search.slice(1).split('&').filter(function(p){return /^utm_/.test(p);});
+  if(!q.length) return;
+  document.querySelectorAll('a[href^="https://gc.cifrazakup.ru/"]').forEach(function(a){
+    var h=a.getAttribute('href'), k=h.indexOf('#'), base=k<0?h:h.slice(0,k), hash=k<0?'':h.slice(k);
+    a.setAttribute('href', base+(base.indexOf('?')<0?'?':'&')+q.join('&')+hash);
+  });
+})();
+</script>
+</body>
+</html>
