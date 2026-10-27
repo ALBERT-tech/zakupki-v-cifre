@@ -400,12 +400,12 @@ body.menu-open .mobile-menu{transform:translateY(0);opacity:1;pointer-events:aut
 @media(max-width:1100px){.exp-grid--5{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:880px){.exp-grid--5{grid-template-columns:1fr 1fr;max-width:none}}
 @media(max-width:520px){.exp-grid--5{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}}
-/* 6 экспертов: 3+3 на десктопе */
-.exp-grid--6{grid-template-columns:repeat(3,1fr);gap:18px}
-.exp-grid--6 .exp-card{padding:32px 24px 28px}
-.exp-grid--6 .exp-card__ava{width:100px;height:100px;margin-bottom:18px}
-@media(max-width:880px){.exp-grid--6{grid-template-columns:1fr 1fr;max-width:none}}
-@media(max-width:520px){.exp-grid--6{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}}
+/* 6 или 9 экспертов: по 3 в ряд на десктопе */
+.exp-grid--6,.exp-grid--9{grid-template-columns:repeat(3,1fr);gap:18px}
+.exp-grid--6 .exp-card,.exp-grid--9 .exp-card{padding:32px 24px 28px}
+.exp-grid--6 .exp-card__ava,.exp-grid--9 .exp-card__ava{width:100px;height:100px;margin-bottom:18px}
+@media(max-width:880px){.exp-grid--6,.exp-grid--9{grid-template-columns:1fr 1fr;max-width:none}}
+@media(max-width:520px){.exp-grid--6,.exp-grid--9{grid-template-columns:1fr;max-width:440px;margin-left:auto;margin-right:auto}}
 /* 7–8 экспертов: 4 в ряд на десктопе (4+3 или 4+4) */
 .exp-grid--7,.exp-grid--8{grid-template-columns:repeat(4,1fr);gap:16px}
 .exp-grid--7 .exp-card,.exp-grid--8 .exp-card{padding:30px 18px 26px}
