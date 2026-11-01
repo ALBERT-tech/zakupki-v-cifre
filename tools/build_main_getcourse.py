@@ -126,7 +126,8 @@ head = '''<meta charset="utf-8">
   Если GetCourse вырежет <script> из блока 7, используйте блок «JavaScript» или «Код в конце body» в настройках страницы.
 -->
 '''
-parts = [head]
+from brand_assets import SCRIPT_TAG
+parts = [head, SCRIPT_TAG]
 for i, (title, body) in enumerate(blocks, 1):
     parts.append('\n\n<!-- ✂ ======================== %s ======================== ✂ -->\n' % title)
     parts.append(body)

@@ -129,6 +129,8 @@ bundle = (
     + init_js +
     "})();\n"
 )
+from brand_assets import embed_script
+bundle += embed_script()
 write(os.path.join(ROOT, 'landings', 'gc-levina1.js'), bundle)
 
 blocks = '''<!-- Вебинар Ильяны Левиной на GetCourse (''' + GC_PAGE + '''). Порядок блоков:

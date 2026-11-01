@@ -10,7 +10,7 @@ import io, os, re, json
 
 nav_links = section('<div class="nav__links">', '</div>\n      <div class="nav__cta">')
 header_lite = ('<header class="header cz-top"><div class="wrap"><nav class="nav">'
-               '<a href="https://cifrazakup.ru/" class="brand" aria-label="Закупки в цифре"><span class="brand__mark"><span>З<sup>цф</sup></span></span>'
+               '<a href="https://cifrazakup.ru/" class="brand" aria-label="Закупки в цифре"><span class="brand__mark"><img class="school-brand-icon" src="https://cifrazakup.ru/assets/school-mark.svg" width="38" height="38" alt="" aria-hidden="true" style="display:block;width:100%;height:100%"></span>'
                '<span class="brand__txt"><span class="brand__name logo-formula">Закупки<sup>в цифре</sup></span><span class="brand__sub">Онлайн-школа</span></span></a>'
                + nav_links + '</div><div class="nav__cta">'
                '<a href="https://gc.cifrazakup.ru/cms/system/login" class="btn btn--ghost">Войти</a>'
@@ -66,6 +66,8 @@ bundle = (
     "  if (!window.__czChat) { window.__czChat = 1; var c = document.createElement('script'); c.src = 'https://cifrazakup.ru/chatbot.js'; c.defer = true; document.body.appendChild(c); }\n"
     "})();\n"
 )
+from brand_assets import embed_script
+bundle += embed_script()
 io.open(os.path.join(ROOT, 'landings', 'gc-main.js'), 'w', encoding='utf-8', newline='\n').write(bundle)
 
 block = ('<!-- Главная школы для GetCourse: ОДИН блок «HTML-код» на странице /main. Содержимое подтягивается с cifrazakup.ru. -->\n'

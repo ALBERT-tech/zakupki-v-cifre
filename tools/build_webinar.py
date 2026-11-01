@@ -140,6 +140,8 @@ def build(slug):
         + init_js +
         "})();\n"
     )
+    from brand_assets import embed_script
+    bundle += embed_script()
     write(os.path.join(ROOT, 'landings', 'gc-' + slug + '.js'), bundle)
 
     blocks = ('<!-- Вебинар Альберта Гизатуллина на GetCourse (' + gc_page + '). Порядок блоков:\n'

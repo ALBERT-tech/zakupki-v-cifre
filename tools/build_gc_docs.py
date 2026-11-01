@@ -5,6 +5,7 @@
 Источник истины — oferta.html и privacy.html на cifrazakup.ru. Текст вставляется в GetCourse статично
 (юридический документ должен читаться без скриптов). После правки oferta/privacy — пересобрать и заменить блок на GetCourse.
 Запуск из корня репозитория: python tools/build_gc_docs.py"""
+from brand_assets import SCRIPT_TAG
 import io, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,7 +32,7 @@ def build(src, out, page_url):
     block = ("<!-- Текст синхронизирован с " + page_url + " (" + src + " в репозитории сайта). Правьте сайт, затем пересоберите tools/build_gc_docs.py. -->\n"
              + STYLE + '\n<div class="czdoc">\n' + body +
              '\n<p class="src">Актуальная редакция документа также опубликована на сайте школы: <a href="' + page_url + '">' + page_url + '</a></p>\n</div>\n')
-    io.open(os.path.join(ROOT, "landings", out), "w", encoding="utf-8", newline="\n").write(block)
+    io.open(os.path.join(ROOT, "landings", out), "w", encoding="utf-8", newline="\n").write(SCRIPT_TAG + block)
     print(out, len(block.encode("utf-8")), "bytes")
 
 

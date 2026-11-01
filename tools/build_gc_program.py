@@ -5,6 +5,7 @@
 дословно; при сборке скрипт сверяет набор слов страницы с текстом PDF (PyMuPDF) и падает при расхождении.
 Текст вставляется статично (документ должен читаться без скриптов). Если программа изменится — поправить PDF и текст здесь,
 пересобрать (python tools/build_gc_program.py) и заменить код блока на GetCourse."""
+from brand_assets import SCRIPT_TAG
 import io, os, re, html
 from collections import Counter
 
@@ -180,5 +181,5 @@ block = ('<!-- Программа «Искусственный интеллек�
          'Утверждённый документ в PDF: <a href="' + PDF_URL + '" target="_blank" rel="noopener">скачать</a>. '
          'Сведения об образовательной организации: <a href="https://cifrazakup.ru/svedeniya.html">cifrazakup.ru/svedeniya.html</a>.</p>\n'
          '</div>\n')
-io.open(os.path.join(ROOT, 'landings', 'gc-program-ai-block.html'), 'w', encoding='utf-8', newline='\n').write(block)
+io.open(os.path.join(ROOT, 'landings', 'gc-program-ai-block.html'), 'w', encoding='utf-8', newline='\n').write(SCRIPT_TAG + block)
 print('gc-program-ai-block.html', len(block.encode('utf-8')), 'bytes; words checked against PDF:', n)

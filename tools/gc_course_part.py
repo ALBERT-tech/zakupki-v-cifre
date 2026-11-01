@@ -83,6 +83,8 @@ bundle_c = (
     "  if (!window.__czChat) { window.__czChat = 1; var c = document.createElement('script'); c.src = 'https://cifrazakup.ru/chatbot.js'; c.defer = true; document.body.appendChild(c); }\n"
     "})();\n"
 )
+from brand_assets import embed_script
+bundle_c += embed_script()
 io.open(os.path.join(ROOT, 'landings', 'gc-course-ai.js'), 'w', encoding='utf-8', newline='\n').write(bundle_c)
 
 block_c = ('<!-- Курс «Искусственный интеллект в закупках» для GetCourse: ОДИН блок «HTML-код» на странице /course_ai. Содержимое подтягивается с cifrazakup.ru. -->\n'
