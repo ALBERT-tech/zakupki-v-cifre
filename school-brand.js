@@ -50,13 +50,10 @@
     parent.insertBefore(el, before);
   }
   function apply() {
-    if (location.pathname === '/cms/system/login') {
-      var loginLogo = document.querySelector('.gc-account-logo-layout-login .logo-link img');
-      if (loginLogo && loginLogo.src !== mark) {
-        loginLogo.src = mark; loginLogo.alt = 'Закупки в цифре';
-        loginLogo.style.width = '50px'; loginLogo.style.height = '50px'; loginLogo.style.objectFit = 'contain';
-      }
-      return;
+    var accountLogo = document.querySelector('.gc-account-logo .logo-link img');
+    if (accountLogo && accountLogo.src !== mark) {
+      accountLogo.src = mark; accountLogo.alt = 'Закупки в цифре';
+      accountLogo.style.width = '50px'; accountLogo.style.height = '50px'; accountLogo.style.objectFit = 'contain';
     }
     // Public page content only: never alter the GetCourse editor or administration UI.
     if (/^\/(pl|cms)\//.test(location.pathname)) return;
