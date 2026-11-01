@@ -55,6 +55,7 @@
       accountLogo.src = mark; accountLogo.alt = 'Закупки в цифре';
       accountLogo.style.width = '50px'; accountLogo.style.height = '50px'; accountLogo.style.objectFit = 'contain';
     }
+    if (accountLogo && accountLogo.closest('a')) accountLogo.closest('a').href = base;
     // Public page content only: never alter the GetCourse editor or administration UI.
     if (/^\/(pl|cms)\//.test(location.pathname)) return;
     document.querySelectorAll(selector).forEach(function (el) {
@@ -101,6 +102,11 @@
       if (!content.querySelector('header')) bar(content, content.firstChild, false);
       if (!content.querySelector('footer')) bar(content, null, true);
     }
+    // The school name and mark always lead home, rather than to a landing's hero.
+    document.querySelectorAll('img[src="' + mark + '"]').forEach(function (img) {
+      var home = img.closest('a');
+      if (home) { home.href = base; home.removeAttribute('target'); }
+    });
   }
   function start() {
     apply();
