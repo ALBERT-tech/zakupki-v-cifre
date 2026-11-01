@@ -85,8 +85,8 @@
 /* School identity: Cyrillic З with superscript ц. Shared by the site and GetCourse. */
 (function () {
   'use strict';
-  if (window.__schoolBrandInstalled) return;
-  window.__schoolBrandInstalled = true;
+  if (window.__schoolBrandInstalled === '20261101-home') return;
+  window.__schoolBrandInstalled = '20261101-home';
   var base = 'https://cifrazakup.ru/';
   var mark = base + 'assets/school-mark.svg';
   var selector = '[class~="brand__mark"],[class$="-brand__mark"]';
