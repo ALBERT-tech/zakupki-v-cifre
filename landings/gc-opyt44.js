@@ -70,8 +70,8 @@
 /* School identity: Cyrillic З with superscript ц. Shared by the site and GetCourse. */
 (function () {
   'use strict';
-  if (window.__schoolBrandInstalled === '20261101-home') return;
-  window.__schoolBrandInstalled = '20261101-home';
+  if (window.__schoolBrandInstalled === '20261102-sber') return;
+  window.__schoolBrandInstalled = '20261102-sber';
   var base = 'https://cifrazakup.ru/';
   var mark = base + 'assets/school-mark.svg';
   var selector = '[class~="brand__mark"],[class$="-brand__mark"]';
@@ -81,6 +81,9 @@
     '.school-brand-bar{box-sizing:border-box;width:100%;max-width:1200px;margin:0 auto;padding:20px;color:#14161d}' +
     '.school-brand-bottom{border-top:1px solid #e4e6e0;margin-top:28px}' +
     '.school-brand-in-footer{margin-bottom:20px}' +
+    '.school-partner-banner{box-sizing:border-box;display:block;position:relative;width:100%;flex:0 0 100%;height:36px;margin:0;padding:8px 16px;background:#eaf7ee;color:#11673d;border-bottom:1px solid #cde7d5;text-align:center;font:700 14px/20px Arial,sans-serif;letter-spacing:.02em;white-space:nowrap}' +
+    '.school-partner-spacer{box-sizing:border-box;display:block;width:100%;height:36px;flex:0 0 100%;margin:0;padding:0}' +
+    'body.school-has-partner .mobile-menu,body.school-has-partner [class$="-mobile-menu"]{padding-top:132px!important}' +
     '@media print{.school-brand-bar{display:none}}';
   var style = document.createElement('style');
   style.id = 'school-brand-style';
@@ -118,6 +121,22 @@
     el.appendChild(link());
     parent.insertBefore(el, before);
   }
+  function partnerBanner(header) {
+    if (!header || document.querySelector('.school-partner-banner')) return;
+    var banner = document.createElement('div');
+    banner.className = 'school-partner-banner';
+    banner.textContent = 'Совместно со Сбер А';
+    header.insertBefore(banner, header.firstChild);
+    document.body.classList.add('school-has-partner');
+    // Fixed navigation needs the same extra space in the content flow.
+    if (getComputedStyle(header).position === 'fixed') {
+      var host = document.querySelector('.gc-main-content.front-page-content') || document.body;
+      var spacer = document.createElement('div');
+      spacer.className = 'school-partner-spacer';
+      spacer.setAttribute('aria-hidden', 'true');
+      host.insertBefore(spacer, host.firstChild);
+    }
+  }
   function apply() {
     var accountLogo = document.querySelector('.gc-account-logo .logo-link img');
     if (accountLogo && accountLogo.src !== mark) {
@@ -125,6 +144,10 @@
       accountLogo.style.width = '50px'; accountLogo.style.height = '50px'; accountLogo.style.objectFit = 'contain';
     }
     if (accountLogo && accountLogo.closest('a')) accountLogo.closest('a').href = base;
+    if (/^\/cms\/system\/(login|contact|legal)$/.test(location.pathname) && !location.search.includes('editMode=')) {
+      var accountHeader = document.querySelector('.gc-account-logo');
+      if (accountHeader) partnerBanner(accountHeader.parentNode);
+    }
     // Public page content only: never alter the GetCourse editor or administration UI.
     if (/^\/(pl|cms)\//.test(location.pathname)) return;
     document.querySelectorAll(selector).forEach(function (el) {
@@ -176,6 +199,7 @@
       var home = img.closest('a');
       if (home) { home.href = base; home.removeAttribute('target'); }
     });
+    partnerBanner(document.querySelector('header'));
   }
   function start() {
     apply();
