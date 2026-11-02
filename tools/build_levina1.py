@@ -103,6 +103,8 @@ site = '''<!DOCTYPE html>
 ''' + site_main + site_foot + UTM_JS + '''</body>
 </html>
 '''
+from brand_assets import SCRIPT_TAG
+site = site.replace('</head>', SCRIPT_TAG + '</head>', 1)
 write(os.path.join(ROOT, 'levina1.html'), site)
 
 # ---------- 2. GetCourse ----------

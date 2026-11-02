@@ -114,6 +114,8 @@ def build(slug):
             '<style>body{margin:0;background:#fff}</style>\n</head>\n<body>\n'
             '<!-- НЕ ПРАВИТЬ РУКАМИ: собирается tools/build_webinar.py ' + slug + ' из landings/' + slug + '.html. Запись и оплата — на GetCourse. -->\n'
             '<style>\n' + style + '</style>\n<script>\n' + init_js + '</script>\n' + site_main + site_foot + UTM_JS + '</body>\n</html>\n')
+    from brand_assets import SCRIPT_TAG
+    site = site.replace('</head>', SCRIPT_TAG + '</head>', 1)
     write(os.path.join(ROOT, slug + '.html'), site)
 
     # ---------- 2. GetCourse ----------
