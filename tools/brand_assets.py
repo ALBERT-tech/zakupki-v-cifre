@@ -2,7 +2,7 @@
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SCRIPT_TAG = '<script src="https://cifrazakup.ru/school-brand.js?v=20261101-home" defer></script>\n'
+SCRIPT_TAG = '<script src="https://cifrazakup.ru/school-brand.js?v=20261102-inline" defer></script>\n'
 
 def embed_script():
     # Inline the small bootstrap into existing bundles, so their live URLs keep working.

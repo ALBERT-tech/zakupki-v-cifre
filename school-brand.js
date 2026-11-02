@@ -1,7 +1,9 @@
 /* School identity: Cyrillic З with superscript ц. Shared by the site and GetCourse. */
 (function () {
   'use strict';
-  if (window.__schoolBrandInstalled === '20261102-sber') return;
+  if (window.__schoolPartnerIntroInstalled === '20261102-inline') return;
+  window.__schoolPartnerIntroInstalled = '20261102-inline';
+  // Keep the legacy guard so a cached bundle cannot reinstall the old banner.
   window.__schoolBrandInstalled = '20261102-sber';
   var base = 'https://cifrazakup.ru/';
   var mark = base + 'assets/school-mark.svg';
@@ -12,9 +14,11 @@
     '.school-brand-bar{box-sizing:border-box;width:100%;max-width:1200px;margin:0 auto;padding:20px;color:#14161d}' +
     '.school-brand-bottom{border-top:1px solid #e4e6e0;margin-top:28px}' +
     '.school-brand-in-footer{margin-bottom:20px}' +
-    '.school-partner-banner{box-sizing:border-box;display:block;position:relative;width:100%;flex:0 0 100%;height:36px;margin:0;padding:8px 16px;background:#eaf7ee;color:#11673d;border-bottom:1px solid #cde7d5;text-align:center;font:700 14px/20px Arial,sans-serif;letter-spacing:.02em;white-space:nowrap}' +
-    '.school-partner-spacer{box-sizing:border-box;display:block;width:100%;height:36px;flex:0 0 100%;margin:0;padding:0}' +
-    'body.school-has-partner .mobile-menu,body.school-has-partner [class$="-mobile-menu"]{padding-top:132px!important}' +
+    '.school-partner-banner,.school-partner-spacer{display:none!important}' +
+    '.school-partner-eyebrow{display:flex;align-items:center;gap:9px;margin:0 0 22px;font-family:inherit;font-size:12.5px;font-weight:700;line-height:1.6;letter-spacing:.16em;text-transform:uppercase;color:#0e8a52}' +
+    '.school-partner-eyebrow::before{content:"";width:26px;height:2px;flex:none;background:currentColor;border-radius:2px}' +
+    '.school-partner-eyebrow--light{color:#5fd29a}' +
+    '.school-partner-intro-wrap{max-width:1200px;margin:0 auto;padding:0 20px}' +
     '@media print{.school-brand-bar{display:none}}';
   var style = document.createElement('style');
   style.id = 'school-brand-style';
@@ -52,33 +56,67 @@
     el.appendChild(link());
     parent.insertBefore(el, before);
   }
-  function partnerBanner(header) {
-    if (!header || document.querySelector('.school-partner-banner')) return;
-    var banner = document.createElement('div');
-    banner.className = 'school-partner-banner';
-    banner.textContent = 'Совместно со Сбер А';
-    header.insertBefore(banner, header.firstChild);
-    document.body.classList.add('school-has-partner');
-    // Fixed navigation needs the same extra space in the content flow.
-    if (getComputedStyle(header).position === 'fixed') {
-      var host = document.querySelector('.gc-main-content.front-page-content') || document.body;
-      var spacer = document.createElement('div');
-      spacer.className = 'school-partner-spacer';
-      spacer.setAttribute('aria-hidden', 'true');
-      host.insertBefore(spacer, host.firstChild);
+  function partnerIntro(content) {
+    if (!content || content.querySelector('[data-school-partner-intro]')) return;
+    var heading = content.querySelector('h1');
+    var officialDoc = content.querySelector('.czdoc,.czprog');
+    var scope = heading && !officialDoc && (heading.closest('section') || heading.parentElement);
+    var eyebrow = scope && scope.querySelector('[class*="eyebrow"]');
+    // /brainstorm has the same eyebrow styled inline, without a CSS class.
+    var previous = heading && !officialDoc && heading.previousElementSibling;
+    if (!eyebrow && previous && previous.textContent.trim().length < 400 &&
+        getComputedStyle(previous).textTransform === 'uppercase' &&
+        parseFloat(getComputedStyle(previous).fontSize) <= 16) eyebrow = previous;
+    var text = eyebrow ? eyebrow.textContent.trim().replace(/\s+/g, ' ') : '';
+    var partner = 'Совместно со Сбер А';
+    var existing = /совместно\s+со\s+[«"“]?Сбер\s+А[»"”]?/i;
+    if (existing.test(text)) {
+      text = text.replace(existing, partner);
+      text = text.replace(/Совместно со Сбер А\s+(?![·—–|])/i, partner + ' · ');
+    } else if (/партн[её]р ЭТП [«"]Сбер А[»"]/i.test(text)) {
+      text = text.replace(/партн[её]р ЭТП [«"]Сбер А[»"]/i, partner);
+    } else if (/^Онлайн-школа «Закупки в цифре»/i.test(text)) {
+      text = text.replace(/^Онлайн-школа «Закупки в цифре»/i, 'Онлайн-школа «Закупки в цифре» · ' + partner);
+    } else {
+      text = 'Онлайн-школа «Закупки в цифре» · ' + partner +
+        (text ? ' · ' + text.replace(/^Курс школы\s*·\s*/i, '') : '');
     }
+    if (!eyebrow) {
+      eyebrow = document.createElement('div');
+      eyebrow.className = 'school-partner-eyebrow';
+      if (heading && !officialDoc) {
+        var color = getComputedStyle(heading).color.match(/\d+/g) || [];
+        if (color.length >= 3 && Number(color[0]) > 190 && Number(color[1]) > 190 && Number(color[2]) > 190) {
+          eyebrow.classList.add('school-partner-eyebrow--light');
+        }
+        heading.parentNode.insertBefore(eyebrow, heading);
+      } else {
+        // Keep the approved document and native access/form blocks unchanged.
+        var target = officialDoc || content.querySelector('header');
+        var wrapper = document.createElement('div');
+        wrapper.className = 'school-partner-intro-wrap';
+        wrapper.appendChild(eyebrow);
+        if (officialDoc) target.parentNode.insertBefore(wrapper, target);
+        else if (target) target.parentNode.insertBefore(wrapper, target.nextSibling);
+        else content.insertBefore(wrapper, content.firstChild);
+      }
+    }
+    var decoration = eyebrow.querySelector('[aria-hidden="true"]');
+    if (decoration) decoration = decoration.cloneNode(true);
+    eyebrow.textContent = text;
+    if (decoration) eyebrow.insertBefore(decoration, eyebrow.firstChild);
+    eyebrow.setAttribute('data-school-partner-intro', '1');
   }
   function apply() {
+    // A previously cached bootstrap may have inserted a banner; the CSS hides it
+    // without triggering its old observer to keep recreating the element.
+    document.body.classList.remove('school-has-partner');
     var accountLogo = document.querySelector('.gc-account-logo .logo-link img');
     if (accountLogo && accountLogo.src !== mark) {
       accountLogo.src = mark; accountLogo.alt = 'Закупки в цифре';
       accountLogo.style.width = '50px'; accountLogo.style.height = '50px'; accountLogo.style.objectFit = 'contain';
     }
     if (accountLogo && accountLogo.closest('a')) accountLogo.closest('a').href = base;
-    if (/^\/cms\/system\/(login|contact|legal)$/.test(location.pathname) && !location.search.includes('editMode=')) {
-      var accountHeader = document.querySelector('.gc-account-logo');
-      if (accountHeader) partnerBanner(accountHeader.parentNode);
-    }
     // Public page content only: never alter the GetCourse editor or administration UI.
     if (/^\/(pl|cms)\//.test(location.pathname)) return;
     document.querySelectorAll(selector).forEach(function (el) {
@@ -130,7 +168,7 @@
       var home = img.closest('a');
       if (home) { home.href = base; home.removeAttribute('target'); }
     });
-    partnerBanner(document.querySelector('header'));
+    if (!pendingBundle) partnerIntro(content || document.body);
   }
   function start() {
     apply();
